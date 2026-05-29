@@ -9,6 +9,7 @@ class User(AbstractUser):
     ROLE_CHOICES = (
         ("customer", "Customer"),
         ("admin", "Administrator"),
+        ("delivery", "Delivery Personnel"),
     )
 
     phone_regex = RegexValidator(
@@ -37,6 +38,26 @@ class User(AbstractUser):
     def is_admin(self):
         return self.role == "admin" or self.is_superuser
 
+    @property
+    def is_delivery(self):
+        return self.role == "delivery"
+
     class Meta:
         db_table = "users"
         ordering = ["-date_joined"]
+
+
+class PasswordResetCode(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="password_reset_codes")
+    code = models.CharField(max_length=6)
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_used = models.BooleanField(default=False)
+
+    class Meta:
+        db_table = "password_reset_codes"
+        ordering = ["-created_at"]
+        indexes = [models.Index(fields=["code", "user"])]
+
+    def __str__(self):
+        return f"{self.user.email} - {self.code}"
+#destaw    destawebabu77@gmail.com    Uog@29-21

@@ -3,6 +3,8 @@ from .models import Product
 
 
 class ProductFilter(django_filters.FilterSet):
+    # Filter by category slug (e.g. laptops), not numeric category id
+    category = django_filters.CharFilter(field_name="category__slug", lookup_expr="iexact")
     min_price = django_filters.NumberFilter(field_name="price", lookup_expr="gte")
     max_price = django_filters.NumberFilter(field_name="price", lookup_expr="lte")
     brand = django_filters.CharFilter(field_name="brand", lookup_expr="iexact")

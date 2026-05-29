@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from apps.accounts.views import ForgotPasswordView, ResetPasswordView
 
 
 schema_view = get_schema_view(
@@ -41,6 +42,8 @@ schema_view = get_schema_view(
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/auth/", include("apps.accounts.urls")),
+    path("api/users/forget-password/", ForgotPasswordView.as_view(), name="users_forget_password"),
+    path("api/users/reset-password/", ResetPasswordView.as_view(), name="users_reset_password"),
     path("api/products/", include("apps.products.urls")),
     path("api/cart/", include("apps.cart.urls")),
     path("api/orders/", include("apps.orders.urls")),

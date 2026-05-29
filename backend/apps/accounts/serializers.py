@@ -35,6 +35,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             "password2",
             "phone_number",
             "address",
+            "profile_picture",
         )
 
     def validate(self, attrs):
@@ -68,6 +69,26 @@ class ChangePasswordSerializer(serializers.Serializer):
     old_password = serializers.CharField(required=True)
     new_password = serializers.CharField(required=True, validators=[validate_password])
     confirm_password = serializers.CharField(required=True)
+
+    def validate(self, attrs):
+        if attrs["new_password"] != attrs["confirm_password"]:
+            raise serializers.ValidationError(
+                {"confirm_password": "Passwords don't match"}
+            )
+        return attrs
+
+
+class ForgotPasswordSerializer(serializers.Serializer):
+    email = serializers.EmailField(required=True)
+
+
+class ResetPasswordSerializer(serializers.Serializer):
+    email = serializers.EmailField(required=True)
+    token = serializers.CharField(required=True)
+    new_password = serializers.CharField(
+        write_only=True, required=True, validators=[validate_password]
+    )
+    confirm_password = serializers.CharField(write_only=True, required=True)
 
     def validate(self, attrs):
         if attrs["new_password"] != attrs["confirm_password"]:

@@ -8,3 +8,5 @@ Pillow==11.2.1
 django-filter==25.1
 drf-yasg==1.21.10
 requests==2.32.3
+python-dotenv==1.0.1
+scikit-learn==1.4.4

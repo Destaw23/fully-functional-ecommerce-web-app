@@ -1,58 +1,21 @@
-// import { StrictMode } from 'react'
-// import { createRoot } from 'react-dom/client'
-// import './index.css'
-// import App from './App.jsx'
+import './utils/api/axiosInterceptor.js';
+import './index.css';
+import React, { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { HelmetProvider } from 'react-helmet-async';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
+import './styles/globals.css';
+import App from './App.jsx';
+import { StoreProvider } from './context/Store';
 
-// createRoot(document.getElementById('root')).render(
-//   <StrictMode>
-//     <App />
-//   </StrictMode>,
-// )
-
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { Provider } from 'react-redux'
-import { HelmetProvider } from 'react-helmet-async'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { Toaster } from 'react-hot-toast'
-import { store } from './store/store'
-import App from './App'
-import './styles/globals.css'
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      retry: 1,
-      staleTime: 5 * 60 * 1000,
-    },
-  },
-})
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <HelmetProvider>
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <StoreProvider>
+      <HelmetProvider>
+        <PayPalScriptProvider deferLoading={true}>
           <App />
-          <Toaster
-            position="top-right"
-            toastOptions={{
-              duration: 4000,
-              style: {
-                background: '#363636',
-                color: '#fff',
-              },
-              success: {
-                duration: 3000,
-              },
-              error: {
-                duration: 4000,
-              },
-            }}
-          />
-        </HelmetProvider>
-      </QueryClientProvider>
-    </Provider>
-  </React.StrictMode>
-)
+        </PayPalScriptProvider>
+      </HelmetProvider>
+    </StoreProvider>
+  </StrictMode>
+);

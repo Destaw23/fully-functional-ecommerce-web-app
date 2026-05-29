@@ -13,42 +13,62 @@ class RecommendationEngine:
         """
         Content-based recommendations using TF-IDF and Cosine Similarity
         """
-        # Get all products
+        # Get all active products
         products = list(Product.objects.filter(is_active=True))
 
         if not products:
             return []
 
-        # Create feature vectors from product descriptions and specifications
+        # Build text features for each product
         product_features = []
         product_ids = []
 
         for product in products:
-            features = f"{product.name} {product.description} {product.brand} {product.category.name}"
+            specs_text = " ".join(
+                f"{key} {value}"
+                for key, value in (product.specifications or {}).items()
+                if value is not None
+            )
+            category_text = product.category.name if product.category else ""
+            features = " ".join(
+                filter(
+                    None,
+                    [
+                        str(product.name).strip(),
+                        str(product.description or "").strip(),
+                        str(product.brand or "").strip(),
+                        category_text.strip(),
+                        specs_text.strip(),
+                    ],
+                )
+            )
             product_features.append(features)
             product_ids.append(product.id)
 
+        if not any(product_features):
+            return []
+
         # Compute TF-IDF matrix
         vectorizer = TfidfVectorizer(stop_words="english", max_features=1000)
-        tfidf_matrix = vectorizer.fit_transform(product_features)
+        try:
+            tfidf_matrix = vectorizer.fit_transform(product_features)
+        except ValueError:
+            return []
 
-        # Find the target product index
         try:
             target_idx = product_ids.index(product_id)
         except ValueError:
             return []
 
-        # Calculate cosine similarity
         cosine_sim = cosine_similarity(
             tfidf_matrix[target_idx : target_idx + 1], tfidf_matrix
         ).flatten()
 
-        # Get top similar products (excluding the target product)
         similar_indices = cosine_sim.argsort()[::-1][1 : limit + 1]
 
         recommendations = []
         for idx in similar_indices:
-            if cosine_sim[idx] > 0.1:  # Similarity threshold
+            if cosine_sim[idx] > 0.05:
                 recommendations.append(products[idx])
 
         return recommendations
@@ -109,24 +129,33 @@ class RecommendationEngine:
     @staticmethod
     def get_user_based_recommendations(user, limit=10):
         """
-        Hybrid recommendations combining content-based and collaborative filtering
+        Hybrid recommendations combining content-based and collaborative filtering.
         """
-        # Get collaborative recommendations
-        collab_recs = RecommendationEngine.get_collaborative_recommendations(
-            user, limit
-        )
-
+        collab_recs = RecommendationEngine.get_collaborative_recommendations(user, limit)
         if len(collab_recs) >= limit:
             return collab_recs[:limit]
 
-        # Get popular products for cold start
-        popular_recs = RecommendationEngine.get_popular_products(
-            limit - len(collab_recs)
-        )
+        if collab_recs:
+            remaining = limit - len(collab_recs)
+            popular_recs = RecommendationEngine.get_popular_products(remaining)
+            combined = collab_recs + [p for p in popular_recs if p not in collab_recs]
+            return combined[:limit]
 
-        # Combine recommendations
-        combined = collab_recs + popular_recs
-        return combined[:limit]
+        # Cold start: personalize based on the last viewed product if no purchases exist.
+        last_viewed_product_id = (
+            Interaction.objects.filter(user=user, action="view")
+            .order_by("-created_at")
+            .values_list("product_id", flat=True)
+            .first()
+        )
+        if last_viewed_product_id:
+            content_recs = RecommendationEngine.get_content_based_recommendations(
+                last_viewed_product_id, limit
+            )
+            if content_recs:
+                return content_recs[:limit]
+
+        return RecommendationEngine.get_popular_products(limit)
 
     @staticmethod
     def get_related_products(product_id, limit=8):
@@ -145,7 +174,8 @@ class RecommendationEngine:
             Product.objects.filter(orderitem__order_id__in=order_ids, is_active=True)
             .exclude(id=product_id)
             .annotate(together_count=Count("orderitem"))
-            .order_by("-together_count")[:limit]
+            .order_by("-together_count")
+            .distinct()[:limit]
         )
 
         if len(related) >= 4:

@@ -17,9 +17,31 @@ class Order(models.Model):
         ("refunded", "Refunded"),
     )
 
+    DELIVERY_STATUS_CHOICES = (
+        ("pending", "Pending"),
+        ("assigned", "Assigned"),
+        ("picked_up", "Picked Up"),
+        ("in_transit", "In Transit"),
+        ("delivered", "Delivered"),
+    )
+
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="orders")
     order_number = models.CharField(max_length=50, unique=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending")
+    assigned_delivery_person = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="assigned_orders",
+    )
+    delivery_status = models.CharField(
+        max_length=20,
+        choices=DELIVERY_STATUS_CHOICES,
+        default="pending",
+    )
+    tracking_code = models.CharField(max_length=30, blank=True)
+    delivered_at = models.DateTimeField(null=True, blank=True)
 
     # Shipping information
     shipping_name = models.CharField(max_length=255)
@@ -51,6 +73,10 @@ class Order(models.Model):
             import uuid
 
             self.order_number = f"ORD-{uuid.uuid4().hex[:10].upper()}"
+        if not self.tracking_code:
+            import uuid
+
+            self.tracking_code = f"DLV-{uuid.uuid4().hex[:8].upper()}"
         super().save(*args, **kwargs)
 
     class Meta:

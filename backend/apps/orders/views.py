@@ -5,15 +5,18 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
-from django.db import transaction
+from django.db import transaction, models
+from django.utils import timezone
+from decimal import Decimal
 from .models import Order, OrderItem
 from .serializers import (
     OrderListSerializer,
     OrderDetailSerializer,
     OrderCreateSerializer,
 )
-from apps.cart.models import Cart
+from apps.cart.models import Cart, CartItem
 from apps.products.models import Product
+from apps.recommendations.models import Interaction
 
 
 class OrderListView(generics.ListAPIView):
@@ -43,13 +46,28 @@ class CreateOrderView(APIView):
 
         cart = Cart.objects.filter(user=request.user).first()
         if not cart or not cart.items.exists():
-            return Response(
-                {"error": "Cart is empty"}, status=status.HTTP_400_BAD_REQUEST
-            )
+            order_items = request.data.get('orderItems') or []
+            if order_items:
+                cart, _ = Cart.objects.get_or_create(user=request.user)
+                cart.items.all().delete()
+                for item in order_items:
+                    product_id = item.get('product_id') or item.get('_id') or item.get('id')
+                    quantity = item.get('quantity', 1)
+                    product = Product.objects.filter(id=product_id, is_active=True).first()
+                    if product and quantity > 0:
+                        CartItem.objects.create(cart=cart, product=product, quantity=quantity)
+            if not cart or not cart.items.exists():
+                return Response(
+                    {"error": "Cart is empty"}, status=status.HTTP_400_BAD_REQUEST
+                )
 
-        # Check stock availability
-        for item in cart.items.all():
-            if item.product.stock_quantity < item.quantity:
+        # Reserve stock atomically so only one checkout can consume the last unit.
+        for item in cart.items.select_related("product").all():
+            updated = Product.objects.filter(
+                id=item.product_id,
+                stock_quantity__gte=item.quantity,
+            ).update(stock_quantity=models.F("stock_quantity") - item.quantity)
+            if updated != 1:
                 return Response(
                     {"error": f"Insufficient stock for {item.product.name}"},
                     status=status.HTTP_400_BAD_REQUEST,
@@ -57,8 +75,8 @@ class CreateOrderView(APIView):
 
         # Calculate amounts
         subtotal = cart.subtotal
-        shipping_cost = 0  # Free shipping for demo
-        tax = subtotal * 0.15  # 15% VAT for Ethiopia
+        shipping_cost = Decimal('0.00')  # Free shipping for demo
+        tax = subtotal * Decimal('0.15')  # 15% VAT for Ethiopia
         total = subtotal + shipping_cost + tax
 
         # Create order
@@ -87,9 +105,12 @@ class CreateOrderView(APIView):
                 quantity=cart_item.quantity,
                 subtotal=cart_item.subtotal,
             )
-            # Update stock
-            cart_item.product.stock_quantity -= cart_item.quantity
-            cart_item.product.save()
+            Interaction.objects.create(
+                user=request.user,
+                product=cart_item.product,
+                action="purchase",
+                session_id=request.session.session_key or "",
+            )
 
         # Clear cart
         cart.items.all().delete()
@@ -101,6 +122,80 @@ class CreateOrderView(APIView):
             },
             status=status.HTTP_201_CREATED,
         )
+
+
+class DeliveryOrdersView(generics.ListAPIView):
+    serializer_class = OrderDetailSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        if getattr(user, "role", "") != "delivery":
+            return Order.objects.none()
+        return Order.objects.filter(assigned_delivery_person=user).order_by("-created_at")
+
+
+class AvailableDeliveryOrdersView(generics.ListAPIView):
+    serializer_class = OrderDetailSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        if getattr(user, "role", "") != "delivery":
+            return Order.objects.none()
+        return (
+            Order.objects
+            .filter(
+                assigned_delivery_person__isnull=True,
+                payment_status="paid",
+                status__in=["paid", "shipped"],
+            )
+            .order_by("-created_at")
+        )
+
+
+class ClaimDeliveryOrderView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, order_id):
+        if getattr(request.user, "role", "") != "delivery":
+            return Response({"error": "Only delivery personnel can claim orders."}, status=status.HTTP_403_FORBIDDEN)
+
+        order = Order.objects.filter(id=order_id, assigned_delivery_person__isnull=True).first()
+        if not order:
+            return Response({"error": "Order is already assigned or not found."}, status=status.HTTP_404_NOT_FOUND)
+
+        order.assigned_delivery_person = request.user
+        order.delivery_status = "assigned"
+        order.status = "shipped"
+        order.save()
+        return Response(OrderDetailSerializer(order).data, status=status.HTTP_200_OK)
+
+
+class UpdateDeliveryStatusView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def patch(self, request, order_id):
+        if getattr(request.user, "role", "") != "delivery":
+            return Response({"error": "Only delivery personnel can update status."}, status=status.HTTP_403_FORBIDDEN)
+
+        order = Order.objects.filter(id=order_id, assigned_delivery_person=request.user).first()
+        if not order:
+            return Response({"error": "Order not assigned to you."}, status=status.HTTP_404_NOT_FOUND)
+
+        delivery_status = request.data.get("delivery_status")
+        if delivery_status not in [choice[0] for choice in Order.DELIVERY_STATUS_CHOICES]:
+            return Response({"error": "Invalid delivery status."}, status=status.HTTP_400_BAD_REQUEST)
+
+        order.delivery_status = delivery_status
+        if delivery_status == "delivered":
+            order.status = "delivered"
+            order.delivered_at = timezone.now()
+        elif delivery_status in ["picked_up", "in_transit", "assigned"]:
+            order.status = "shipped"
+
+        order.save()
+        return Response(OrderDetailSerializer(order).data, status=status.HTTP_200_OK)
 
 
 class CancelOrderView(APIView):

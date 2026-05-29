@@ -1,19 +1,29 @@
 from django.shortcuts import render
+import csv
+from django.http import HttpResponse
 
 # Create your views here.
-from rest_framework import status
+from rest_framework import status, filters
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, BasePermission
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from django.db.models import Sum, Count, Q
 from django.utils import timezone
-from datetime import timedelta
+from datetime import datetime, time, timedelta
 from apps.orders.models import Order
 from apps.products.models import Product, Category
+from apps.products.models import ProductImage
 from apps.accounts.models import User
 
 
-class IsAdminPermission:
+def get_day_bounds(day):
+    start = timezone.make_aware(datetime.combine(day, time.min))
+    end = start + timedelta(days=1)
+    return start, end
+
+
+class IsAdminPermission(BasePermission):
     def has_permission(self, request, view):
         return request.user.is_authenticated and request.user.is_admin
 
@@ -22,14 +32,15 @@ class DashboardStatsView(APIView):
     permission_classes = [IsAuthenticated, IsAdminPermission]
 
     def get(self, request):
-        today = timezone.now().date()
-        week_ago = today - timedelta(days=7)
-        month_ago = today - timedelta(days=30)
+        today = timezone.localdate()
+        today_start, today_end = get_day_bounds(today)
+        week_start = timezone.now() - timedelta(days=7)
+        month_start = timezone.now() - timedelta(days=30)
 
         # Sales statistics
         total_orders = Order.objects.count()
         total_revenue = (
-            Order.objects.filter(status="delivered").aggregate(
+            Order.objects.filter(Q(payment_status="paid") | Q(status="delivered")).aggregate(
                 total=Sum("total_amount")
             )["total"]
             or 0
@@ -39,19 +50,21 @@ class DashboardStatsView(APIView):
         processing_orders = Order.objects.filter(status="processing").count()
 
         # Weekly sales
-        weekly_orders = Order.objects.filter(created_at__date__gte=week_ago).count()
+        weekly_orders = Order.objects.filter(created_at__gte=week_start).count()
         weekly_revenue = (
             Order.objects.filter(
-                created_at__date__gte=week_ago, status="delivered"
+                Q(payment_status="paid") | Q(status="delivered"),
+                created_at__gte=week_start,
             ).aggregate(total=Sum("total_amount"))["total"]
             or 0
         )
 
         # Monthly sales
-        monthly_orders = Order.objects.filter(created_at__date__gte=month_ago).count()
+        monthly_orders = Order.objects.filter(created_at__gte=month_start).count()
         monthly_revenue = (
             Order.objects.filter(
-                created_at__date__gte=month_ago, status="delivered"
+                Q(payment_status="paid") | Q(status="delivered"),
+                created_at__gte=month_start,
             ).aggregate(total=Sum("total_amount"))["total"]
             or 0
         )
@@ -63,7 +76,7 @@ class DashboardStatsView(APIView):
 
         # User statistics
         total_users = User.objects.count()
-        new_users_today = User.objects.filter(date_joined__date=today).count()
+        new_users_today = User.objects.filter(date_joined__gte=today_start, date_joined__lt=today_end).count()
 
         # Top selling products
         top_products = (
@@ -119,15 +132,18 @@ class SalesChartView(APIView):
     permission_classes = [IsAuthenticated, IsAdminPermission]
 
     def get(self, request):
-        days = int(request.query_params.get("days", 30))
-        start_date = timezone.now().date() - timedelta(days=days)
+        days = max(int(request.query_params.get("days", 30)), 1)
+        start_date = timezone.localdate() - timedelta(days=days - 1)
 
         sales_data = []
         for i in range(days):
             date = start_date + timedelta(days=i)
+            day_start, day_end = get_day_bounds(date)
             daily_sales = (
                 Order.objects.filter(
-                    created_at__date=date, status="delivered"
+                    Q(payment_status="paid") | Q(status="delivered"),
+                    created_at__gte=day_start,
+                    created_at__lt=day_end,
                 ).aggregate(total=Sum("total_amount"))["total"]
                 or 0
             )
@@ -136,11 +152,49 @@ class SalesChartView(APIView):
                 {
                     "date": date.strftime("%Y-%m-%d"),
                     "sales": float(daily_sales),
-                    "orders": Order.objects.filter(created_at__date=date).count(),
+                    "orders": Order.objects.filter(created_at__gte=day_start, created_at__lt=day_end).count(),
                 }
             )
 
         return Response(sales_data)
+
+
+class ReportExportView(APIView):
+    permission_classes = [IsAuthenticated, IsAdminPermission]
+
+    def get(self, request):
+        response = HttpResponse(content_type="text/csv")
+        response["Content-Disposition"] = "attachment; filename=admin_report.csv"
+
+        writer = csv.writer(response)
+        writer.writerow(["Metric", "Value"])
+
+        total_orders = Order.objects.count()
+        total_revenue = (
+            Order.objects.filter(Q(payment_status="paid") | Q(status="delivered")).aggregate(total=Sum("total_amount"))["total"]
+            or 0
+        )
+        pending_orders = Order.objects.filter(status="pending").count()
+        shipped_orders = Order.objects.filter(status="shipped").count()
+        delivered_orders = Order.objects.filter(status="delivered").count()
+
+        writer.writerow(["Total orders", total_orders])
+        writer.writerow(["Total revenue", float(total_revenue)])
+        writer.writerow(["Pending orders", pending_orders])
+        writer.writerow(["Shipped orders", shipped_orders])
+        writer.writerow(["Delivered orders", delivered_orders])
+
+        writer.writerow([])
+        writer.writerow(["Top selling products"])
+        writer.writerow(["Product", "Units sold", "Revenue"])
+        for product in (
+            Product.objects.filter(orderitem__isnull=False)
+            .annotate(total_sold=Sum("orderitem__quantity"))
+            .order_by("-total_sold")[:10]
+        ):
+            writer.writerow([product.name, product.total_sold or 0, float((product.total_sold or 0) * product.price)])
+
+        return response
 
 
 # Serializers for Administrative Dashboard CRUD
@@ -150,6 +204,11 @@ from django.utils.text import slugify
 
 class AdminProductSerializer(serializers.ModelSerializer):
     category_name = serializers.CharField(source="category.name", read_only=True)
+    countInStock = serializers.IntegerField(source="stock_quantity", read_only=True)
+    additional_images_files = serializers.ListField(
+        child=serializers.ImageField(), write_only=True, required=False
+    )
+    additional_images_meta = serializers.JSONField(write_only=True, required=False)
 
     class Meta:
         model = Product
@@ -168,6 +227,129 @@ class AdminProductSerializer(serializers.ModelSerializer):
                 counter += 1
             attrs["slug"] = slug
         return attrs
+
+    def create(self, validated_data):
+        files = validated_data.pop("additional_images_files", None)
+        meta = validated_data.pop("additional_images_meta", None)
+        request = self.context.get('request')
+        product = super().create(validated_data)
+
+        files_list = []
+        if request:
+            files_list = request.FILES.getlist('additional_images_files')
+
+        # First, create ProductImage entries for uploaded files
+        if files_list:
+            for f in files_list:
+                ProductImage.objects.create(product=product, image=f)
+
+        # Then process metadata for existing images (alt_text, is_primary, delete)
+        if meta and isinstance(meta, list):
+            # Update existing images or set primary/alt for newly created ones by filename
+            # No pre-built filename map needed; we'll match newly created images by filename below
+            # Process each meta entry
+            for entry in meta:
+                if not isinstance(entry, dict):
+                    continue
+                img_id = entry.get('id')
+                if img_id:
+                    try:
+                        pi = ProductImage.objects.get(id=img_id, product=product)
+                    except ProductImage.DoesNotExist:
+                        continue
+                    if entry.get('delete'):
+                        pi.delete()
+                        continue
+                    if 'alt_text' in entry:
+                        pi.alt_text = entry.get('alt_text') or ''
+                    if 'is_primary' in entry:
+                        pi.is_primary = bool(entry.get('is_primary'))
+                    pi.save()
+                else:
+                    # For new uploads, match by filename
+                    filename = entry.get('filename')
+                    if filename:
+                        match = None
+                        for f in files_list:
+                            if f.name == filename:
+                                # find the ProductImage created for this file by comparing file name in image field
+                                match = ProductImage.objects.filter(product=product, image__contains=filename).order_by('-id').first()
+                                break
+                        if match:
+                            if entry.get('delete'):
+                                match.delete()
+                                continue
+                            if 'alt_text' in entry:
+                                match.alt_text = entry.get('alt_text') or ''
+                            if 'is_primary' in entry:
+                                match.is_primary = bool(entry.get('is_primary'))
+                            match.save()
+
+        # Ensure a single primary image: if any ProductImage marked primary, set product.main_image accordingly
+        primary = product.additional_images.filter(is_primary=True).first()
+        if primary:
+            product.main_image = primary.image
+            product.save(update_fields=['main_image'])
+
+        return product
+
+    def update(self, instance, validated_data):
+        files = validated_data.pop("additional_images_files", None)
+        meta = validated_data.pop("additional_images_meta", None)
+        request = self.context.get('request')
+        product = super().update(instance, validated_data)
+
+        files_list = []
+        if request:
+            files_list = request.FILES.getlist('additional_images_files')
+
+        # Create new ProductImage for uploaded files
+        if files_list:
+            for f in files_list:
+                ProductImage.objects.create(product=product, image=f)
+
+        # Process metadata for existing images
+        if meta and isinstance(meta, list):
+            for entry in meta:
+                if not isinstance(entry, dict):
+                    continue
+                img_id = entry.get('id')
+                if img_id:
+                    try:
+                        pi = ProductImage.objects.get(id=img_id, product=product)
+                    except ProductImage.DoesNotExist:
+                        continue
+                    if entry.get('delete'):
+                        pi.delete()
+                        continue
+                    if 'alt_text' in entry:
+                        pi.alt_text = entry.get('alt_text') or ''
+                    if 'is_primary' in entry:
+                        pi.is_primary = bool(entry.get('is_primary'))
+                    pi.save()
+                else:
+                    # For new uploads match by filename
+                    filename = entry.get('filename')
+                    if filename:
+                        match = ProductImage.objects.filter(product=product, image__contains=filename).order_by('-id').first()
+                        if match:
+                            if entry.get('delete'):
+                                match.delete()
+                                continue
+                            if 'alt_text' in entry:
+                                match.alt_text = entry.get('alt_text') or ''
+                            if 'is_primary' in entry:
+                                match.is_primary = bool(entry.get('is_primary'))
+                            match.save()
+
+        # Ensure single primary
+        ProductImage.objects.filter(product=product, is_primary=True).exclude(id=ProductImage.objects.filter(product=product, is_primary=True).first().id if ProductImage.objects.filter(product=product, is_primary=True).exists() else None).update(is_primary=False)
+        primary = product.additional_images.filter(is_primary=True).first()
+        if primary:
+            product.main_image = primary.image
+            product.save(update_fields=['main_image'])
+
+        return product
 
 
 class AdminCategorySerializer(serializers.ModelSerializer):
@@ -220,12 +402,16 @@ class AdminProductListCreateView(generics.ListCreateAPIView):
     queryset = Product.objects.all().order_by("-created_at")
     serializer_class = AdminProductSerializer
     permission_classes = [IsAuthenticated, IsAdminPermission]
+    parser_classes = [MultiPartParser, FormParser, JSONParser]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ["name", "brand", "sku"]
 
 
 class AdminProductDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = AdminProductSerializer
     permission_classes = [IsAuthenticated, IsAdminPermission]
+    parser_classes = [MultiPartParser, FormParser, JSONParser]
 
 
 class AdminCategoryListCreateView(generics.ListCreateAPIView):
@@ -246,7 +432,7 @@ class AdminOrderListView(generics.ListAPIView):
     permission_classes = [IsAuthenticated, IsAdminPermission]
 
 
-class AdminOrderDetailView(generics.RetrieveUpdateAPIView):
+class AdminOrderDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Order.objects.all()
     serializer_class = AdminOrderSerializer
     permission_classes = [IsAuthenticated, IsAdminPermission]

@@ -2,6 +2,7 @@ from django.urls import path
 from .views import (
     DashboardStatsView,
     SalesChartView,
+    ReportExportView,
     AdminProductListCreateView,
     AdminProductDetailView,
     AdminCategoryListCreateView,
@@ -15,6 +16,7 @@ from .views import (
 urlpatterns = [
     path("stats/", DashboardStatsView.as_view(), name="dashboard-stats"),
     path("sales-chart/", SalesChartView.as_view(), name="sales-chart"),
+    path("report/export/", ReportExportView.as_view(), name="report-export"),
     path("products/", AdminProductListCreateView.as_view(), name="admin-products"),
     path(
         "products/<int:pk>/",

@@ -114,6 +114,7 @@ class ProductDetailSerializer(serializers.ModelSerializer):
             "is_featured",
             "views_count",
             "created_at",
+            "reviews",
         )
 
 

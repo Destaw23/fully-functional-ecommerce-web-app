@@ -1,191 +1,208 @@
-import React, { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { 
-  ShoppingCartIcon, 
-  UserIcon, 
-  HeartIcon,
-  Bars3Icon,
-  XMarkIcon
-} from '@heroicons/react/24/outline'
-import { toggleCartDrawer } from '@store/slices/uiSlice'
-import { logout } from '@store/slices/authSlice'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import {
+  Menu,
+  ShoppingCart,
+  Heart,
+  LogOut,
+  ChevronDown,
+  LayoutDashboard,
+  History,
+  Settings,
+  Users,
+  Box,
+  ClipboardList,
+  Truck,
+  User,
+  Map,
+} from 'lucide-react';
+import SearchBox from './SearchBox';
 
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const { isAuthenticated, user } = useSelector((state) => state.auth)
-  const { totalItems } = useSelector((state) => state.cart)
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+const getMediaUrl = (url) => {
+  if (!url) return null;
+  if (url.startsWith('http://') || url.startsWith('https://')) return url;
+  const mediaHost = import.meta.env.VITE_MEDIA_HOST || '';
+  return `${mediaHost}${url.startsWith('/') ? '' : '/'}${url}`;
+};
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+const dropdownClass =
+  'absolute right-0 mt-2 w-56 overflow-hidden rounded-2xl border border-slate-200/80 bg-white py-1.5 z-50 shadow-card animate-fade-in';
 
-  const handleLogout = async () => {
-    await dispatch(logout())
-    navigate('/')
-  }
+const dropdownItemClass =
+  'flex items-center gap-2.5 px-4 py-2.5 text-sm text-slate-700 transition-colors hover:bg-slate-300';
 
+export default function Navbar({
+  sidebarIsOpen,
+  setSidebarIsOpen,
+  userInfo,
+  totalCartItems,
+  userDropdownOpen,
+  adminDropdownOpen,
+  toggleUserDropdown,
+  toggleAdminDropdown,
+  signoutHandler,
+}) {
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-lg py-3' : 'bg-white/95 backdrop-blur-md py-5'
-    }`}>
-      <div className="container-custom">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
-              ElectroStore
-            </span>
-            <span className="text-xs text-gray-500">Ethiopia</span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-gray-700 hover:text-primary-600 transition-colors">
-              Home
-            </Link>
-            <Link to="/shop" className="text-gray-700 hover:text-primary-600 transition-colors">
-              Shop
-            </Link>
-            {isAuthenticated && (
-              <Link to="/orders" className="text-gray-700 hover:text-primary-600 transition-colors">
-                Orders
-              </Link>
-            )}
-            {user?.role === 'admin' && (
-              <Link to="/admin/dashboard" className="text-gray-700 hover:text-primary-600 transition-colors">
-                Admin
-              </Link>
-            )}
-          </div>
-
-          {/* Search Bar */}
-          <div className="hidden lg:flex flex-1 max-w-md mx-8">
-            <div className="relative w-full">
-              <input
-                type="text"
-                placeholder="Search products..."
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-              />
-              <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary-600">
-                🔍
-              </button>
-            </div>
-          </div>
-
-          {/* Icons */}
-          <div className="flex items-center space-x-4">
-            {isAuthenticated && (
-              <Link to="/wishlist" className="text-gray-700 hover:text-primary-600">
-                <HeartIcon className="w-6 h-6" />
-              </Link>
-            )}
-
+    <header className="nav-glass">
+      <div className="page-container">
+        <div className="flex h-16 items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
             <button
-              onClick={() => dispatch(toggleCartDrawer())}
-              className="text-gray-700 hover:text-primary-600 relative"
+              onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
+              className="rounded-xl border border-slate-200/80 bg-white p-2.5 text-slate-600 shadow-soft transition-all hover:border-brand-200 hover:bg-brand-50 hover:text-brand-700"
+              aria-label="Toggle categories menu"
             >
-              <ShoppingCartIcon className="w-6 h-6" />
-              {totalItems > 0 && (
-                <span className="absolute -top-2 -right-2 bg-primary-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                  {totalItems}
-                </span>
-              )}
+              <Menu size={20} strokeWidth={2} />
             </button>
 
-            {isAuthenticated ? (
+            <Link
+              to="/"
+              className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900 transition-colors hover:text-brand-600"
+            >
+              Electro<span className="text-brand-600">Merce</span>
+            </Link>
+          </div>
+
+          <div className="hidden md:flex flex-1 max-w-lg mx-4">
+            <SearchBox />
+          </div>
+
+          <div className="flex items-center gap-2 sm:gap-3">
+            <Link
+              to="/cart"
+              className="relative flex items-center gap-2 rounded-xl px-3 py-2 text-slate-600 transition-all hover:bg-slate-100 hover:text-brand-600"
+              aria-label="Shopping cart"
+            >
+              <ShoppingCart size={22} strokeWidth={2} />
+              <span className="text-sm font-medium">Cart</span>
+              {totalCartItems > 0 && (
+                <span className="absolute -right-0.5 -top-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-orange-500 px-1 text-[10px] font-bold text-white ring-2 ring-white">
+                  {totalCartItems}
+                </span>
+              )}
+            </Link>
+
+            {userInfo ? (
               <div className="relative">
                 <button
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="flex items-center space-x-2 text-gray-700 hover:text-primary-600"
+                  onClick={toggleUserDropdown}
+                  className="flex items-center gap-1 rounded-full bg-slate-50 p-2 text-slate-700 transition-all hover:bg-slate-100"
+                  aria-label="Open user menu"
                 >
-                  <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                    <UserIcon className="w-4 h-4" />
-                  </div>
-                  <span className="hidden md:inline">{user?.username}</span>
+                  {userInfo.profile_picture ? (
+                    <img
+                      src={getMediaUrl(userInfo.profile_picture)}
+                      alt="Profile"
+                      className="h-8 w-8 rounded-full object-cover"
+                    />
+                  ) : (
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100">
+                      <User size={18} className="text-slate-500" />
+                    </span>
+                  )}
+                  <ChevronDown
+                    size={16}
+                    className={`text-slate-400 transition-transform ${userDropdownOpen ? 'rotate-180' : ''}`}
+                  />
                 </button>
 
-                {isDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50 border">
-                    <Link
-                      to="/profile"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      onClick={() => setIsDropdownOpen(false)}
-                    >
-                      My Profile
+                {userDropdownOpen && (
+                  <div className={dropdownClass}>
+                    <Link to="/profile" onClick={toggleUserDropdown} className={dropdownItemClass}>
+                      <Settings size={16} className="text-slate-400" />
+                      <span>Profile</span>
                     </Link>
-                    <Link
-                      to="/orders"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      onClick={() => setIsDropdownOpen(false)}
-                    >
-                      My Orders
+                    <Link to="/wishlist" onClick={toggleUserDropdown} className={dropdownItemClass}>
+                      <Heart size={16} className="text-slate-400" />
+                      <span>Wishlist</span>
                     </Link>
-                    <Link
-                      to="/wishlist"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      onClick={() => setIsDropdownOpen(false)}
-                    >
-                      Wishlist
+                    <Link to="/map" onClick={toggleUserDropdown} className={dropdownItemClass}>
+                      <Map size={16} className="text-slate-400" />
+                      <span>Live Map</span>
                     </Link>
-                    <hr className="my-1" />
+                    {userInfo?.role === 'delivery' && (
+                      <Link to="/delivery" onClick={toggleUserDropdown} className={dropdownItemClass}>
+                        <Truck size={16} className="text-slate-400" />
+                        <span>Delivery Dashboard</span>
+                      </Link>
+                    )}
+                    <Link to="/orderhistory" onClick={toggleUserDropdown} className={dropdownItemClass}>
+                      <History size={16} className="text-slate-400" />
+                      <span>Order History</span>
+                    </Link>
                     <button
-                      onClick={handleLogout}
-                      className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100"
+                      onClick={() => {
+                        toggleUserDropdown();
+                        signoutHandler();
+                      }}
+                      className={`${dropdownItemClass} w-full border-t border-slate-100 text-red-600 hover:bg-orange-100 hover:text-red-700`}
                     >
-                      Logout
+                      <LogOut size={16} />
+                      <span>Sign Out</span>
                     </button>
                   </div>
                 )}
               </div>
             ) : (
-              <Link
-                to="/login"
-                className="bg-primary-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-700 transition-colors"
-              >
-                Login
+              <Link to="/signin" className="btn-primary !py-2 !px-4 text-sm">
+                Sign In
               </Link>
             )}
 
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-gray-700"
-            >
-              {isMobileMenuOpen ? <XMarkIcon className="w-6 h-6" /> : <Bars3Icon className="w-6 h-6" />}
-            </button>
+            {userInfo && userInfo.isAdmin && (
+              <div className="relative">
+                <button
+                  onClick={toggleAdminDropdown}
+                  className="flex items-center gap-1.5 rounded-xl border border-brand-200/80 bg-brand-50 px-3 py-2 text-sm font-semibold text-brand-800 transition-all hover:bg-brand-100"
+                >
+                  <span>Admin</span>
+                  <ChevronDown
+                    size={16}
+                    className={`text-brand-500 transition-transform ${adminDropdownOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
+
+                {adminDropdownOpen && (
+                  <div className={dropdownClass}>
+                    <Link
+                      to="/admin/dashboard"
+                      onClick={toggleAdminDropdown}
+                      className={dropdownItemClass}
+                    >
+                      <LayoutDashboard size={16} className="text-slate-400" />
+                      <span>Dashboard</span>
+                    </Link>
+                    <Link
+                      to="/admin/products"
+                      onClick={toggleAdminDropdown}
+                      className={dropdownItemClass}
+                    >
+                      <Box size={16} className="text-slate-400" />
+                      <span>Products</span>
+                    </Link>
+                    <Link
+                      to="/admin/orders"
+                      onClick={toggleAdminDropdown}
+                      className={dropdownItemClass}
+                    >
+                      <ClipboardList size={16} className="text-slate-400" />
+                      <span>Orders</span>
+                    </Link>
+                    <Link
+                      to="/admin/users"
+                      onClick={toggleAdminDropdown}
+                      className={dropdownItemClass}
+                    >
+                      <Users size={16} className="text-slate-400" />
+                      <span>Users</span>
+                    </Link>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-3">
-            <Link to="/" className="block text-gray-700 hover:text-primary-600">Home</Link>
-            <Link to="/shop" className="block text-gray-700 hover:text-primary-600">Shop</Link>
-            {isAuthenticated && (
-              <Link to="/orders" className="block text-gray-700 hover:text-primary-600">Orders</Link>
-            )}
-            {user?.role === 'admin' && (
-              <Link to="/admin/dashboard" className="block text-gray-700 hover:text-primary-600">Admin</Link>
-            )}
-            <input
-              type="text"
-              placeholder="Search products..."
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg"
-            />
-          </div>
-        )}
       </div>
-    </nav>
-  )
+    </header>
+  );
 }
-
-export default Navbar

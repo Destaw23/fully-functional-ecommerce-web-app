@@ -18,7 +18,11 @@ class Interaction(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="interactions"
     )
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        related_name="interactions",
+    )
     action = models.CharField(max_length=20, choices=ACTION_CHOICES)
     session_id = models.CharField(max_length=100, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)

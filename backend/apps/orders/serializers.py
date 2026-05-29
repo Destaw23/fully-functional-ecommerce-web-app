@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Order, OrderItem
 from apps.products.serializers import ProductListSerializer
+from apps.accounts.serializers import UserSerializer
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
@@ -42,10 +43,36 @@ class OrderListSerializer(serializers.ModelSerializer):
 
 class OrderDetailSerializer(serializers.ModelSerializer):
     items = OrderItemSerializer(many=True, read_only=True)
+    assigned_delivery_person_detail = UserSerializer(source="assigned_delivery_person", read_only=True)
 
     class Meta:
         model = Order
-        fields = "__all__"
+        fields = (
+            "id",
+            "order_number",
+            "status",
+            "delivery_status",
+            "tracking_code",
+            "assigned_delivery_person",
+            "assigned_delivery_person_detail",
+            "shipping_name",
+            "shipping_address",
+            "shipping_city",
+            "shipping_phone",
+            "payment_method",
+            "payment_status",
+            "transaction_id",
+            "subtotal",
+            "shipping_cost",
+            "tax",
+            "discount",
+            "total_amount",
+            "notes",
+            "created_at",
+            "updated_at",
+            "delivered_at",
+            "items",
+        )
 
 
 class OrderCreateSerializer(serializers.Serializer):

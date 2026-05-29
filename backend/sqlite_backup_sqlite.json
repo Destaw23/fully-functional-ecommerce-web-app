@@ -1,0 +1,7264 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "accounts",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "products",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "products",
+    "model": "product"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "products",
+    "model": "productimage"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "products",
+    "model": "wishlist"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "products",
+    "model": "review"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "cart",
+    "model": "cart"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "cart",
+    "model": "cartitem"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "orders",
+    "model": "order"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "orders",
+    "model": "orderitem"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "payments",
+    "model": "payment"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "recommendations",
+    "model": "interaction"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "accounts",
+    "model": "passwordresetcode"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "0u13378x9myspbb9mwcg3ks5gutrnvvl",
+  "fields": {
+    "session_data": ".eJwFwcERgCAMBMBeqCCBCMFmmEi44S3ycuzd3Tc0289se427TVsznIFiNhrqfpCzEHqOKkWGoxAxd61mCiBBuymRG7pJPgAuNV0pfD-Xfxn5:1wRcp2:rHdLQOdTOpL72A9a43idQnALvz3ic5CZpB6oddMJw18",
+    "expire_date": "2026-06-08T21:26:52.889Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4eq5cuvmui2ok1mab02vdb8j7nz793q2",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyHFLgU8eu83kIVdpGogKe3J-O9K0oMmc5r3Zl7C475lvzde_ULiIpQ4_XYB44NLB3THcqsy1rKtS5BdkQdtcq7Ez-vh_h1kbPm71tGd2YBBRwQWOAWrEKIZU0wqOVI9CsYJA0PSKtAwIDgzaSI92iTeH_ZROEY:1wRwnE:q9Jr-GiXkATgYXYXqNK6A9fFxtiQezEfcxFqamP2vy0",
+    "expire_date": "2026-06-09T18:46:20.536Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 1,
+  "fields": {
+    "name": "phone",
+    "slug": "phone",
+    "description": "mobile device",
+    "image": "categories/NationalID.png",
+    "parent": null,
+    "created_at": "2026-05-24T11:31:50.426Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 2,
+  "fields": {
+    "name": "laptop",
+    "slug": "laptop",
+    "description": "personal computer",
+    "image": "categories/National_ID.png",
+    "parent": null,
+    "created_at": "2026-05-24T11:32:35.147Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 3,
+  "fields": {
+    "name": "accessories",
+    "slug": "accessories",
+    "description": "produts used by electronics device",
+    "image": "categories/Screenshot_2026-03-20_002317.png",
+    "parent": null,
+    "created_at": "2026-05-24T11:33:44.834Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 4,
+  "fields": {
+    "name": "desktop",
+    "slug": "desktop",
+    "description": "non mobile computer",
+    "image": "categories/Screenshot_2026-05-23_084204.png",
+    "parent": null,
+    "created_at": "2026-05-24T11:34:40.800Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 5,
+  "fields": {
+    "name": "television",
+    "slug": "tv",
+    "description": "used for communication",
+    "image": "categories/MY-PASSPORT.png",
+    "parent": null,
+    "created_at": "2026-05-24T11:35:26.451Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 3,
+  "fields": {
+    "name": "erphon",
+    "slug": "erphon",
+    "category": 3,
+    "description": "real qulity of sound",
+    "short_description": "best",
+    "price": "100.00",
+    "compare_price": "0.02",
+    "stock_quantity": 20,
+    "sku": "er-ph-05",
+    "brand": "apple",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/Screenshot_2025-12-27_134302.png",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": false,
+    "views_count": 85,
+    "created_at": "2026-05-24T14:44:59.261Z",
+    "updated_at": "2026-05-26T19:04:22.225Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 4,
+  "fields": {
+    "name": "delle desktop",
+    "slug": "delle",
+    "category": 4,
+    "description": "the baset computer fast spead",
+    "short_description": "fast",
+    "price": "499.99",
+    "compare_price": "0.03",
+    "stock_quantity": 9,
+    "sku": "del-de-012",
+    "brand": "delle",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/Screenshot_2026-02-27_214143.png",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": false,
+    "views_count": 95,
+    "created_at": "2026-05-24T14:48:23.617Z",
+    "updated_at": "2026-05-26T19:45:49.088Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 5,
+  "fields": {
+    "name": "Ultra high headphone (Edited)",
+    "slug": "head-phone",
+    "category": 1,
+    "description": "Updated description text.",
+    "short_description": "",
+    "price": "99.99",
+    "compare_price": null,
+    "stock_quantity": 40,
+    "sku": "ul-hg-hd-01",
+    "brand": "Brand",
+    "condition": "new",
+    "warranty_months": 12,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2_2026-05-25_18-12-35.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": false,
+    "views_count": 34,
+    "created_at": "2026-05-26T07:29:39.484Z",
+    "updated_at": "2026-05-26T17:36:17.937Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 12,
+  "fields": {
+    "name": "Apple iPhone 16 Pro Max",
+    "slug": "apple-iphone-16-pro-max",
+    "category": 1,
+    "description": "Brand                                                                                       Apple\r\nOperating System                                                     iOS 18\r\nRam Memory Installed Size                                8 GB\r\nCPU Model                                                                           Apple A18 Pro\r\nCPU Speed  3.8 GHz\r\nMemory Storage Capacity                                   256 GB\r\nScreen Size                                                                            6.9 Inches\r\nResolution                                                                               2868 × 1320\r\nRefresh Rate                                                                          120 Hz\r\nModel Name                                                                          iPhone 16 Pro M\r\n\r\nAbout this item\r\nThe large 6.9-inch display combines ProMotion 120Hz technology with advanced color calibration, giving movies, games, and productivity apps a spacious, crisp, and fluid visual experience that’s ideal for multitasking or immersive media consumption.\r\nTitanium frame and reinforced edges provide a premium, durable build, reducing weight compared to stainless steel while enhancing grip and making the phone easier to handle during long sessions of video recording, gaming, or editing.\r\nCamera system designed for versatility and precision, including ultra-wide, wide, and telephoto lenses with improved low-light and macro capabilities, giving photographers and creators a broader range of expressive tools while maintaining sharp details across the frame.\r\nAdvanced Action button offers customizable shortcuts, allowing quick access to features like capturing photos, launching apps, controlling accessibility tools, or activating automation tasks without interrupting your workflow.\r\nAudio and video performance optimized for creators, with spatial audio, improved microphones, and stabilized video recording, providing professional-quality sound and smooth footage whether recording content, streaming, or joining video calls.",
+    "short_description": "Apple iPhone 16 Pro Max, 256GB, Black Titanium - Unlocked",
+    "price": "100000.00",
+    "compare_price": null,
+    "stock_quantity": 48,
+    "sku": "Ap-ip-16",
+    "brand": "Apple",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/Apple-Phone16_2_DdZiTzv.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": false,
+    "views_count": 26,
+    "created_at": "2026-05-26T20:27:00.666Z",
+    "updated_at": "2026-05-27T13:05:57.190Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 13,
+  "fields": {
+    "name": "Apple iPhone 17 Pro",
+    "slug": "apple-iphone-17-pro",
+    "category": 1,
+    "description": "Brand  Apple\r\nOperating System  iOS 26\r\nRam Memory Installed Size  256 GB\r\nMemory Storage Capacity  256 GB\r\nScreen Size  6.3 Inches\r\nModel Name  iPhone Pro 17\r\nWireless Carrier  Cricket\r\nCellular Technology  5G\r\nConnectivity Technology  Bluetooth, USB, Wi-Fi\r\nColor  Silver\r\nTested for battery health and guaranteed to have a minimum battery capacity of 80%.",
+    "short_description": "Apple iPhone 17 Pro, US Version, 256GB, eSIM, Silver",
+    "price": "95000.00",
+    "compare_price": "0.01",
+    "stock_quantity": 65,
+    "sku": "Ap-ip-17",
+    "brand": "Apple",
+    "condition": "new",
+    "warranty_months": 2,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/Apple_iPhone_17_Pro2.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": false,
+    "views_count": 2,
+    "created_at": "2026-05-27T04:59:10.610Z",
+    "updated_at": "2026-05-27T04:59:10.610Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 14,
+  "fields": {
+    "name": "Apple iPhone 17 Pro Max",
+    "slug": "apple-iphone-17-pro-max",
+    "category": 1,
+    "description": "Brand  Apple\r\nOperating System  iOS 26\r\nRam Memory Installed Size  256 GB\r\nMemory Storage Capacity  256 GB\r\nScreen Size  6.9 Inches\r\nResolution  2868x1320 pixels\r\nModel Name  iPhone 17 Pro Max\r\nWireless Carrier  Unlocked\r\nCellular Technology  5G\r\nConnectivity Technology",
+    "short_description": "Apple iPhone 17 Pro Max, US Version, 256GB, eSIM, Cosmic Orange- Unlocked | eSIM",
+    "price": "105000.00",
+    "compare_price": "0.01",
+    "stock_quantity": 34,
+    "sku": "app-ip-17-pro",
+    "brand": "Apple",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_08-01-021.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": false,
+    "views_count": 6,
+    "created_at": "2026-05-27T05:04:38.066Z",
+    "updated_at": "2026-05-27T05:08:57.359Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 15,
+  "fields": {
+    "name": "Apple iPhone 15 Pro Max",
+    "slug": "apple-iphone-15-pro-max",
+    "category": 1,
+    "description": "Brand  Apple\r\nOperating System  iOS 17\r\nRam Memory Installed Size  8 GB\r\nCPU Model  Apple A17 Pro\r\nCPU Speed  3.78 GHz\r\nMemory Storage Capacity  256 GB\r\nScreen Size  6.7 Inches\r\nResolution  2796 x 1290\r\nRefresh Rate  120 Hz\r\nModel Name  iPhone 15 Pro Max",
+    "short_description": "Apple iPhone 15 Pro Max, 256GB, Blue Titanium - Unlocked",
+    "price": "90000.00",
+    "compare_price": "0.01",
+    "stock_quantity": 30,
+    "sku": "iphone-15",
+    "brand": "Apple",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_08-10-17.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 2,
+    "created_at": "2026-05-27T05:12:28.283Z",
+    "updated_at": "2026-05-27T05:12:28.283Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 16,
+  "fields": {
+    "name": "Samsung Galaxy S23",
+    "slug": "samsung-galaxy-s23",
+    "category": 1,
+    "description": "Brand  Samsung\r\nOperating System  Android\r\nRam Memory Installed Size  8 GB\r\nCPU Model  Snapdragon\r\nCPU Speed  2 GHz\r\nMemory Storage Capacity  256 GB\r\nScreen Size  6.8 Inches\r\nResolution  1440x3088\r\nRefresh Rate  120 hertz\r\nModel Name  Galaxy S23 Ultra",
+    "short_description": "Samsung Galaxy S23 Ultra 5G, US Version, 256GB, Phantom Black -",
+    "price": "50000.00",
+    "compare_price": "0.01",
+    "stock_quantity": 40,
+    "sku": "Gala-S23",
+    "brand": "Samsung",
+    "condition": "new",
+    "warranty_months": 2,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_08-14-11.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 2,
+    "created_at": "2026-05-27T05:17:14.716Z",
+    "updated_at": "2026-05-27T05:17:14.716Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 17,
+  "fields": {
+    "name": "Motorola Moto G Play",
+    "slug": "motorola-moto-g-play",
+    "category": 1,
+    "description": "Brand  Motorola\r\nOperating System  Android 13.0\r\nRam Memory Installed Size  4 GB\r\nCPU Model  Qualcomm Snapdragon MSM8260A\r\nCPU Speed  2.4E+3 MHz\r\nMemory Storage Capacity  64 GB\r\nScreen Size  6.5 Inches\r\nResolution  1280 x 720\r\nRefresh Rate  90 Hz\r\nModel Name  Moto G Play",
+    "short_description": "Motorola Moto G Play | 2024 | Unlocked | Made for US 4/64GB | 50MP Camera | Sapphire Blue",
+    "price": "45000.00",
+    "compare_price": "0.01",
+    "stock_quantity": 64,
+    "sku": "Mot-Mo-G",
+    "brand": "Motorola",
+    "condition": "new",
+    "warranty_months": 1,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_08-18-40.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 2,
+    "created_at": "2026-05-27T05:21:47.466Z",
+    "updated_at": "2026-05-27T05:21:47.466Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 18,
+  "fields": {
+    "name": "Samsung Galaxy Z Fold 6",
+    "slug": "samsung-galaxy-z-fold-6",
+    "category": 1,
+    "description": "Brand  Samsung\r\nOperating System  Android\r\nRam Memory Installed Size  12 GB\r\nCPU Model  Snapdragon\r\nCPU Speed  3.39 GHz\r\nMemory Storage Capacity  256 GB\r\nScreen Size  7.6 Inches\r\nResolution  2376 x 968 pixels\r\nRefresh Rate  120\r\nModel Name  Galaxy Z Fold6",
+    "short_description": "Samsung Galaxy Z Fold 6 AI Cell Phone, 256GB Unlocked Silver Shadow",
+    "price": "30000.00",
+    "compare_price": "0.00",
+    "stock_quantity": 230,
+    "sku": "sam-gal-Z",
+    "brand": "Samsung",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_08-23-09.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": false,
+    "views_count": 4,
+    "created_at": "2026-05-27T05:25:56.181Z",
+    "updated_at": "2026-05-27T05:27:12.459Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 19,
+  "fields": {
+    "name": "Motorola Razr 2025",
+    "slug": "motorola-razr-2025",
+    "category": 1,
+    "description": "Brand  Motorola\r\nOperating System  Android 15\r\nRam Memory Installed Size  8 GB\r\nCPU Model  Mediatek Dimensity 8200\r\nCPU Speed  2.6 GHz\r\nMemory Storage Capacity  8 GB\r\nScreen Size  6.9 Inches\r\nResolution  Main display: 2640 x 1080, External display: 1056 x 1066\r\nRefresh Rate  120 Hz\r\nModel Name  Motorola razr 2025",
+    "short_description": "Motorola Razr 2025 | Unlocked | Made for US 8/256GB | 50MP Camera | Pantone Spring Bud",
+    "price": "64999.99",
+    "compare_price": "0.01",
+    "stock_quantity": 76,
+    "sku": "Moto-Raz",
+    "brand": "Motorola",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_08-28-13.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": false,
+    "views_count": 7,
+    "created_at": "2026-05-27T05:31:23.649Z",
+    "updated_at": "2026-05-27T13:05:57.186Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 20,
+  "fields": {
+    "name": "Google Pixel 9a with Gemini",
+    "slug": "google-pixel-9a-with-gemini",
+    "category": 1,
+    "description": "Brand  Google\r\nOperating System  Android 15\r\nRam Memory Installed Size  8 GB\r\nCPU Model  Google Tensor G3\r\nMemory Storage Capacity  128 GB\r\nScreen Size  6.3 Inches\r\nResolution  1080 x 2400\r\nRefresh Rate  60\r\nModel Name  Google Pixel 9a\r\nWireless Carrier  Unlocked",
+    "short_description": "Google Pixel 9a with Gemini - Unlocked Android Smartphone with Incredible Camera and AI Photo Editing, All-Day Battery, and Powerful Security - Porcelain - 128 GB |",
+    "price": "87000.00",
+    "compare_price": "0.01",
+    "stock_quantity": 96,
+    "sku": "goo-p",
+    "brand": "Google",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_08-33-59.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 3,
+    "created_at": "2026-05-27T05:36:10.744Z",
+    "updated_at": "2026-05-27T13:05:57.183Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 21,
+  "fields": {
+    "name": "Samsung Galaxy Z Flip7 FE Cell Phone",
+    "slug": "samsung-galaxy-z-flip7-fe-cell-phone",
+    "category": 1,
+    "description": "Brand  Samsung\r\nOperating System  Android 16, OneUI 8\r\nRam Memory Installed Size  8 GB\r\nCPU Model  Exynos 2400 S5E9945\r\nCPU Speed  1.95, 2.6, 2.9, 3.2 GHz\r\nMemory Storage Capacity  256 GB\r\nScreen Size  6.7 Inches\r\nResolution  1080 x 2400\r\nRefresh Rate  120 Hz\r\nModel Name  Galaxy Z Flip7 FE",
+    "short_description": "Samsung Galaxy Z Flip7 FE Cell Phone, 256GB AI Smartphone, Unlocked Android, Long Battery Life, 2025, White",
+    "price": "87000.00",
+    "compare_price": "0.01",
+    "stock_quantity": 64,
+    "sku": "Sam-GAL-Z-F",
+    "brand": "Samsung",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_08-37-10.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 5,
+    "created_at": "2026-05-27T05:39:58.049Z",
+    "updated_at": "2026-05-27T13:05:57.177Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 22,
+  "fields": {
+    "name": "Microsoft Surface Laptop",
+    "slug": "microsoft-surface-laptop",
+    "category": 2,
+    "description": "Brand  Microsoft\r\nModel Name  Microsoft Surface\r\nScreen Size  13.8 Inches\r\nColor  Platinum\r\nHard Disk Size  512 GB\r\nCPU Model  Snapdragon\r\nRam Memory Installed Size  16 GB\r\nOperating System  Windows 11 Home\r\nSpecial Feature  Backlit Keyboard\r\nGraphics Card Description",
+    "short_description": "Microsoft Surface Laptop, 13.8\" 2K Touchscreen Copilot+ PC, Snapdragon X Elite X1E-80-100, 16GB LPDDR5X, 1.5TB Storage (512GB SSD+1TB Docking Station), Backlit Keyboard, Wi-Fi 7, Win 11, Platinum",
+    "price": "75000.00",
+    "compare_price": "0.01",
+    "stock_quantity": 98,
+    "sku": "Mi-Su",
+    "brand": "Microsoft",
+    "condition": "new",
+    "warranty_months": 3,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_08-43-28.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 0,
+    "created_at": "2026-05-27T05:46:57.483Z",
+    "updated_at": "2026-05-27T05:46:57.483Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 23,
+  "fields": {
+    "name": "HP 15.6\" FHD Laptop 2026 Edition",
+    "slug": "hp-156-fhd-laptop-2026-edition",
+    "category": 2,
+    "description": "rand  HP\r\nModel Name  Laptop\r\nScreen Size  15.6 Inches\r\nColor  Natural Silver\r\nHard Disk Size  1 TB\r\nCPU Model  Intel Processor N100\r\nRam Memory Installed Size  16 GB\r\nOperating System  Windows 11 Home\r\nSpecial Feature  HD Audio\r\nGraphics Card Description",
+    "short_description": "HP 15.6\" FHD Laptop 2026 Edition with Copilot AI, 16GB RAM, 256GB SSD, Intel Processor, Long Battery Life, Lightweight 3.64 lbs, Microsoft 365, Windows 11 for Students & Office",
+    "price": "89000.00",
+    "compare_price": "0.01",
+    "stock_quantity": 118,
+    "sku": "hp-15.6",
+    "brand": "HP",
+    "condition": "new",
+    "warranty_months": 4,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_08-47-16.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 2,
+    "created_at": "2026-05-27T05:50:23.469Z",
+    "updated_at": "2026-05-27T05:50:23.469Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 24,
+  "fields": {
+    "name": "Dell 16 Laptop DC16251-16.0-inch 16:10 2K Touchscreen Display",
+    "slug": "dell-16-laptop-dc16251-160-inch-1610-2k-touchscree",
+    "category": 2,
+    "description": "Brand  Dell\r\nModel Name  Dell 16 DC16251 Laptop\r\nScreen Size  16 Inches\r\nColor  Silver\r\nHard Disk Size  1 TB\r\nCPU Model  Intel Core 7\r\nRam Memory Installed Size  16 GB\r\nOperating System  Windows 11 Home\r\nSpecial Feature  Anti Glare Coating, Backlit Keyboard, Fingerprint Reader, Memory Card Slot, Numeric Keypad\r\nGraphics Card Description  I",
+    "short_description": "Dell 16 Laptop DC16251-16.0-inch 16:10 2K Touchscreen Display, Intel Core 7 150U Processor, 16GB DDR5 RAM, 1TB SSD, Intel Graphics, Windows 11 Home,  Cloud Blue",
+    "price": "88000.00",
+    "compare_price": "0.00",
+    "stock_quantity": 76,
+    "sku": "Dell 16 Laptop",
+    "brand": "Dell",
+    "condition": "new",
+    "warranty_months": 1,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_08-56-50.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 0,
+    "created_at": "2026-05-27T05:59:06.593Z",
+    "updated_at": "2026-05-27T05:59:06.593Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 25,
+  "fields": {
+    "name": "ASUS ROG Strix G16 (2025) Gaming Laptop",
+    "slug": "asus-rog-strix-g16-2025-gaming-laptop",
+    "category": 2,
+    "description": "Brand  ASUS\r\nModel Name  G614FR-DS96\r\nScreen Size  16 Inches\r\nColor  Eclipse Gray\r\nHard Disk Size  1 TB\r\nCPU Model  Ryzen 9\r\nRam Memory Installed Size  32 GB\r\nOperating System  Windows 11 Home\r\nSpecial Feature  Backlit Keyboard\r\nGraphics Card Description  D",
+    "short_description": "ASUS ROG Strix G16 (2025) Gaming Laptop, 16” ROG Nebula 16:10 2.5K 240Hz/3ms, NVIDIA® GeForce RTX™ 5070 Ti, AMD Ryzen™ 9 9955HX3D Processor, 32GB DDR5-5600, 1TB PCIe Gen 4 SSD, Wi-Fi 6E, Win 11 Home",
+    "price": "130000.00",
+    "compare_price": "0.01",
+    "stock_quantity": 99,
+    "sku": "asus-rus-s",
+    "brand": "ASUS",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_08-59-41.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 0,
+    "created_at": "2026-05-27T06:01:47.919Z",
+    "updated_at": "2026-05-27T06:01:47.919Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 26,
+  "fields": {
+    "name": "NIMO 15.6'' IPS FHD Laptop",
+    "slug": "nimo-156-ips-fhd-laptop",
+    "category": 2,
+    "description": "Brand  NIMO\r\nModel Name  NIMO N152\r\nScreen Size  15.6 Inches\r\nColor  Red\r\nHard Disk Size  512 GB\r\nCPU Model  Ryzen 5\r\nRam Memory Installed Size  16 GB\r\nOperating System  Windows 11\r\nSpecial Feature  Backlit Keyboard, Fingerprint Reader, HD Audio, Numeric Keypad\r\nGraphics Card Description  Integrated",
+    "short_description": "NIMO 15.6'' IPS FHD Laptop, 16GB RAM 512GB SSD AMD Ryzen 5(Beat i5-1135G7, 4 Cores Up to 3.7GHz) Student Computer with 65W Type-C, Fingerprint, Backlit Keyboard, BT5.2, for Home",
+    "price": "110000.00",
+    "compare_price": "0.00",
+    "stock_quantity": 122,
+    "sku": "NMNO-15.6",
+    "brand": "NIMO",
+    "condition": "new",
+    "warranty_months": 2,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-02-11.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 1,
+    "created_at": "2026-05-27T06:04:22.719Z",
+    "updated_at": "2026-05-27T07:43:13.835Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 27,
+  "fields": {
+    "name": "Lenovo V15 Gen 4 Business Laptop",
+    "slug": "lenovo-v15-gen-4-business-laptop",
+    "category": 2,
+    "description": "Brand  Lenovo\r\nModel Name  Lenovo V15 G4 IRU\r\nScreen Size  15.6 Inches\r\nColor  Black\r\nHard Disk Size  512 GB\r\nCPU Model  Core i5 Family\r\nRam Memory Installed Size  16 GB\r\nOperating System  Windows 11 Pro\r\nSpecial Feature  Numeric Keypad\r\nGraphics Card Description  Integrated",
+    "short_description": "Lenovo V15 Gen 4 Business Laptop, 15.6\" FHD Display, Intel Core i5-13420H (Beat i7-1355U), HDMI, RJ45, Webcam, Numeric Keypad, Wi-Fi, Windows 11 Pro, Black (16GB RAM | 512GB SSD)",
+    "price": "0.01",
+    "compare_price": "229999.99",
+    "stock_quantity": 98,
+    "sku": "Lv-V-15",
+    "brand": "Lenovo",
+    "condition": "new",
+    "warranty_months": 3,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-06-10.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 0,
+    "created_at": "2026-05-27T06:08:21.421Z",
+    "updated_at": "2026-05-27T06:08:21.421Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 28,
+  "fields": {
+    "name": "Dell Latitude 5420 14\" FHD Business Laptop Computer",
+    "slug": "dell-latitude-5420-14-fhd-business-laptop-computer",
+    "category": 2,
+    "description": "Brand  Dell\r\nModel Name  Latitude 5420\r\nScreen Size  14 Inches\r\nColor  Gray\r\nHard Disk Size  256 GB\r\nCPU Model  Intel Core i5 1145G7\r\nRam Memory Installed Size  16 GB\r\nOperating System  Windows 11 Pro\r\nSpecial Feature  HD Audio\r\nGraphics Card Description  I",
+    "short_description": "Dell Latitude 5420 14\" FHD Business Laptop Computer, Intel Quad-Core i5-1145G7, 16GB DDR4 RAM, 256GB SSD, Camera, HDMI, Windows 11 Pro",
+    "price": "22000.00",
+    "compare_price": "0.01",
+    "stock_quantity": 99,
+    "sku": "De-Lat-5420",
+    "brand": "Dell",
+    "condition": "new",
+    "warranty_months": 2,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-08-33.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 3,
+    "created_at": "2026-05-27T06:11:42.017Z",
+    "updated_at": "2026-05-27T06:11:42.017Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 29,
+  "fields": {
+    "name": "Apple 2026 MacBook Pro Laptop with Apple M5 chip",
+    "slug": "apple-2026-macbook-pro-laptop-with-apple-m5-chip",
+    "category": 2,
+    "description": "Brand  Apple\r\nModel Name  MacBook Pro\r\nScreen Size  14 Inches\r\nColor  Space Black\r\nHard Disk Size  1 TB\r\nCPU Model  Unknown\r\nRam Memory Installed Size  32 GB\r\nOperating System  Mac OS\r\nSpecial Feature  Backlit Keyboard, Fingerprint Reader\r\nGraphics Card Description",
+    "short_description": "Apple 2026 MacBook Pro Laptop with Apple M5 chip with 10-core CPU and 10-core GPU: Built for AI, 14.2-inch Liquid Retina XDR Display, 32GB Unified Memory, 1TB SSD; Space Black",
+    "price": "230000.00",
+    "compare_price": "0.01",
+    "stock_quantity": 123,
+    "sku": "Apple-2026",
+    "brand": "Apple",
+    "condition": "new",
+    "warranty_months": 1,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-11-54.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 0,
+    "created_at": "2026-05-27T06:15:22.583Z",
+    "updated_at": "2026-05-27T06:15:22.583Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 30,
+  "fields": {
+    "name": "HP 14-inch Ultra Light Laptop W/1 Year Office 365&AI-Copilot",
+    "slug": "hp-14-inch-ultra-light-laptop-w1-year-office-365ai",
+    "category": 2,
+    "description": "Brand  HP\r\nModel Name  HP Stream\r\nScreen Size  14 Inches\r\nColor  Green\r\nHard Disk Size  128 GB\r\nCPU Model  Intel N\r\nRam Memory Installed Size  16 GB\r\nOperating System  Windows 11 S\r\nSpecial Feature  Anti Glare Coating\r\nGraphics Card Description",
+    "short_description": "HP 14-inch Ultra Light Laptop W/1 Year Office 365&AI-Copilot, Intel Processor N150, 16GB RAM, 416GB Storage (128GB UFS + 288GB Docking Set), HD Camera, Long Battery Life, Wi-Fi 6, Win 11s, Green",
+    "price": "54000.00",
+    "compare_price": "0.01",
+    "stock_quantity": 210,
+    "sku": "hp-14-in",
+    "brand": "HP",
+    "condition": "new",
+    "warranty_months": 4,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-15-40.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 0,
+    "created_at": "2026-05-27T06:17:34.052Z",
+    "updated_at": "2026-05-27T06:17:34.052Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 31,
+  "fields": {
+    "name": "Acer Chromebook 315 Laptop",
+    "slug": "acer-chromebook-315-laptop",
+    "category": 2,
+    "description": "Brand  Acer\r\nModel Name  CB315-4H-C8XU\r\nScreen Size  15.6 Inches\r\nColor  Silver\r\nHard Disk Size  64 GB\r\nCPU Model  Celeron\r\nRam Memory Installed Size  4 GB\r\nOperating System  Chrome OS\r\nSpecial Feature  HD Graphics, Portable\r\nGraphics Card Description  Integrated",
+    "short_description": "Acer Chromebook 315 Laptop, Celeron N4500, 15.6\" Full HD IPS Display, 4GB LPDDR4X, 64GB eMMC, Wi-Fi 6, DTS Audio, USB Type-C, Chrome OS, CB315-4H-C8XU, Silver",
+    "price": "67000.00",
+    "compare_price": null,
+    "stock_quantity": 0,
+    "sku": "Acer-ch",
+    "brand": "Acer",
+    "condition": "new",
+    "warranty_months": 2,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-17-44.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 0,
+    "created_at": "2026-05-27T06:19:29.812Z",
+    "updated_at": "2026-05-27T06:19:29.812Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 32,
+  "fields": {
+    "name": "Celestron – StarSense AutoAlign Telescope Accessory",
+    "slug": "celestron-starsense-autoalign-telescope-accessory",
+    "category": 3,
+    "description": "Brand  Celestron\r\nModel Name  StarSense AutoAlign\r\nOptical Tube Length  9.25 Inches\r\nEye Piece Lens Description  Fiber Optic\r\nObjective Lens Diameter  40 Millimeters\r\nTelescope Mount Description  Fiber Optic\r\nProduct Dimensions  9.84\"D x 9.25\"W x 4.33\"H\r\nFocus Type  Manual Focus\r\nPower Source  USB 2 .0\r\nFinderscope  Reflex",
+    "short_description": "Celestron – StarSense AutoAlign Telescope Accessory – Automatically Aligns GoTo Telescope in 3 Minutes – Compatible with Celestron Computerized Telescopes – Advanced Mount Modeling",
+    "price": "4000.00",
+    "compare_price": null,
+    "stock_quantity": 652,
+    "sku": "Celestron – Star",
+    "brand": "Celestron",
+    "condition": "new",
+    "warranty_months": 3,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-24-55.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 0,
+    "created_at": "2026-05-27T06:27:32.297Z",
+    "updated_at": "2026-05-27T06:27:32.297Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 33,
+  "fields": {
+    "name": "Made for Amazon Bluetooth Keyboard Case for Amazon Fire HD 10",
+    "slug": "made-for-amazon-bluetooth-keyboard-case-for-amazon",
+    "category": 3,
+    "description": "Design: Instantly transforms from a wireless keyboard, into a sleek cover. This Bluetooth Keyboard Case features durable protection, and attaches magnetically.\r\nKeyboard: Keyboard designed for a comfortable typing experience.\r\nProtection: Upper protective cover is made of polycarbonate material coated with durable PU leather, which allows full access to all ports, sensors, speakers, microphone and cameras.",
+    "short_description": "Made for Amazon Bluetooth Keyboard Case for Amazon Fire HD 10, (13th Gen, 2023 release)",
+    "price": "1500.00",
+    "compare_price": "0.00",
+    "stock_quantity": 228,
+    "sku": "Made-for-Amazon",
+    "brand": "Made for Amazon",
+    "condition": "new",
+    "warranty_months": 4,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-27-47.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 0,
+    "created_at": "2026-05-27T06:29:55.551Z",
+    "updated_at": "2026-05-27T06:29:55.551Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 34,
+  "fields": {
+    "name": "Ultimaxx 55MM Accessory Kit for Nikon",
+    "slug": "ultimaxx-55mm-accessory-kit-for-nikon",
+    "category": 3,
+    "description": "Brand  Ultimaxx\r\nMaterial  Glass or Optical Resin\r\nPhoto Filter Thread Size  55 Millimeters\r\nCoating Description  Multi Coating\r\nPhoto Filter Effect Type  Close-Up, Enhancing\r\nWater Resistance Level  Water Resistant\r\nProduct Dimensions  2.17\"L x 2.17\"W\r\nPhoto Filter Size  55 Millimeters\r\nUPC  715834452184\r\nSet Name  Ultimaxx 55MM Accessory Kit",
+    "short_description": "Ultimaxx 55MM Accessory Kit for Nikon D3300,D3400,D3500,D5500,D5600,D7500,D500, D780 with 2X EN-EL14A Replacement Batteries + Digital Filter Kits + Lightweight Tripod & Much More",
+    "price": "499.99",
+    "compare_price": null,
+    "stock_quantity": 200,
+    "sku": "Ultimaxx 55MM",
+    "brand": "Ultimaxx",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-30-09.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 0,
+    "created_at": "2026-05-27T06:31:57.092Z",
+    "updated_at": "2026-05-27T06:31:57.092Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 35,
+  "fields": {
+    "name": "Philips Beauty Lady Electric Shaver Series 6000,",
+    "slug": "philips-beauty-lady-electric-shaver-series-6000",
+    "category": 3,
+    "description": "Brand Name  Philips\r\nRecommended Uses For Product  Legs, Body, Bikini Line, Underarm\r\nModel Name  Philips Lady Shaver\r\nModel Number  BRL136/00\r\nIncluded Components  Battery\r\nGlobal Trade Identification Number  20075020109822\r\nUPC  075020102324\r\nManufacturer  Norelco\r\nManufacturer Part Number",
+    "short_description": "Philips Beauty Lady Electric Shaver Series 6000, Cordless with 4 Accessories, BRL136/00, White",
+    "price": "199.99",
+    "compare_price": null,
+    "stock_quantity": 799,
+    "sku": "Phil-Be",
+    "brand": "Philips Beauty",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-32-11.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 1,
+    "created_at": "2026-05-27T06:34:13.160Z",
+    "updated_at": "2026-05-27T17:29:08.366Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 36,
+  "fields": {
+    "name": "GoPro Light Mod - Official GoPro Accessory",
+    "slug": "gopro-light-mod-official-gopro-accessory",
+    "category": 3,
+    "description": "Brand  GoPro\r\nBattery Life  6 Hours\r\nConnectivity Technology  USB\r\nHardware Interface  USB Type C\r\nProduct Dimensions  2.56\"L x 0.79\"W x 2.4\"H",
+    "short_description": "GoPro Light Mod - Official GoPro Accessory",
+    "price": "1200.00",
+    "compare_price": null,
+    "stock_quantity": 900,
+    "sku": "GoP-Light",
+    "brand": "GoPro Light Mod",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-34-55.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 0,
+    "created_at": "2026-05-27T06:36:32.752Z",
+    "updated_at": "2026-05-27T06:36:32.752Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 37,
+  "fields": {
+    "name": "Zoom H6essential 6-Track 32-Bit Float Portable Audio Recorder",
+    "slug": "zoom-h6essential-6-track-32-bit-float-portable-aud",
+    "category": 3,
+    "description": "Compatible Devices  Camera\r\nBrand  Zoom\r\nHardware Interface  USB\r\nMicrophone Form Factor  Built-In\r\nFormat  WAV\r\nHeadphones Jack  3.5 millimeters\r\nBattery Life  18 Hours\r\nDigital Recording Time  720 minutes (12 hours)\r\nMicrophone Operation Mode  Stereo",
+    "short_description": "Zoom H6essential 6-Track 32-Bit Float Portable Audio Recorder Bundle with APH-6e H6essential Accessory Pack with Hairy Windscreen, Padded Shell Case, AC Adapter, & USB C-Cable (H6e + APH6E Bundle)",
+    "price": "2500.00",
+    "compare_price": null,
+    "stock_quantity": 987,
+    "sku": "Zo-H-6",
+    "brand": "Zoom H6essential",
+    "condition": "new",
+    "warranty_months": -1,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-36-46.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 0,
+    "created_at": "2026-05-27T06:40:04.748Z",
+    "updated_at": "2026-05-27T06:40:04.748Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 38,
+  "fields": {
+    "name": "Made for Amazon, Wireless Charging Dock",
+    "slug": "made-for-amazon-wireless-charging-dock",
+    "category": 3,
+    "description": "Compatible only with Kindle Paperwhite Signature Editions (2022 & 2024 Releases) and Kindle Colorsoft Signature Edition\r\nQuick & Easy: Wireless charging dock eliminates the need to plug in your Kindle device every time you want to charge it. The dock is always ready. Just drop your Kindle in the dock and let it charge. Kindle devices sold separately.\r\nPerfect Fit: Dock your Kindle in portrait mode.\r\nCase Charging: The Wireless Charging Dock charges your Kindle with a case up to 4mm thick, in portrait mode. Case sold separately",
+    "short_description": "Made for Amazon, Wireless Charging Dock for Kindle Paperwhite Signature Editions (2022 & 2024 Releases) and Kindle Colorsoft Signature Edition",
+    "price": "3300.00",
+    "compare_price": null,
+    "stock_quantity": 896,
+    "sku": "Ma-f-A",
+    "brand": "Made for Amazon",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-40-20.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 2,
+    "created_at": "2026-05-27T06:43:19.932Z",
+    "updated_at": "2026-05-27T06:43:19.933Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 39,
+  "fields": {
+    "name": "GoPro Max Lens Mod 2.0",
+    "slug": "gopro-max-lens-mod-20",
+    "category": 3,
+    "description": "Brand  GoPro\r\nLens Type  Wide Angle\r\nMaximum Focal Length  14.5 Millimeters\r\nMinimum Focal Length  14.5 Millimeters\r\nFocus Type  Fixed Focus",
+    "short_description": "GoPro Max Lens Mod 2.0 (HERO12 Black) - Official GoPro Accessory, Black",
+    "price": "890.00",
+    "compare_price": null,
+    "stock_quantity": 2499,
+    "sku": "G-M-L",
+    "brand": "GoPro",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-43-34.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 6,
+    "created_at": "2026-05-27T06:45:34.737Z",
+    "updated_at": "2026-05-27T06:45:34.737Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 40,
+  "fields": {
+    "name": "Logitech H390 Wired Headset",
+    "slug": "logitech-h390-wired-headset",
+    "category": 3,
+    "description": "Brand  Logitech\r\nColor  Black\r\nEar Placement  On Ear\r\nForm Factor  Over Ear\r\nImpedance  32 Ohms",
+    "short_description": "Logitech H390 Wired Headset for PC/Laptop, Stereo Headphones with Noise Cancelling Microphone, USB-A, in-Line Controls, Works with Chromebook - Black",
+    "price": "576.00",
+    "compare_price": null,
+    "stock_quantity": 999,
+    "sku": "Lo-H3",
+    "brand": "Logitech",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-45-53.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 9,
+    "created_at": "2026-05-27T06:47:44.970Z",
+    "updated_at": "2026-05-27T06:47:44.970Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 41,
+  "fields": {
+    "name": "Bose QuietComfort Earbuds",
+    "slug": "bose-quietcomfort-earbuds",
+    "category": 3,
+    "description": "Brand  Bose\r\nColor  Black\r\nEar Placement  In Ear\r\nForm Factor  In Ear\r\nNoise Control  Active Noise Cancellation",
+    "short_description": "Bose QuietComfort Earbuds - True Wireless Bluetooth Earbuds with Active Noise Cancellation and Mic, USB-C Charging, IPX4 Rating, Up to 8.5 Hours of Playtime, Black",
+    "price": "653.99",
+    "compare_price": null,
+    "stock_quantity": 997,
+    "sku": "B-Q",
+    "brand": "Bose",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-47-57.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 6,
+    "created_at": "2026-05-27T06:49:50.301Z",
+    "updated_at": "2026-05-27T06:49:50.301Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 42,
+  "fields": {
+    "name": "ullcandy Dime 2 Wireless Earbuds, Bluetooth Headphones,",
+    "slug": "ullcandy-dime-2-wireless-earbuds-bluetooth-headpho",
+    "category": 3,
+    "description": "Brand  Skullcandy\r\nColor  True Black\r\nEar Placement  In Ear\r\nForm Factor  In Ear\r\nImpedance  16 Ohms",
+    "short_description": "ullcandy Dime 2 Wireless Earbuds, Bluetooth Headphones, Noise Isolating Fit, Up to 12 Hours Battery, Microphone for iPhone Android, Easy Carry with Integrated Lanyard - True Black",
+    "price": "539.99",
+    "compare_price": null,
+    "stock_quantity": 874,
+    "sku": "ull-Di",
+    "brand": "ullcandy",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-50-05.jpg",
+    "rating": "4.50",
+    "total_reviews": 2,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 16,
+    "created_at": "2026-05-27T06:52:04.882Z",
+    "updated_at": "2026-05-27T17:10:01.438Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 43,
+  "fields": {
+    "name": "Lenovo IdeaCentre All-in-One",
+    "slug": "lenovo-ideacentre-all-in-one",
+    "category": 4,
+    "description": "Brand  Lenovo\r\nOperating System  Windows 11 Home\r\nCPU Model  Intel N100\r\nCPU Speed  3.4 GHz\r\nCache Size  6 MB\r\nGraphics Card Description  Integrated\r\nMemory Storage Capacity  16 GB\r\nSpecific Uses For Product  Education, Everyday Use, Student\r\nScreen Size  23.8 Inches",
+    "short_description": "Lenovo IdeaCentre All-in-One Desktop Computer, 24\" FHD Anti-Glare IPS Display, 16GB RAM, 512GB SSD, Intel 4-Core Processor, Wi-Fi 6, Bluetooth 5.2, Windows 11 Home, Everyday Use AIO",
+    "price": "21000.00",
+    "compare_price": null,
+    "stock_quantity": 652,
+    "sku": "Le-de",
+    "brand": "Lenovo",
+    "condition": "new",
+    "warranty_months": 0,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-54-27.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 0,
+    "created_at": "2026-05-27T06:57:06.717Z",
+    "updated_at": "2026-05-27T06:57:06.717Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 44,
+  "fields": {
+    "name": "Dell 24 All-in-One",
+    "slug": "dell-24-all-in-one",
+    "category": 4,
+    "description": "Brand  Dell\r\nOperating System  Windows 11 Home\r\nCPU Model  Intel Core 5\r\nCPU Speed  1.4 GHz\r\nCache Size  12\r\nGraphics Card Description  Integrated\r\nGraphics Coprocessor  Intel Graphics\r\nMemory Storage Capacity  16 GB\r\nSpecific Uses For Product  Business, Education, Everyday Use\r\nPersonal computer design type  All in One",
+    "short_description": "Dell 24 All-in-One Desktop ec24250-23.8-inch FHD Display, Intel Core 3 Processor 100U, Intel Graphics, 8GB DDR5 RAM, 512GB SSD, Windows 11 Home, Onsite Service+6 Months Retail Migrate - White",
+    "price": "15000.00",
+    "compare_price": null,
+    "stock_quantity": 441,
+    "sku": "Dell 24 Al",
+    "brand": "Dell",
+    "condition": "new",
+    "warranty_months": 3,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_09-57-20.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 2,
+    "created_at": "2026-05-27T06:59:45.202Z",
+    "updated_at": "2026-05-27T17:20:31.488Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 45,
+  "fields": {
+    "name": "Lenovo IdeaCentre Everyday Tasks 24\" Full HD",
+    "slug": "lenovo-ideacentre-everyday-tasks-24-full-hd",
+    "category": 4,
+    "description": "Brand  Lenovo\r\nOperating System  Windows 11\r\nCPU Model  Intel N100\r\nCPU Speed  3.6 GHz\r\nGraphics Card Description  Integrated\r\nGraphics Coprocessor  Intel UHD Graphics\r\nMemory Storage Capacity  256 GB\r\nSpecific Uses For Product  Business, Home Office, Professional\r\nPersonal computer design type  All in One\r\nScreen Size  24 Inches",
+    "short_description": "Lenovo IdeaCentre Everyday Tasks 24\" Full HD All-in-One Desktop Computer • Office 365 for the Web • Intel 4-Cores • 256GB SSD • 8GB RAM • KB and Mouse • Windows 1",
+    "price": "11000.00",
+    "compare_price": null,
+    "stock_quantity": 762,
+    "sku": "L-C",
+    "brand": "Lenovo",
+    "condition": "new",
+    "warranty_months": 3,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_10-00-05.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 3,
+    "created_at": "2026-05-27T07:02:09.038Z",
+    "updated_at": "2026-05-27T17:14:07.875Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 46,
+  "fields": {
+    "name": "Apple 2024 iMac All-in-One Desktop Computer with M4 chip with 10-core CPU",
+    "slug": "apple-2024-imac-all-in-one-desktop-computer-with-m",
+    "category": 4,
+    "description": "Brand  Apple\r\nOperating System  Mac OS\r\nCPU Model  Apple M4\r\nCPU Speed  4.3 GHz\r\nCache Size  98.4 MB\r\nGraphics Card Description  Integrated\r\nGraphics Coprocessor  Apple Integrated Graphics\r\nMemory Storage Capacity  256 GB\r\nSpecific Uses For Product  Business, Multimedia, Personal\r\nPersonal computer design type  All in One",
+    "short_description": "Apple 2024 iMac All-in-One Desktop Computer with M4 chip with 10-core CPU and 10-core GPU: Built for Apple Intelligence, 24-inch Retina Display, 16GB Unified Memory, 256GB SSD Storage; Pink",
+    "price": "9800.00",
+    "compare_price": null,
+    "stock_quantity": 656,
+    "sku": "Ap-2024",
+    "brand": "Apple",
+    "condition": "new",
+    "warranty_months": 3,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_10-02-22.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 0,
+    "created_at": "2026-05-27T07:04:30.551Z",
+    "updated_at": "2026-05-27T07:04:30.551Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 47,
+  "fields": {
+    "name": "HP 22\" All-in-One Desktop Compute",
+    "slug": "hp-22-all-in-one-desktop-compute",
+    "category": 4,
+    "description": "Brand  HP\r\nOperating System  Windows 11\r\nCPU Model  Intel N100\r\nCPU Speed  1 GHz\r\nGraphics Card Description  Integrated\r\nGraphics Coprocessor  Integrated Graphics\r\nMemory Storage Capacity  128 GB\r\nSpecific Uses For Product  Business, Home, Student\r\nPersonal computer design type  All in One\r\nScreen Size  21.45 Inches",
+    "short_description": "HP 22\" All-in-One Desktop Computer, 8GB DDR5 RAM, 128GB UFS Storage,13th Gen Intel Quad-Core CPU, FHD VA Display, WiFi 6, Bluetooth 5.3, RJ45, USB-C (10Gbps), UHD Graphics, 720p Cam, Cashmere White",
+    "price": "8900.00",
+    "compare_price": null,
+    "stock_quantity": 700,
+    "sku": "HP 22\" All-on",
+    "brand": "HP",
+    "condition": "new",
+    "warranty_months": 4,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_10-05-23.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 0,
+    "created_at": "2026-05-27T07:07:11.930Z",
+    "updated_at": "2026-05-27T07:07:11.930Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 48,
+  "fields": {
+    "name": "Lenovo A100 24\" IPS FHD All in One Desktop Computer",
+    "slug": "lenovo-a100-24-ips-fhd-all-in-one-desktop-computer",
+    "category": 4,
+    "description": "Brand  Lenovo\r\nOperating System  Windows 11 Home\r\nCPU Model  Core i3\r\nCPU Speed  0.8 GHz\r\nCache Size  6 MB\r\nGraphics Card Description  Integrated\r\nGraphics Coprocessor  Intel UHD Graphics 600\r\nMemory Storage Capacity  8 GB\r\nSpecific Uses For Product  Education\r\nPersonal computer design type  All in One",
+    "short_description": "Lenovo A100 24\" IPS FHD All in One Desktop Computer, Intel 8-core CPU, 8GB RAM, 512GB SSD Storage, Wireless Keyboard & Mouse Included, Support Dual-Display, HDMI, Windows 11, Cloud Grey",
+    "price": "6700.00",
+    "compare_price": null,
+    "stock_quantity": 435,
+    "sku": "Le-A",
+    "brand": "Lenovo",
+    "condition": "new",
+    "warranty_months": 2,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_10-07-29.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 2,
+    "created_at": "2026-05-27T07:09:32.271Z",
+    "updated_at": "2026-05-27T07:09:32.271Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 49,
+  "fields": {
+    "name": "P 27” FHD Touchscreen All-in-One – Everything to Just Work",
+    "slug": "p-27-fhd-touchscreen-all-in-one-everything-to-just",
+    "category": 4,
+    "description": "Brand  HP\r\nOperating System  Windows 11 Pro\r\nCPU Model  Intel Core Ultra 7\r\nCPU Speed  5.2\r\nGraphics Card Description  Integrated\r\nGraphics Coprocessor  Integrated\r\nMemory Storage Capacity  32 GB\r\nSpecific Uses For Product  Business, Education, Everyday Use\r\nPersonal computer design type  All in One\r\nScreen Size  27 Inches",
+    "short_description": "P 27” FHD Touchscreen All-in-One – Everything to Just Work, Intel Core Ultra 7 155U, 16GB DDR5, 1TB SSD, Free Web Office, HDMI & Ethernet, Windows 11 Pro, USB-C Docking Station Included",
+    "price": "5400.00",
+    "compare_price": null,
+    "stock_quantity": 599,
+    "sku": "P 27”-f-To",
+    "brand": "HP",
+    "condition": "refurbished",
+    "warranty_months": 2,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_10-10-01.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 3,
+    "created_at": "2026-05-27T07:12:00.403Z",
+    "updated_at": "2026-05-27T17:10:01.442Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 50,
+  "fields": {
+    "name": "HP 27\" FHD Touchscreen All-in-One Desktop",
+    "slug": "hp-27-fhd-touchscreen-all-in-one-desktop",
+    "category": 4,
+    "description": "Brand  HP\r\nOperating System  Windows 11 Pro\r\nCPU Model  Intel Core Ultra 7\r\nCPU Speed  5.2\r\nGraphics Card Description  Integrated\r\nGraphics Coprocessor  Integrated\r\nMemory Storage Capacity  32 GB\r\nSpecific Uses For Product  Business, Education, Everyday Use\r\nPersonal computer design type  All in One\r\nScreen Size  27 Inches",
+    "short_description": "HP 27\" FHD Touchscreen All-in-One Desktop, AMD Ryzen 5 7520U, 16GB LPDDR5, 2TB Storage (1TB SSD&1TB Docking Station), FHD IR Camera, Wi-Fi 6, Wireless Keyboard & Mouse, Windows 11 Pro, White",
+    "price": "19990.00",
+    "compare_price": null,
+    "stock_quantity": 766,
+    "sku": "HP 27\" FHD",
+    "brand": "HP",
+    "condition": "new",
+    "warranty_months": 4,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_10-12-33.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 4,
+    "created_at": "2026-05-27T07:14:41.113Z",
+    "updated_at": "2026-05-27T07:14:41.113Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 51,
+  "fields": {
+    "name": "Lenovo IdeaCentre AIO 27\" FHD All-in-One Desktop Computer",
+    "slug": "lenovo-ideacentre-aio-27-fhd-all-in-one-desktop-co",
+    "category": 4,
+    "description": "Brand  Lenovo\r\nOperating System  Windows 11 Pro\r\nCPU Model  Core i7\r\nCPU Speed  2.4 GHz\r\nCache Size  24 MB\r\nGraphics Card Description  Integrated\r\nMemory Storage Capacity  16 GB\r\nSpecific Uses For Product  Business, Education, Everyday Use\r\nScreen Size  27 Inches",
+    "short_description": "Lenovo IdeaCentre AIO 27\" FHD All-in-One Desktop Computer, Intel Core i7-13620H, 16GB DDR5 RAM, 512GB SSD, Wi-Fi 6, Windows 11 Pro, Business & Home Office",
+    "price": "2177.00",
+    "compare_price": null,
+    "stock_quantity": 435,
+    "sku": "Le- Id",
+    "brand": "Lenovo",
+    "condition": "used",
+    "warranty_months": 6,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_10-15-01.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 3,
+    "created_at": "2026-05-27T07:17:13.528Z",
+    "updated_at": "2026-05-27T07:17:13.528Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 52,
+  "fields": {
+    "name": "Acer Aspire C27 All-in-One Desktop",
+    "slug": "acer-aspire-c27-all-in-one-desktop",
+    "category": 4,
+    "description": "Brand  Acer\r\nOperating System  Windows 11 Home\r\nCPU Model  AMD R Series\r\nCPU Speed  2 GHz\r\nGraphics Card Description  8GB RAM|512GB SSD\r\nGraphics Coprocessor  8GB RAM|512GB SSD\r\nMemory Storage Capacity  8 GB\r\nSpecific Uses For Product  Professional\r\nPersonal computer design type  All in One\r\nRam Memory Installed Size  8 GB",
+    "short_description": "Acer Aspire C27 All-in-One Desktop, 27\" IPS FHD Display (Ryzen 7 5825U (5000 Series), 8GB DDR5, 512GB PCIe SSD, Wi-Fi 6E, Webcam, Wireless Keyboard and Mouse, BT 5.3, Win 11 Home) with USB Hub",
+    "price": "5600.00",
+    "compare_price": null,
+    "stock_quantity": 1986,
+    "sku": "A-A-C27",
+    "brand": "Acer",
+    "condition": "new",
+    "warranty_months": 3,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_10-17-37.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 0,
+    "created_at": "2026-05-27T07:19:45.449Z",
+    "updated_at": "2026-05-27T07:19:45.449Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 53,
+  "fields": {
+    "name": "amsung 65-Inch Class QLED Q8F 4K UHD Smart TV",
+    "slug": "amsung-65-inch-class-qled-q8f-4k-uhd-smart-tv",
+    "category": 5,
+    "description": "Screen Size  65 Inches\r\nBrand  Samsung\r\nDisplay Technology  QLED\r\nResolution  4K\r\nRefresh Rate  120 Hz\r\nSpecial Feature  Built-In Speaker, Game Mode\r\nIncluded Components  Power Cable, Remote Control, Stand, User Manual\r\nConnectivity Technology  Bluetooth, Ethernet, HDMI, USB, Wi-Fi\r\nAspect Ratio  16:9\r\nProduct Dimensions",
+    "short_description": "amsung 65-Inch Class QLED Q8F 4K UHD Smart TV (2025 Model) Q4 AI Processor, 100% Color Volume with Quantum Dot, AirSlim Design, Endless Free Content, Samsung Vision AI, Alexa Built-in",
+    "price": "7800.00",
+    "compare_price": null,
+    "stock_quantity": 766,
+    "sku": "a-5-I",
+    "brand": "amsung",
+    "condition": "refurbished",
+    "warranty_months": 2,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_10-19-59.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 2,
+    "created_at": "2026-05-27T07:23:04.194Z",
+    "updated_at": "2026-05-27T07:23:04.194Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 54,
+  "fields": {
+    "name": "LG 83-Inch Class OLED evo AI 4K C5 Series Smart TV",
+    "slug": "lg-83-inch-class-oled-evo-ai-4k-c5-series-smart-tv",
+    "category": 5,
+    "description": "Screen Size  83 Inches\r\nBrand  LG\r\nDisplay Technology  OLED\r\nResolution  4K\r\nRefresh Rate  120 Hz\r\nSpecial Feature  Amd freesync, Built-In Speaker, Chromecast, Multiple Voice Assistance, Nvidia G Sync\r\nIncluded Components  Power Cable, Remote Control, Stand, User Manual\r\nConnectivity Technology  Bluetooth, Ethernet, HDMI, USB, Wi-Fi\r\nAspect Ratio  16:9\r\nProduct Dimensions",
+    "short_description": "LG 83-Inch Class OLED evo AI 4K C5 Series Smart TV w/Dolby Atmos, Dolby Vision, HDR10, AI Super Upscaling 4K, Filmmaker Mode, Wow Orchestra, Alexa Built-in (OLED83C5PUA, 2025)",
+    "price": "4500.00",
+    "compare_price": null,
+    "stock_quantity": 33,
+    "sku": "LG 83-Inch",
+    "brand": "LG",
+    "condition": "used",
+    "warranty_months": 5,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_10-23-22.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 7,
+    "created_at": "2026-05-27T07:25:11.493Z",
+    "updated_at": "2026-05-27T17:22:16.511Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 55,
+  "fields": {
+    "name": "Roku Smart TV",
+    "slug": "roku-smart-tv",
+    "category": 5,
+    "description": "Screen Size  43 Inches\r\nBrand  Roku\r\nDisplay Technology  LED\r\nResolution  4K/Ultra HD\r\nRefresh Rate  60\r\nSpecial Feature  Bluetooth Headphone Mode, Dolby Audio, Voice Remote\r\nIncluded Components  Power Cable, Remote Control, Stand, User Manual\r\nConnectivity Technology  Bluetooth, Wi-Fi\r\nAspect Ratio  16:9\r\nProduct Dimensions  7.1\"D x 37.6\"W x 23.8\"H",
+    "short_description": "Roku Smart TV 2026 – 43-Inch Select Series, 4K HDR TV – Roku TV with Voice Remote – Flat Screen LED Television with Wi-Fi for Streaming Live Local News, Sports, & Movies – Bluetooth Headphone Mode",
+    "price": "6799.00",
+    "compare_price": null,
+    "stock_quantity": 52,
+    "sku": "R-S-V",
+    "brand": "Roku",
+    "condition": "refurbished",
+    "warranty_months": 5,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_10-25-28.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 11,
+    "created_at": "2026-05-27T07:27:12.113Z",
+    "updated_at": "2026-05-27T17:09:17.755Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 56,
+  "fields": {
+    "name": "VIZIO 40-inch D-Series Full HD 1080p Smart TV",
+    "slug": "vizio-40-inch-d-series-full-hd-1080p-smart-tv",
+    "category": 5,
+    "description": "Screen Size\r\n55 Inches\r\nBrand\r\nSony\r\nDisplay Technology\r\nMini Led\r\nResolution\r\n4K, 1080p, 720p\r\nRefresh Rate\r\n120 Hz\r\nSpecial Feature\r\nBuilt-in Mic Switch, ECO Dashboard, Exclusive features for PlayStation 5, Perfect for PlayStation 5, Sony Pictures CORE \r\nIncluded Components\r\nPower Cable, Remote Control, Stand, User Manual, Warranty Card\r\nConnectivity Technology\r\nBluetooth, Ethernet, HDMI, USB, Wi-Fi\r\nAspect Ratio\r\n16:9\r\nProduct Dimensions",
+    "short_description": "VIZIO 40-inch D-Series Full HD 1080p Smart TV with AMD FreeSync, Apple AirPlay and Chromecast Built-in, Alexa Compatibility, D40f-J09, 2022 Model",
+    "price": "17000.00",
+    "compare_price": null,
+    "stock_quantity": 54,
+    "sku": "VI-40-inch",
+    "brand": "VIZIOTV with AMD FreeSync, Apple AirPlay and Chromecast Built-",
+    "condition": "new",
+    "warranty_months": 7,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_10-27-25.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 21,
+    "created_at": "2026-05-27T07:29:11.355Z",
+    "updated_at": "2026-05-27T17:09:17.752Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 57,
+  "fields": {
+    "name": "VIZIO 40-inch D-Series Full HD 1080p Smart TV",
+    "slug": "vizio-40-inch-d-series-full-hd-1080p-tv",
+    "category": 5,
+    "description": "Screen Size  40 Inches\r\nBrand  VIZIO\r\nDisplay Technology  LCD\r\nResolution  1080p\r\nRefresh Rate  60 Hz\r\nSpecial Feature  DTS Virtual:X, Free Channels with WatchFree+\r\nIncluded Components  Power Cable, Remote Control, Stand\r\nConnectivity Technology  wired, wireless\r\nAspect Ratio  16:9\r\nProduct Dimensions  8.81\"D x 35.55\"W x 22.81\"H",
+    "short_description": "VIZIO 40-inch D-Series Full HD 1080p Smart TV with AMD FreeSync, Apple AirPlay and Chromecast Built-in, Alexa Compatibility, D40f-J09, 2022 Model",
+    "price": "21000.00",
+    "compare_price": null,
+    "stock_quantity": 88,
+    "sku": "VI-40",
+    "brand": "VIZIO",
+    "condition": "new",
+    "warranty_months": 4,
+    "specifications": {},
+    "images": [],
+    "main_image": "products/photo_2026-05-27_10-29-43.jpg",
+    "rating": "0.00",
+    "total_reviews": 0,
+    "is_active": true,
+    "is_featured": true,
+    "views_count": 6,
+    "created_at": "2026-05-27T07:33:02.063Z",
+    "updated_at": "2026-05-27T07:33:02.063Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 3,
+  "fields": {
+    "product": 3,
+    "image": "products/Screenshot_2025-12-27_134302_UpkDCrA.png",
+    "is_primary": false,
+    "alt_text": ""
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 4,
+  "fields": {
+    "product": 4,
+    "image": "products/Screenshot_2026-02-27_214143_HgsrVxr.png",
+    "is_primary": false,
+    "alt_text": ""
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 8,
+  "fields": {
+    "product": 12,
+    "image": "products/Apple-Phone16_9yaKayQ.jpg",
+    "is_primary": false,
+    "alt_text": ""
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 9,
+  "fields": {
+    "product": 13,
+    "image": "products/Apple_iPhone_17_Pro.jpg",
+    "is_primary": false,
+    "alt_text": "iphone 17"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 10,
+  "fields": {
+    "product": 14,
+    "image": "products/photo_2026-05-27_08-00-53.jpg",
+    "is_primary": false,
+    "alt_text": ""
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 11,
+  "fields": {
+    "product": 14,
+    "image": "products/photo_2026-05-27_08-00-53_vBBgwaQ.jpg",
+    "is_primary": false,
+    "alt_text": ""
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 12,
+  "fields": {
+    "product": 15,
+    "image": "products/photo_2026-05-27_08-10-23.jpg",
+    "is_primary": false,
+    "alt_text": "iphone 15"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 13,
+  "fields": {
+    "product": 16,
+    "image": "products/photo_2026-05-27_08-14-06.jpg",
+    "is_primary": false,
+    "alt_text": "Galaxy-s23"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 14,
+  "fields": {
+    "product": 17,
+    "image": "products/photo_2026-05-27_08-18-34.jpg",
+    "is_primary": false,
+    "alt_text": "Motorola"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 15,
+  "fields": {
+    "product": 18,
+    "image": "products/photo_2026-05-27_08-23-13.jpg",
+    "is_primary": false,
+    "alt_text": ""
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 16,
+  "fields": {
+    "product": 19,
+    "image": "products/photo_2026-05-27_08-28-10.jpg",
+    "is_primary": false,
+    "alt_text": ""
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 17,
+  "fields": {
+    "product": 19,
+    "image": "products/photo_2026-05-27_08-28-10_tbBb4o0.jpg",
+    "is_primary": false,
+    "alt_text": ""
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 18,
+  "fields": {
+    "product": 20,
+    "image": "products/photo_2026-05-27_08-33-55.jpg",
+    "is_primary": false,
+    "alt_text": "Google"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 19,
+  "fields": {
+    "product": 21,
+    "image": "products/photo_2026-05-27_08-37-06.jpg",
+    "is_primary": false,
+    "alt_text": "Samsung Galaxy Z Flip7 FE"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 20,
+  "fields": {
+    "product": 22,
+    "image": "products/photo_2026-05-27_08-43-19.jpg",
+    "is_primary": false,
+    "alt_text": "Microsoft"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 21,
+  "fields": {
+    "product": 23,
+    "image": "products/photo_2026-05-27_08-47-12.jpg",
+    "is_primary": false,
+    "alt_text": "HP"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 22,
+  "fields": {
+    "product": 24,
+    "image": "products/photo_2026-05-27_08-56-47.jpg",
+    "is_primary": false,
+    "alt_text": "dell"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 23,
+  "fields": {
+    "product": 25,
+    "image": "products/photo_2026-05-27_08-59-38.jpg",
+    "is_primary": false,
+    "alt_text": "ASUS"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 24,
+  "fields": {
+    "product": 26,
+    "image": "products/photo_2026-05-27_09-02-08.jpg",
+    "is_primary": false,
+    "alt_text": "NIMO"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 25,
+  "fields": {
+    "product": 27,
+    "image": "products/photo_2026-05-27_09-06-06.jpg",
+    "is_primary": false,
+    "alt_text": "Lenovo"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 26,
+  "fields": {
+    "product": 28,
+    "image": "products/photo_2026-05-27_09-08-30.jpg",
+    "is_primary": false,
+    "alt_text": "Dell"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 27,
+  "fields": {
+    "product": 29,
+    "image": "products/photo_2026-05-27_09-08-33_sVJ9Z59.jpg",
+    "is_primary": false,
+    "alt_text": "Apple"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 28,
+  "fields": {
+    "product": 30,
+    "image": "products/photo_2026-05-27_09-15-37.jpg",
+    "is_primary": false,
+    "alt_text": "HP"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 29,
+  "fields": {
+    "product": 31,
+    "image": "products/photo_2026-05-27_09-17-42.jpg",
+    "is_primary": false,
+    "alt_text": "Acer"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 30,
+  "fields": {
+    "product": 32,
+    "image": "products/photo_2026-05-27_09-24-50.jpg",
+    "is_primary": false,
+    "alt_text": "Celestron"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 31,
+  "fields": {
+    "product": 33,
+    "image": "products/photo_2026-05-27_09-27-44.jpg",
+    "is_primary": false,
+    "alt_text": "stand"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 32,
+  "fields": {
+    "product": 34,
+    "image": "products/photo_2026-05-27_09-30-06.jpg",
+    "is_primary": false,
+    "alt_text": "Ultimaxx 55MM"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 33,
+  "fields": {
+    "product": 35,
+    "image": "products/photo_2026-05-27_09-32-08.jpg",
+    "is_primary": false,
+    "alt_text": "Philips Beauty"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 34,
+  "fields": {
+    "product": 36,
+    "image": "products/photo_2026-05-27_09-34-52.jpg",
+    "is_primary": false,
+    "alt_text": "GoPro Light Mod"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 35,
+  "fields": {
+    "product": 37,
+    "image": "products/photo_2026-05-27_09-36-43.jpg",
+    "is_primary": false,
+    "alt_text": "Zoom H6essential )"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 36,
+  "fields": {
+    "product": 38,
+    "image": "products/photo_2026-05-27_09-40-18.jpg",
+    "is_primary": false,
+    "alt_text": "Made for Amazon"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 37,
+  "fields": {
+    "product": 39,
+    "image": "products/photo_2026-05-27_09-43-31.jpg",
+    "is_primary": false,
+    "alt_text": "GoPro Max"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 38,
+  "fields": {
+    "product": 40,
+    "image": "products/photo_2026-05-27_09-45-51.jpg",
+    "is_primary": false,
+    "alt_text": "Logitech H390"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 39,
+  "fields": {
+    "product": 41,
+    "image": "products/photo_2026-05-27_09-47-54.jpg",
+    "is_primary": false,
+    "alt_text": "Bose"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 40,
+  "fields": {
+    "product": 42,
+    "image": "products/photo_2026-05-27_09-50-02.jpg",
+    "is_primary": false,
+    "alt_text": "ullcandy Di"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 41,
+  "fields": {
+    "product": 43,
+    "image": "products/photo_2026-05-27_09-54-24.jpg",
+    "is_primary": false,
+    "alt_text": "Lenovo Id"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 42,
+  "fields": {
+    "product": 44,
+    "image": "products/photo_2026-05-27_09-57-18.jpg",
+    "is_primary": false,
+    "alt_text": "Dell 24"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 43,
+  "fields": {
+    "product": 45,
+    "image": "products/photo_2026-05-27_10-00-02.jpg",
+    "is_primary": false,
+    "alt_text": "Lenovo"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 44,
+  "fields": {
+    "product": 46,
+    "image": "products/photo_2026-05-27_10-02-19.jpg",
+    "is_primary": false,
+    "alt_text": "Apple 2024 iMac"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 45,
+  "fields": {
+    "product": 47,
+    "image": "products/photo_2026-05-27_10-05-12.jpg",
+    "is_primary": false,
+    "alt_text": "HP 22\" All-in-One e"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 46,
+  "fields": {
+    "product": 48,
+    "image": "products/photo_2026-05-27_10-07-26.jpg",
+    "is_primary": false,
+    "alt_text": "Lenovo"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 47,
+  "fields": {
+    "product": 49,
+    "image": "products/photo_2026-05-27_10-09-58.jpg",
+    "is_primary": false,
+    "alt_text": "P 27” FHD Touchscreen All-in-One"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 48,
+  "fields": {
+    "product": 50,
+    "image": "products/photo_2026-05-27_10-12-30.jpg",
+    "is_primary": false,
+    "alt_text": "HP 27\" FHD Touchscreen All-in-One Desktop"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 49,
+  "fields": {
+    "product": 51,
+    "image": "products/photo_2026-05-27_10-15-01_EwPLZoJ.jpg",
+    "is_primary": false,
+    "alt_text": "Lenovo IdeaCentre"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 50,
+  "fields": {
+    "product": 52,
+    "image": "products/photo_2026-05-27_10-17-34.jpg",
+    "is_primary": false,
+    "alt_text": "Acer Aspire C27 All-in-One Desktop"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 51,
+  "fields": {
+    "product": 53,
+    "image": "products/photo_2026-05-27_10-19-57.jpg",
+    "is_primary": false,
+    "alt_text": "amsung 65-Inch Class"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 52,
+  "fields": {
+    "product": 54,
+    "image": "products/photo_2026-05-27_10-23-19.jpg",
+    "is_primary": false,
+    "alt_text": "LG 83-Inch"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 53,
+  "fields": {
+    "product": 55,
+    "image": "products/photo_2026-05-27_10-25-25.jpg",
+    "is_primary": false,
+    "alt_text": "Roku"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 54,
+  "fields": {
+    "product": 56,
+    "image": "products/photo_2026-05-27_10-27-23.jpg",
+    "is_primary": false,
+    "alt_text": "VIZIO 40-inch"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 55,
+  "fields": {
+    "product": 57,
+    "image": "products/photo_2026-05-27_10-29-39.jpg",
+    "is_primary": false,
+    "alt_text": "VIZIO 40-inch"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 4,
+  "fields": {
+    "order": 3,
+    "product": null,
+    "product_name": "HP elite book",
+    "product_price": "1500.00",
+    "quantity": 1,
+    "subtotal": "1500.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 5,
+  "fields": {
+    "order": 4,
+    "product": 4,
+    "product_name": "delle desktop",
+    "product_price": "499.99",
+    "quantity": 1,
+    "subtotal": "499.99"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 6,
+  "fields": {
+    "order": 5,
+    "product": null,
+    "product_name": "HP elite book",
+    "product_price": "1500.00",
+    "quantity": 1,
+    "subtotal": "1500.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 7,
+  "fields": {
+    "order": 6,
+    "product": null,
+    "product_name": "iphon 17",
+    "product_price": "1500.00",
+    "quantity": 3,
+    "subtotal": "4500.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 8,
+  "fields": {
+    "order": 7,
+    "product": null,
+    "product_name": "iphon 17",
+    "product_price": "1500.00",
+    "quantity": 1,
+    "subtotal": "1500.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 9,
+  "fields": {
+    "order": 8,
+    "product": null,
+    "product_name": "HP elite book",
+    "product_price": "1500.00",
+    "quantity": 1,
+    "subtotal": "1500.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 10,
+  "fields": {
+    "order": 9,
+    "product": 3,
+    "product_name": "erphon",
+    "product_price": "100.00",
+    "quantity": 1,
+    "subtotal": "100.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 11,
+  "fields": {
+    "order": 10,
+    "product": 3,
+    "product_name": "erphon",
+    "product_price": "100.00",
+    "quantity": 1,
+    "subtotal": "100.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 12,
+  "fields": {
+    "order": 11,
+    "product": 4,
+    "product_name": "delle desktop",
+    "product_price": "499.99",
+    "quantity": 1,
+    "subtotal": "499.99"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 13,
+  "fields": {
+    "order": 12,
+    "product": 5,
+    "product_name": "Ultra high headphone",
+    "product_price": "99.99",
+    "quantity": 1,
+    "subtotal": "99.99"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 14,
+  "fields": {
+    "order": 13,
+    "product": 5,
+    "product_name": "Ultra high headphone",
+    "product_price": "99.99",
+    "quantity": 1,
+    "subtotal": "99.99"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 15,
+  "fields": {
+    "order": 14,
+    "product": 5,
+    "product_name": "Ultra high headphone",
+    "product_price": "99.99",
+    "quantity": 1,
+    "subtotal": "99.99"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 16,
+  "fields": {
+    "order": 14,
+    "product": 3,
+    "product_name": "erphon",
+    "product_price": "100.00",
+    "quantity": 1,
+    "subtotal": "100.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 17,
+  "fields": {
+    "order": 16,
+    "product": 4,
+    "product_name": "delle desktop",
+    "product_price": "499.99",
+    "quantity": 1,
+    "subtotal": "499.99"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 18,
+  "fields": {
+    "order": 17,
+    "product": 4,
+    "product_name": "delle desktop",
+    "product_price": "499.99",
+    "quantity": 1,
+    "subtotal": "499.99"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 19,
+  "fields": {
+    "order": 18,
+    "product": null,
+    "product_name": "HP elite book",
+    "product_price": "1500.00",
+    "quantity": 1,
+    "subtotal": "1500.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 20,
+  "fields": {
+    "order": 19,
+    "product": null,
+    "product_name": "HP elite book",
+    "product_price": "1500.00",
+    "quantity": 1,
+    "subtotal": "1500.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 21,
+  "fields": {
+    "order": 20,
+    "product": 5,
+    "product_name": "Ultra high headphone (Edited)",
+    "product_price": "99.99",
+    "quantity": 2,
+    "subtotal": "199.98"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 22,
+  "fields": {
+    "order": 21,
+    "product": 5,
+    "product_name": "Ultra high headphone (Edited)",
+    "product_price": "99.99",
+    "quantity": 1,
+    "subtotal": "99.99"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 23,
+  "fields": {
+    "order": 22,
+    "product": 5,
+    "product_name": "Ultra high headphone (Edited)",
+    "product_price": "99.99",
+    "quantity": 1,
+    "subtotal": "99.99"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 24,
+  "fields": {
+    "order": 23,
+    "product": null,
+    "product_name": "HP elite book",
+    "product_price": "1500.00",
+    "quantity": 1,
+    "subtotal": "1500.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 25,
+  "fields": {
+    "order": 24,
+    "product": 4,
+    "product_name": "delle desktop",
+    "product_price": "499.99",
+    "quantity": 1,
+    "subtotal": "499.99"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 26,
+  "fields": {
+    "order": 25,
+    "product": 4,
+    "product_name": "delle desktop",
+    "product_price": "499.99",
+    "quantity": 1,
+    "subtotal": "499.99"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 27,
+  "fields": {
+    "order": 26,
+    "product": null,
+    "product_name": "Smart Clock",
+    "product_price": "990.00",
+    "quantity": 1,
+    "subtotal": "990.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 28,
+  "fields": {
+    "order": 27,
+    "product": 3,
+    "product_name": "erphon",
+    "product_price": "100.00",
+    "quantity": 1,
+    "subtotal": "100.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 29,
+  "fields": {
+    "order": 28,
+    "product": 5,
+    "product_name": "Ultra high headphone (Edited)",
+    "product_price": "99.99",
+    "quantity": 1,
+    "subtotal": "99.99"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 30,
+  "fields": {
+    "order": 29,
+    "product": 3,
+    "product_name": "erphon",
+    "product_price": "100.00",
+    "quantity": 1,
+    "subtotal": "100.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 31,
+  "fields": {
+    "order": 30,
+    "product": 4,
+    "product_name": "delle desktop",
+    "product_price": "499.99",
+    "quantity": 1,
+    "subtotal": "499.99"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 32,
+  "fields": {
+    "order": 31,
+    "product": 12,
+    "product_name": "Apple iPhone 16 Pro Max",
+    "product_price": "100000.00",
+    "quantity": 1,
+    "subtotal": "100000.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 33,
+  "fields": {
+    "order": 31,
+    "product": 26,
+    "product_name": "NIMO 15.6'' IPS FHD Laptop",
+    "product_price": "110000.00",
+    "quantity": 1,
+    "subtotal": "110000.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 34,
+  "fields": {
+    "order": 32,
+    "product": 21,
+    "product_name": "Samsung Galaxy Z Flip7 FE Cell Phone",
+    "product_price": "87000.00",
+    "quantity": 1,
+    "subtotal": "87000.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 35,
+  "fields": {
+    "order": 33,
+    "product": 21,
+    "product_name": "Samsung Galaxy Z Flip7 FE Cell Phone",
+    "product_price": "87000.00",
+    "quantity": 2,
+    "subtotal": "174000.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 36,
+  "fields": {
+    "order": 33,
+    "product": 20,
+    "product_name": "Google Pixel 9a with Gemini",
+    "product_price": "87000.00",
+    "quantity": 1,
+    "subtotal": "87000.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 37,
+  "fields": {
+    "order": 33,
+    "product": 19,
+    "product_name": "Motorola Razr 2025",
+    "product_price": "64999.99",
+    "quantity": 1,
+    "subtotal": "64999.99"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 38,
+  "fields": {
+    "order": 33,
+    "product": 12,
+    "product_name": "Apple iPhone 16 Pro Max",
+    "product_price": "100000.00",
+    "quantity": 1,
+    "subtotal": "100000.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 39,
+  "fields": {
+    "order": 34,
+    "product": 42,
+    "product_name": "ullcandy Dime 2 Wireless Earbuds, Bluetooth Headphones,",
+    "product_price": "539.99",
+    "quantity": 1,
+    "subtotal": "539.99"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 40,
+  "fields": {
+    "order": 35,
+    "product": 56,
+    "product_name": "VIZIO 40-inch D-Series Full HD 1080p Smart TV",
+    "product_price": "17000.00",
+    "quantity": 1,
+    "subtotal": "17000.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 41,
+  "fields": {
+    "order": 35,
+    "product": 55,
+    "product_name": "Roku Smart TV",
+    "product_price": "6799.00",
+    "quantity": 1,
+    "subtotal": "6799.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 42,
+  "fields": {
+    "order": 36,
+    "product": 42,
+    "product_name": "ullcandy Dime 2 Wireless Earbuds, Bluetooth Headphones,",
+    "product_price": "539.99",
+    "quantity": 1,
+    "subtotal": "539.99"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 43,
+  "fields": {
+    "order": 36,
+    "product": 49,
+    "product_name": "P 27” FHD Touchscreen All-in-One – Everything to Just Work",
+    "product_price": "5400.00",
+    "quantity": 1,
+    "subtotal": "5400.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 44,
+  "fields": {
+    "order": 37,
+    "product": 45,
+    "product_name": "Lenovo IdeaCentre Everyday Tasks 24\" Full HD",
+    "product_price": "11000.00",
+    "quantity": 3,
+    "subtotal": "33000.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 45,
+  "fields": {
+    "order": 38,
+    "product": 44,
+    "product_name": "Dell 24 All-in-One",
+    "product_price": "15000.00",
+    "quantity": 2,
+    "subtotal": "30000.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 46,
+  "fields": {
+    "order": 39,
+    "product": 54,
+    "product_name": "LG 83-Inch Class OLED evo AI 4K C5 Series Smart TV",
+    "product_price": "4500.00",
+    "quantity": 1,
+    "subtotal": "4500.00"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 47,
+  "fields": {
+    "order": 40,
+    "product": 35,
+    "product_name": "Philips Beauty Lady Electric Shaver Series 6000,",
+    "product_price": "199.99",
+    "quantity": 1,
+    "subtotal": "199.99"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 1,
+  "fields": {
+    "order": 24,
+    "transaction_id": "TXN-ORD-B3E4E7F82D-24-0C4B2F",
+    "amount": "574.99",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "destawebabu1994@gmail.com",
+      "phone_number": "+25163589213",
+      "currency": "ETB",
+      "amount": 574.99,
+      "charge": 14.37,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APV9GlkaJBDGA",
+      "tx_ref": "TXN-ORD-B3E4E7F82D-24-0C4B2F",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T17:04:58.000000Z",
+      "updated_at": "2026-05-26T17:04:58.000000Z"
+    },
+    "created_at": "2026-05-26T16:57:31.896Z",
+    "updated_at": "2026-05-26T17:05:03.014Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 2,
+  "fields": {
+    "order": 23,
+    "transaction_id": "TXN-ORD-212718683E-23-008E69",
+    "amount": "1725.00",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "danmeles29@gmail.com",
+      "phone_number": "251968975800",
+      "currency": "ETB",
+      "amount": 1725,
+      "charge": 43.13,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APqJ91hrMIMsE",
+      "tx_ref": "TXN-ORD-212718683E-23-008E69",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T17:11:38.000000Z",
+      "updated_at": "2026-05-26T17:11:38.000000Z"
+    },
+    "created_at": "2026-05-26T16:57:32.523Z",
+    "updated_at": "2026-05-26T17:11:42.129Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 3,
+  "fields": {
+    "order": 25,
+    "transaction_id": "TXN-ORD-952875AF32-25-E057E9",
+    "amount": "574.99",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "destawebabu1994@gmail.com",
+      "phone_number": "+25163589213",
+      "currency": "ETB",
+      "amount": 574.99,
+      "charge": 14.37,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "AP2jN0yDP4gmC",
+      "tx_ref": "TXN-ORD-952875AF32-25-E057E9",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T17:07:11.000000Z",
+      "updated_at": "2026-05-26T17:07:11.000000Z"
+    },
+    "created_at": "2026-05-26T17:07:04.692Z",
+    "updated_at": "2026-05-26T17:07:16.178Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 4,
+  "fields": {
+    "order": 20,
+    "transaction_id": "TXN-ORD-DDF8BEAFD6-20-1E56A0",
+    "amount": "229.98",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "destawebabu1994@gmail.com",
+      "phone_number": "+25163589213",
+      "currency": "ETB",
+      "amount": 229.98,
+      "charge": 5.75,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APNCgvtzjgxai",
+      "tx_ref": "TXN-ORD-DDF8BEAFD6-20-1E56A0",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T17:11:25.000000Z",
+      "updated_at": "2026-05-26T17:11:25.000000Z"
+    },
+    "created_at": "2026-05-26T17:11:00.528Z",
+    "updated_at": "2026-05-26T17:11:29.588Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 5,
+  "fields": {
+    "order": 17,
+    "transaction_id": "TXN-ORD-2A714BE3C8-17-CF841F",
+    "amount": "574.99",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "danmeles29@gmail.com",
+      "phone_number": "251968975800",
+      "currency": "ETB",
+      "amount": 574.99,
+      "charge": 14.37,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APScnFtLf3N69",
+      "tx_ref": "TXN-ORD-2A714BE3C8-17-CF841F",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T17:13:22.000000Z",
+      "updated_at": "2026-05-26T17:13:22.000000Z"
+    },
+    "created_at": "2026-05-26T17:13:09.237Z",
+    "updated_at": "2026-05-26T17:13:26.927Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 6,
+  "fields": {
+    "order": 21,
+    "transaction_id": "TXN-ORD-92AB2428D3-21-B2732D",
+    "amount": "114.99",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "destawebabu1994@gmail.com",
+      "phone_number": "+25163589213",
+      "currency": "ETB",
+      "amount": 114.99,
+      "charge": 2.87,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APDvwzrymArpP",
+      "tx_ref": "TXN-ORD-92AB2428D3-21-B2732D",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T17:15:12.000000Z",
+      "updated_at": "2026-05-26T17:15:12.000000Z"
+    },
+    "created_at": "2026-05-26T17:14:53.447Z",
+    "updated_at": "2026-05-26T17:15:17.019Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 7,
+  "fields": {
+    "order": 19,
+    "transaction_id": "TXN-ORD-75A95F463D-19-5C00DF",
+    "amount": "1725.00",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "danmeles29@gmail.com",
+      "phone_number": "251968975800",
+      "currency": "ETB",
+      "amount": 1725,
+      "charge": 43.13,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APl8TwzSoCCQU",
+      "tx_ref": "TXN-ORD-75A95F463D-19-5C00DF",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T17:22:31.000000Z",
+      "updated_at": "2026-05-26T17:22:31.000000Z"
+    },
+    "created_at": "2026-05-26T17:22:18.497Z",
+    "updated_at": "2026-05-26T17:22:35.163Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 8,
+  "fields": {
+    "order": 26,
+    "transaction_id": "TXN-ORD-C61670BE35-26-D6AB38",
+    "amount": "1138.50",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "danmeles29@gmail.com",
+      "phone_number": "251968975800",
+      "currency": "ETB",
+      "amount": 1138.5,
+      "charge": 28.46,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APwJY0RJCaN6r",
+      "tx_ref": "TXN-ORD-C61670BE35-26-D6AB38",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T17:30:09.000000Z",
+      "updated_at": "2026-05-26T17:30:09.000000Z"
+    },
+    "created_at": "2026-05-26T17:29:56.150Z",
+    "updated_at": "2026-05-26T17:30:12.261Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 9,
+  "fields": {
+    "order": 27,
+    "transaction_id": "TXN-ORD-398FF7B47D-27-765310",
+    "amount": "115.00",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "destawebabu1994@gmail.com",
+      "phone_number": "+25163589213",
+      "currency": "ETB",
+      "amount": 115,
+      "charge": 2.88,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APbma2GB38jdE",
+      "tx_ref": "TXN-ORD-398FF7B47D-27-765310",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T17:35:36.000000Z",
+      "updated_at": "2026-05-26T17:35:36.000000Z"
+    },
+    "created_at": "2026-05-26T17:35:03.187Z",
+    "updated_at": "2026-05-26T17:35:40.202Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 10,
+  "fields": {
+    "order": 22,
+    "transaction_id": "TXN-ORD-8CFE3A0B89-22-B180A5",
+    "amount": "114.99",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "destawebabu1994@gmail.com",
+      "phone_number": "+25163589213",
+      "currency": "ETB",
+      "amount": 114.99,
+      "charge": 2.87,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "AP6P5oIRDM40e",
+      "tx_ref": "TXN-ORD-8CFE3A0B89-22-B180A5",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T17:36:47.000000Z",
+      "updated_at": "2026-05-26T17:36:47.000000Z"
+    },
+    "created_at": "2026-05-26T17:36:18.093Z",
+    "updated_at": "2026-05-26T17:36:50.790Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 11,
+  "fields": {
+    "order": 28,
+    "transaction_id": "TXN-ORD-A80AB64FB6-28-08624B",
+    "amount": "114.99",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "danmeles29@gmail.com",
+      "phone_number": "251968975800",
+      "currency": "ETB",
+      "amount": 114.99,
+      "charge": 2.87,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APqB8IMTzZWza",
+      "tx_ref": "TXN-ORD-A80AB64FB6-28-08624B",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T17:36:33.000000Z",
+      "updated_at": "2026-05-26T17:36:33.000000Z"
+    },
+    "created_at": "2026-05-26T17:36:20.188Z",
+    "updated_at": "2026-05-26T17:36:36.814Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 12,
+  "fields": {
+    "order": 29,
+    "transaction_id": "TXN-ORD-B52D37B5F9-29-28BDC5",
+    "amount": "115.00",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "danmeles29@gmail.com",
+      "phone_number": "251968975800",
+      "currency": "ETB",
+      "amount": 115,
+      "charge": 2.88,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "AP2wkTdyyXCJ6",
+      "tx_ref": "TXN-ORD-B52D37B5F9-29-28BDC5",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T17:37:43.000000Z",
+      "updated_at": "2026-05-26T17:37:43.000000Z"
+    },
+    "created_at": "2026-05-26T17:37:30.876Z",
+    "updated_at": "2026-05-26T17:37:46.704Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 13,
+  "fields": {
+    "order": 18,
+    "transaction_id": "TXN-ORD-694298F112-18-21F6C6",
+    "amount": "1725.00",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "danmeles29@gmail.com",
+      "phone_number": "251968975800",
+      "currency": "ETB",
+      "amount": 1725,
+      "charge": 43.13,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "AP6EftAjKWyil",
+      "tx_ref": "TXN-ORD-694298F112-18-21F6C6",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T17:38:28.000000Z",
+      "updated_at": "2026-05-26T17:38:28.000000Z"
+    },
+    "created_at": "2026-05-26T17:38:18.497Z",
+    "updated_at": "2026-05-26T17:38:31.527Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 14,
+  "fields": {
+    "order": 6,
+    "transaction_id": "TXN-ORD-42AD02F711-6-FFDB30",
+    "amount": "5175.00",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "destawebabu77@gmail.com",
+      "phone_number": "251963589213",
+      "currency": "ETB",
+      "amount": 5175,
+      "charge": 129.38,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APGXaAVbt4npo",
+      "tx_ref": "TXN-ORD-42AD02F711-6-FFDB30",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T17:52:28.000000Z",
+      "updated_at": "2026-05-26T17:52:28.000000Z"
+    },
+    "created_at": "2026-05-26T17:52:13.295Z",
+    "updated_at": "2026-05-26T17:52:33.121Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 15,
+  "fields": {
+    "order": 5,
+    "transaction_id": "TXN-ORD-FBFA91D074-5-1C6365",
+    "amount": "1725.00",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "destawebabu77@gmail.com",
+      "phone_number": "251963589213",
+      "currency": "ETB",
+      "amount": 1725,
+      "charge": 43.13,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APKnYguhLqRlb",
+      "tx_ref": "TXN-ORD-FBFA91D074-5-1C6365",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T17:57:33.000000Z",
+      "updated_at": "2026-05-26T17:57:33.000000Z"
+    },
+    "created_at": "2026-05-26T17:57:09.589Z",
+    "updated_at": "2026-05-26T17:57:37.890Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 16,
+  "fields": {
+    "order": 8,
+    "transaction_id": "TXN-ORD-BB0CC33699-8-414963",
+    "amount": "1725.00",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "destawebabu77@gmail.com",
+      "phone_number": "251963589213",
+      "currency": "ETB",
+      "amount": 1725,
+      "charge": 43.13,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APLBGdtt2mkdu",
+      "tx_ref": "TXN-ORD-BB0CC33699-8-414963",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T18:07:06.000000Z",
+      "updated_at": "2026-05-26T18:07:06.000000Z"
+    },
+    "created_at": "2026-05-26T18:06:49.315Z",
+    "updated_at": "2026-05-26T18:07:10.863Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 17,
+  "fields": {
+    "order": 30,
+    "transaction_id": "TXN-ORD-D6842D9E60-30-8DFC53",
+    "amount": "574.99",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "destawebabu77@gmail.com",
+      "phone_number": "251963589213",
+      "currency": "ETB",
+      "amount": 574.99,
+      "charge": 14.37,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APy9bJ4y7Y47a",
+      "tx_ref": "TXN-ORD-D6842D9E60-30-8DFC53",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-26T19:46:31.000000Z",
+      "updated_at": "2026-05-26T19:46:31.000000Z"
+    },
+    "created_at": "2026-05-26T19:46:12.755Z",
+    "updated_at": "2026-05-26T19:46:36.948Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 18,
+  "fields": {
+    "order": 11,
+    "transaction_id": "TXN-ORD-B8F25A21AD-11-D22D1D",
+    "amount": "574.99",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "destawebabu1994@gmail.com",
+      "phone_number": "+25163589213",
+      "currency": "ETB",
+      "amount": 574.99,
+      "charge": 14.37,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APwdetQ7yTuv1",
+      "tx_ref": "TXN-ORD-B8F25A21AD-11-D22D1D",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-27T04:29:54.000000Z",
+      "updated_at": "2026-05-27T04:29:54.000000Z"
+    },
+    "created_at": "2026-05-27T04:29:29.659Z",
+    "updated_at": "2026-05-27T04:29:59.049Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 19,
+  "fields": {
+    "order": 13,
+    "transaction_id": "TXN-ORD-FF76CE3B21-13-7EDF8A",
+    "amount": "114.99",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "destawebabu1994@gmail.com",
+      "phone_number": "+25163589213",
+      "currency": "ETB",
+      "amount": 114.99,
+      "charge": 2.87,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APO0OPtJSsJIF",
+      "tx_ref": "TXN-ORD-FF76CE3B21-13-7EDF8A",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-27T04:32:48.000000Z",
+      "updated_at": "2026-05-27T04:32:48.000000Z"
+    },
+    "created_at": "2026-05-27T04:31:47.380Z",
+    "updated_at": "2026-05-27T04:32:52.129Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 20,
+  "fields": {
+    "order": 31,
+    "transaction_id": "TXN-ORD-9C91DEA5FD-31-A7273D",
+    "amount": "241500.00",
+    "status": "pending",
+    "payment_method": "Chapa",
+    "payment_details": {},
+    "created_at": "2026-05-27T07:43:18.738Z",
+    "updated_at": "2026-05-27T07:43:18.738Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 21,
+  "fields": {
+    "order": 7,
+    "transaction_id": "TXN-ORD-A5CA0DF142-7-4CF9C5",
+    "amount": "1725.00",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "destawebabu77@gmail.com",
+      "phone_number": "251963589213",
+      "currency": "ETB",
+      "amount": 1725,
+      "charge": 43.13,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APN0HAKpQd3fM",
+      "tx_ref": "TXN-ORD-A5CA0DF142-7-4CF9C5",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-27T07:47:12.000000Z",
+      "updated_at": "2026-05-27T07:47:12.000000Z"
+    },
+    "created_at": "2026-05-27T07:46:52.473Z",
+    "updated_at": "2026-05-27T07:47:17.374Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 22,
+  "fields": {
+    "order": 32,
+    "transaction_id": "TXN-ORD-35449BEA52-32-8F7D28",
+    "amount": "100050.00",
+    "status": "pending",
+    "payment_method": "Chapa",
+    "payment_details": {},
+    "created_at": "2026-05-27T12:56:22.077Z",
+    "updated_at": "2026-05-27T12:56:22.077Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 23,
+  "fields": {
+    "order": 33,
+    "transaction_id": "TXN-ORD-DB52362101-33-9DED72",
+    "amount": "489899.99",
+    "status": "pending",
+    "payment_method": "Chapa",
+    "payment_details": {},
+    "created_at": "2026-05-27T13:06:03.203Z",
+    "updated_at": "2026-05-27T13:06:03.203Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 24,
+  "fields": {
+    "order": 34,
+    "transaction_id": "TXN-ORD-E6166E6B5D-34-28962A",
+    "amount": "620.99",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "devadev2123@gmail.com",
+      "phone_number": null,
+      "currency": "ETB",
+      "amount": 620.99,
+      "charge": 15.52,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APjPOr541A22X",
+      "tx_ref": "TXN-ORD-E6166E6B5D-34-28962A",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-27T16:59:59.000000Z",
+      "updated_at": "2026-05-27T16:59:59.000000Z"
+    },
+    "created_at": "2026-05-27T16:59:45.883Z",
+    "updated_at": "2026-05-27T17:00:05.458Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 25,
+  "fields": {
+    "order": 35,
+    "transaction_id": "TXN-ORD-8803CFA185-35-E1FA7E",
+    "amount": "27368.85",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "danmeles29@gmail.com",
+      "phone_number": "251968975800",
+      "currency": "ETB",
+      "amount": 27368.85,
+      "charge": 684.22,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APQQd9PdMHdn3",
+      "tx_ref": "TXN-ORD-8803CFA185-35-E1FA7E",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-27T17:09:40.000000Z",
+      "updated_at": "2026-05-27T17:09:40.000000Z"
+    },
+    "created_at": "2026-05-27T17:09:20.452Z",
+    "updated_at": "2026-05-27T17:09:44.724Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 26,
+  "fields": {
+    "order": 36,
+    "transaction_id": "TXN-ORD-DA6B316446-36-DEA553",
+    "amount": "6830.99",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "birhanudejen4@gmail.com",
+      "phone_number": null,
+      "currency": "ETB",
+      "amount": 6830.99,
+      "charge": 170.77,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APkiIKlFzN559",
+      "tx_ref": "TXN-ORD-DA6B316446-36-DEA553",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-27T17:10:22.000000Z",
+      "updated_at": "2026-05-27T17:10:22.000000Z"
+    },
+    "created_at": "2026-05-27T17:10:03.669Z",
+    "updated_at": "2026-05-27T17:10:28.716Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 27,
+  "fields": {
+    "order": 37,
+    "transaction_id": "TXN-ORD-D6A76FAAD1-37-FE94D4",
+    "amount": "37950.00",
+    "status": "pending",
+    "payment_method": "Chapa",
+    "payment_details": {},
+    "created_at": "2026-05-27T17:14:15.167Z",
+    "updated_at": "2026-05-27T17:14:15.167Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 28,
+  "fields": {
+    "order": 38,
+    "transaction_id": "TXN-ORD-053FEE7E7B-38-FB6FA2",
+    "amount": "34500.00",
+    "status": "pending",
+    "payment_method": "Chapa",
+    "payment_details": {},
+    "created_at": "2026-05-27T17:20:35.732Z",
+    "updated_at": "2026-05-27T17:20:35.732Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 29,
+  "fields": {
+    "order": 39,
+    "transaction_id": "TXN-ORD-522F5D060D-39-38B446",
+    "amount": "5175.00",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "birhanudejen4@gmail.com",
+      "phone_number": null,
+      "currency": "ETB",
+      "amount": 5175,
+      "charge": 129.38,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APqZHb0xDZcAY",
+      "tx_ref": "TXN-ORD-522F5D060D-39-38B446",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-27T17:23:21.000000Z",
+      "updated_at": "2026-05-27T17:23:21.000000Z"
+    },
+    "created_at": "2026-05-27T17:22:19.654Z",
+    "updated_at": "2026-05-27T17:23:27.934Z"
+  }
+},
+{
+  "model": "payments.payment",
+  "pk": 30,
+  "fields": {
+    "order": 40,
+    "transaction_id": "TXN-ORD-F9C72745F4-40-A33138",
+    "amount": "229.99",
+    "status": "success",
+    "payment_method": "Chapa",
+    "payment_details": {
+      "first_name": null,
+      "last_name": null,
+      "email": "birhanudejen4@gmail.com",
+      "phone_number": null,
+      "currency": "ETB",
+      "amount": 229.99,
+      "charge": 5.75,
+      "mode": "test",
+      "method": "test",
+      "type": "API",
+      "status": "success",
+      "reference": "APb1WsUVEQH28",
+      "tx_ref": "TXN-ORD-F9C72745F4-40-A33138",
+      "customization": {
+        "title": "ElectroMerce",
+        "description": "Payment for electronic devices purchase",
+        "logo": null
+      },
+      "meta": null,
+      "created_at": "2026-05-27T17:29:34.000000Z",
+      "updated_at": "2026-05-27T17:29:34.000000Z"
+    },
+    "created_at": "2026-05-27T17:29:12.564Z",
+    "updated_at": "2026-05-27T17:30:01.839Z"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "accounts",
+      "user"
+    ],
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "accounts",
+      "user"
+    ],
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "accounts",
+      "user"
+    ],
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "accounts",
+      "user"
+    ],
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add category",
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change category",
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete category",
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view category",
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add product",
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "codename": "add_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change product",
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "codename": "change_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete product",
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "codename": "delete_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view product",
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "codename": "view_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add product image",
+    "content_type": [
+      "products",
+      "productimage"
+    ],
+    "codename": "add_productimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change product image",
+    "content_type": [
+      "products",
+      "productimage"
+    ],
+    "codename": "change_productimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete product image",
+    "content_type": [
+      "products",
+      "productimage"
+    ],
+    "codename": "delete_productimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view product image",
+    "content_type": [
+      "products",
+      "productimage"
+    ],
+    "codename": "view_productimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add wishlist",
+    "content_type": [
+      "products",
+      "wishlist"
+    ],
+    "codename": "add_wishlist"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change wishlist",
+    "content_type": [
+      "products",
+      "wishlist"
+    ],
+    "codename": "change_wishlist"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete wishlist",
+    "content_type": [
+      "products",
+      "wishlist"
+    ],
+    "codename": "delete_wishlist"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view wishlist",
+    "content_type": [
+      "products",
+      "wishlist"
+    ],
+    "codename": "view_wishlist"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add review",
+    "content_type": [
+      "products",
+      "review"
+    ],
+    "codename": "add_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change review",
+    "content_type": [
+      "products",
+      "review"
+    ],
+    "codename": "change_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete review",
+    "content_type": [
+      "products",
+      "review"
+    ],
+    "codename": "delete_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view review",
+    "content_type": [
+      "products",
+      "review"
+    ],
+    "codename": "view_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add cart",
+    "content_type": [
+      "cart",
+      "cart"
+    ],
+    "codename": "add_cart"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change cart",
+    "content_type": [
+      "cart",
+      "cart"
+    ],
+    "codename": "change_cart"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete cart",
+    "content_type": [
+      "cart",
+      "cart"
+    ],
+    "codename": "delete_cart"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view cart",
+    "content_type": [
+      "cart",
+      "cart"
+    ],
+    "codename": "view_cart"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add cart item",
+    "content_type": [
+      "cart",
+      "cartitem"
+    ],
+    "codename": "add_cartitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change cart item",
+    "content_type": [
+      "cart",
+      "cartitem"
+    ],
+    "codename": "change_cartitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete cart item",
+    "content_type": [
+      "cart",
+      "cartitem"
+    ],
+    "codename": "delete_cartitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view cart item",
+    "content_type": [
+      "cart",
+      "cartitem"
+    ],
+    "codename": "view_cartitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add order",
+    "content_type": [
+      "orders",
+      "order"
+    ],
+    "codename": "add_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change order",
+    "content_type": [
+      "orders",
+      "order"
+    ],
+    "codename": "change_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete order",
+    "content_type": [
+      "orders",
+      "order"
+    ],
+    "codename": "delete_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view order",
+    "content_type": [
+      "orders",
+      "order"
+    ],
+    "codename": "view_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add order item",
+    "content_type": [
+      "orders",
+      "orderitem"
+    ],
+    "codename": "add_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change order item",
+    "content_type": [
+      "orders",
+      "orderitem"
+    ],
+    "codename": "change_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete order item",
+    "content_type": [
+      "orders",
+      "orderitem"
+    ],
+    "codename": "delete_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view order item",
+    "content_type": [
+      "orders",
+      "orderitem"
+    ],
+    "codename": "view_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add payment",
+    "content_type": [
+      "payments",
+      "payment"
+    ],
+    "codename": "add_payment"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change payment",
+    "content_type": [
+      "payments",
+      "payment"
+    ],
+    "codename": "change_payment"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete payment",
+    "content_type": [
+      "payments",
+      "payment"
+    ],
+    "codename": "delete_payment"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view payment",
+    "content_type": [
+      "payments",
+      "payment"
+    ],
+    "codename": "view_payment"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add interaction",
+    "content_type": [
+      "recommendations",
+      "interaction"
+    ],
+    "codename": "add_interaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change interaction",
+    "content_type": [
+      "recommendations",
+      "interaction"
+    ],
+    "codename": "change_interaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete interaction",
+    "content_type": [
+      "recommendations",
+      "interaction"
+    ],
+    "codename": "delete_interaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view interaction",
+    "content_type": [
+      "recommendations",
+      "interaction"
+    ],
+    "codename": "view_interaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add password reset code",
+    "content_type": [
+      "accounts",
+      "passwordresetcode"
+    ],
+    "codename": "add_passwordresetcode"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change password reset code",
+    "content_type": [
+      "accounts",
+      "passwordresetcode"
+    ],
+    "codename": "change_passwordresetcode"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete password reset code",
+    "content_type": [
+      "accounts",
+      "passwordresetcode"
+    ],
+    "codename": "delete_passwordresetcode"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view password reset code",
+    "content_type": [
+      "accounts",
+      "passwordresetcode"
+    ],
+    "codename": "view_passwordresetcode"
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$wFDfPdmIiFc0KKdBCTa2mY$l5ieQzwl6+K7tJztsUDC7QgxquUEA/W83PNdqC1xc08=",
+    "last_login": "2026-05-26T18:46:20.528Z",
+    "is_superuser": true,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "date_joined": "2026-05-24T11:11:05.041Z",
+    "username": "Destaw",
+    "email": "destawebabu77@gmail.com",
+    "phone_number": "+251963589213",
+    "role": "admin",
+    "address": "Gondar",
+    "profile_picture": "profiles/photo_2_2026-05-25_18-12-35.jpg",
+    "is_active": true,
+    "created_at": "2026-05-24T11:11:05.492Z",
+    "updated_at": "2026-05-26T08:24:51.600Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$xrDn1FAUNxzH4UNkD2Enia$LkU3Ir1+ix18yoMy/L8WWwo3GjIHcjk7j5DzXXc3okg=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "date_joined": "2026-05-26T06:57:18.561Z",
+    "username": "Destsh",
+    "email": "destawebabu1994@gmail.com",
+    "phone_number": "+25163589213",
+    "role": "customer",
+    "address": "Gondar",
+    "profile_picture": "",
+    "is_active": true,
+    "created_at": "2026-05-26T06:57:19.353Z",
+    "updated_at": "2026-05-26T18:38:44.680Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$HxtYy54L6Bgkhx6i1k6Ib7$uUP0JdpR7AWiFNklkcqDMLqfxRe4gUIQpwvRlPNYruU=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "date_joined": "2026-05-26T09:30:48.234Z",
+    "username": "dan",
+    "email": "danmeles29@gmail.com",
+    "phone_number": "+251968975800",
+    "role": "customer",
+    "address": "gondar university",
+    "profile_picture": "profiles/1680306235186.jpg",
+    "is_active": true,
+    "created_at": "2026-05-26T09:30:49.547Z",
+    "updated_at": "2026-05-26T18:40:23.196Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$2CLSxIJ8wocHSrXOFAzirM$TFxakYhNZzOFp05jQtbsOcXq6lV11PBB6VDQLYqNVtk=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "date_joined": "2026-05-27T12:55:05.417Z",
+    "username": "dawit adane",
+    "email": "dawitadane27@gmail.com",
+    "phone_number": null,
+    "role": "customer",
+    "address": "",
+    "profile_picture": "",
+    "is_active": true,
+    "created_at": "2026-05-27T12:55:06.856Z",
+    "updated_at": "2026-05-27T12:55:06.856Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$SQiU2525ls8Vz8VPggJ2kX$YlbH7amnMGVPb8waWniPNpv9aBU/MC96P8sof9QGy6w=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "date_joined": "2026-05-27T16:10:45.785Z",
+    "username": "dawit",
+    "email": "dawitadanet@gmail.com",
+    "phone_number": null,
+    "role": "customer",
+    "address": "",
+    "profile_picture": "",
+    "is_active": true,
+    "created_at": "2026-05-27T16:10:46.995Z",
+    "updated_at": "2026-05-27T16:10:46.996Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$tdDVTYOs96aMCOsoUGE4Xh$/YYH5qEhTMpF30az0oMa8wWKiArvEC5optOkUkNd+Ng=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "date_joined": "2026-05-27T16:16:25.630Z",
+    "username": "maru",
+    "email": "melesmekonen51@gmail.com",
+    "phone_number": null,
+    "role": "customer",
+    "address": "",
+    "profile_picture": "",
+    "is_active": true,
+    "created_at": "2026-05-27T16:16:26.990Z",
+    "updated_at": "2026-05-27T16:16:26.990Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$gvAia5Dg4cCPx8dLnEYMWZ$dIKTPhFhV0z+7vsDDAWI3nniKrXkbPRkmquzuQdxk/A=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "date_joined": "2026-05-27T16:20:48.502Z",
+    "username": "birhanu",
+    "email": "birhanudejen4@gmail.com",
+    "phone_number": null,
+    "role": "customer",
+    "address": "",
+    "profile_picture": "",
+    "is_active": true,
+    "created_at": "2026-05-27T16:20:49.906Z",
+    "updated_at": "2026-05-27T16:20:49.906Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$PQ94vy8rbhoIpbR3FU56vv$P+1LK/Tw9opaUGCr2bnyxKgD4PbYPEGrm1dRWtQNiu8=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "date_joined": "2026-05-27T16:26:40.957Z",
+    "username": "eyaya",
+    "email": "medans2031@gmail.com",
+    "phone_number": null,
+    "role": "customer",
+    "address": "",
+    "profile_picture": "",
+    "is_active": true,
+    "created_at": "2026-05-27T16:26:41.907Z",
+    "updated_at": "2026-05-27T16:26:41.907Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$SYgz8njYtMGacJOZCWCXfP$Q8Sdq135piwDYihlSmPzkq1ACSHKdhwDcv7YLPmrcZU=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "date_joined": "2026-05-27T16:27:27.969Z",
+    "username": "yenesew",
+    "email": "dmk216@gmail.com",
+    "phone_number": null,
+    "role": "customer",
+    "address": "",
+    "profile_picture": "",
+    "is_active": true,
+    "created_at": "2026-05-27T16:27:28.718Z",
+    "updated_at": "2026-05-27T16:27:28.718Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$4bgrcgKfxLwuDQCaGKU67R$abtO7lryiEBXnh3/QFbOkcDwFq7ZWvMXyt/KtICVbRs=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "date_joined": "2026-05-27T16:33:45.820Z",
+    "username": "degu",
+    "email": "dejenb07@gmail.com",
+    "phone_number": null,
+    "role": "customer",
+    "address": "",
+    "profile_picture": "",
+    "is_active": true,
+    "created_at": "2026-05-27T16:33:46.480Z",
+    "updated_at": "2026-05-27T16:33:46.481Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$JbsbpdokfSZW4YI2ViMZm2$SXwofshPsMsyCcT1eAjNbrqfZSA7wQ06ZMHlIa4b0Xw=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "date_joined": "2026-05-27T16:36:20.319Z",
+    "username": "adane",
+    "email": "bire571@gmail.com",
+    "phone_number": null,
+    "role": "customer",
+    "address": "",
+    "profile_picture": "",
+    "is_active": true,
+    "created_at": "2026-05-27T16:36:21.669Z",
+    "updated_at": "2026-05-27T16:36:21.669Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$oRB12m0bdFncsVqiCMv4fk$GMD/rOwpxY+DAMRcJI4eefy7HG+USw92w+o50CboI7U=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "date_joined": "2026-05-27T16:48:22.941Z",
+    "username": "shumet",
+    "email": "devadev2123@gmail.com",
+    "phone_number": null,
+    "role": "customer",
+    "address": "",
+    "profile_picture": "",
+    "is_active": true,
+    "created_at": "2026-05-27T16:48:24.358Z",
+    "updated_at": "2026-05-27T16:48:24.358Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.passwordresetcode",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "code": "903438",
+    "created_at": "2026-05-25T19:06:39.455Z",
+    "is_used": true
+  }
+},
+{
+  "model": "accounts.passwordresetcode",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "code": "664482",
+    "created_at": "2026-05-25T19:12:22.848Z",
+    "is_used": true
+  }
+},
+{
+  "model": "accounts.passwordresetcode",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "code": "428207",
+    "created_at": "2026-05-25T19:15:44.409Z",
+    "is_used": true
+  }
+},
+{
+  "model": "accounts.passwordresetcode",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "code": "158079",
+    "created_at": "2026-05-25T19:20:11.534Z",
+    "is_used": true
+  }
+},
+{
+  "model": "accounts.passwordresetcode",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "code": "583813",
+    "created_at": "2026-05-25T19:26:44.214Z",
+    "is_used": true
+  }
+},
+{
+  "model": "accounts.passwordresetcode",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "code": "175133",
+    "created_at": "2026-05-25T19:30:46.145Z",
+    "is_used": true
+  }
+},
+{
+  "model": "accounts.passwordresetcode",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "code": "915037",
+    "created_at": "2026-05-25T21:25:06.758Z",
+    "is_used": true
+  }
+},
+{
+  "model": "accounts.passwordresetcode",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "code": "529621",
+    "created_at": "2026-05-26T12:28:08.970Z",
+    "is_used": true
+  }
+},
+{
+  "model": "accounts.passwordresetcode",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "destawebabu1994@gmail.com"
+    ],
+    "code": "472821",
+    "created_at": "2026-05-26T12:30:09.471Z",
+    "is_used": true
+  }
+},
+{
+  "model": "accounts.passwordresetcode",
+  "pk": 10,
+  "fields": {
+    "user": [
+      "destawebabu1994@gmail.com"
+    ],
+    "code": "281169",
+    "created_at": "2026-05-26T14:04:49.204Z",
+    "is_used": true
+  }
+},
+{
+  "model": "accounts.passwordresetcode",
+  "pk": 11,
+  "fields": {
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "code": "456171",
+    "created_at": "2026-05-26T14:28:35.515Z",
+    "is_used": false
+  }
+},
+{
+  "model": "accounts.passwordresetcode",
+  "pk": 12,
+  "fields": {
+    "user": [
+      "destawebabu1994@gmail.com"
+    ],
+    "code": "457655",
+    "created_at": "2026-05-26T17:24:53.452Z",
+    "is_used": true
+  }
+},
+{
+  "model": "accounts.passwordresetcode",
+  "pk": 13,
+  "fields": {
+    "user": [
+      "destawebabu1994@gmail.com"
+    ],
+    "code": "106396",
+    "created_at": "2026-05-26T17:26:33.099Z",
+    "is_used": true
+  }
+},
+{
+  "model": "products.review",
+  "pk": 1,
+  "fields": {
+    "product": 3,
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "rating": 4,
+    "title": "Review",
+    "comment": "i like it",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-24T19:27:24.086Z",
+    "updated_at": "2026-05-24T19:27:24.086Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 3,
+  "fields": {
+    "product": 4,
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "rating": 3,
+    "title": "Review",
+    "comment": "its bast",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-24T19:32:20.601Z",
+    "updated_at": "2026-05-24T19:32:20.601Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 6,
+  "fields": {
+    "product": 5,
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "rating": 4,
+    "title": "Review",
+    "comment": "the best product i have ever seen",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-26T14:44:08.930Z",
+    "updated_at": "2026-05-26T14:44:08.930Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 7,
+  "fields": {
+    "product": 57,
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "rating": 3,
+    "title": "Review",
+    "comment": "good",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T15:03:11.876Z",
+    "updated_at": "2026-05-27T15:03:11.876Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 8,
+  "fields": {
+    "product": 55,
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "rating": 4,
+    "title": "Review",
+    "comment": "it is good",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T15:03:35.195Z",
+    "updated_at": "2026-05-27T15:03:35.195Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 9,
+  "fields": {
+    "product": 56,
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "rating": 3,
+    "title": "Review",
+    "comment": "good",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T15:04:03.528Z",
+    "updated_at": "2026-05-27T15:04:03.529Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 10,
+  "fields": {
+    "product": 54,
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "rating": 4,
+    "title": "Review",
+    "comment": "good",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T15:04:14.962Z",
+    "updated_at": "2026-05-27T15:04:14.962Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 11,
+  "fields": {
+    "product": 48,
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "rating": 5,
+    "title": "Review",
+    "comment": "good",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T15:06:16.959Z",
+    "updated_at": "2026-05-27T15:06:16.959Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 12,
+  "fields": {
+    "product": 42,
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "rating": 5,
+    "title": "Review",
+    "comment": "good",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T15:06:31.181Z",
+    "updated_at": "2026-05-27T15:06:31.181Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 13,
+  "fields": {
+    "product": 40,
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "rating": 4,
+    "title": "Review",
+    "comment": "good",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T15:06:55.717Z",
+    "updated_at": "2026-05-27T15:06:55.717Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 14,
+  "fields": {
+    "product": 41,
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "rating": 3,
+    "title": "Review",
+    "comment": "the best ever one",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T16:08:18.332Z",
+    "updated_at": "2026-05-27T16:08:18.332Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 15,
+  "fields": {
+    "product": 38,
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "rating": 4,
+    "title": "Review",
+    "comment": "nice product with good interface power",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T16:10:06.033Z",
+    "updated_at": "2026-05-27T16:10:06.033Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 16,
+  "fields": {
+    "product": 50,
+    "user": [
+      "devadev2123@gmail.com"
+    ],
+    "rating": 4,
+    "title": "Review",
+    "comment": "good sound with good interface",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T16:49:18.933Z",
+    "updated_at": "2026-05-27T16:49:18.934Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 17,
+  "fields": {
+    "product": 14,
+    "user": [
+      "devadev2123@gmail.com"
+    ],
+    "rating": 4,
+    "title": "Review",
+    "comment": "best appearance product",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T16:51:53.737Z",
+    "updated_at": "2026-05-27T16:51:53.737Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 18,
+  "fields": {
+    "product": 53,
+    "user": [
+      "birhanudejen4@gmail.com"
+    ],
+    "rating": 5,
+    "title": "Review",
+    "comment": "Most security  and portable",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T16:52:47.590Z",
+    "updated_at": "2026-05-27T16:52:47.590Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 19,
+  "fields": {
+    "product": 41,
+    "user": [
+      "devadev2123@gmail.com"
+    ],
+    "rating": 3,
+    "title": "Review",
+    "comment": "comfortable sound",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T16:52:50.361Z",
+    "updated_at": "2026-05-27T16:52:50.362Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 20,
+  "fields": {
+    "product": 40,
+    "user": [
+      "devadev2123@gmail.com"
+    ],
+    "rating": 3,
+    "title": "Review",
+    "comment": "good quality of sound",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T16:53:26.819Z",
+    "updated_at": "2026-05-27T16:53:26.819Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 21,
+  "fields": {
+    "product": 54,
+    "user": [
+      "devadev2123@gmail.com"
+    ],
+    "rating": 3,
+    "title": "Review",
+    "comment": "best tv resolution",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T16:53:54.373Z",
+    "updated_at": "2026-05-27T16:53:54.373Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 22,
+  "fields": {
+    "product": 55,
+    "user": [
+      "birhanudejen4@gmail.com"
+    ],
+    "rating": 4,
+    "title": "Review",
+    "comment": "Remotely  access  is easy way",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T16:54:33.298Z",
+    "updated_at": "2026-05-27T16:54:33.298Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 23,
+  "fields": {
+    "product": 56,
+    "user": [
+      "devadev2123@gmail.com"
+    ],
+    "rating": 3,
+    "title": "Review",
+    "comment": "this is best product",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T16:55:50.786Z",
+    "updated_at": "2026-05-27T16:55:50.786Z"
+  }
+},
+{
+  "model": "products.review",
+  "pk": 24,
+  "fields": {
+    "product": 42,
+    "user": [
+      "devadev2123@gmail.com"
+    ],
+    "rating": 4,
+    "title": "Review",
+    "comment": "good",
+    "is_verified": false,
+    "helpful_count": 0,
+    "created_at": "2026-05-27T17:02:37.427Z",
+    "updated_at": "2026-05-27T17:02:37.427Z"
+  }
+},
+{
+  "model": "products.wishlist",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "product": 4,
+    "added_at": "2026-05-25T21:03:33.785Z"
+  }
+},
+{
+  "model": "products.wishlist",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "product": 3,
+    "added_at": "2026-05-26T05:02:53.076Z"
+  }
+},
+{
+  "model": "products.wishlist",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "destawebabu1994@gmail.com"
+    ],
+    "product": 4,
+    "added_at": "2026-05-26T07:10:14.342Z"
+  }
+},
+{
+  "model": "products.wishlist",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "destawebabu1994@gmail.com"
+    ],
+    "product": 5,
+    "added_at": "2026-05-26T11:33:00.027Z"
+  }
+},
+{
+  "model": "products.wishlist",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "product": 5,
+    "added_at": "2026-05-26T12:39:01.674Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "created_at": "2026-05-25T20:19:37.204Z",
+    "updated_at": "2026-05-25T20:19:37.204Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "destawebabu1994@gmail.com"
+    ],
+    "created_at": "2026-05-26T07:00:37.805Z",
+    "updated_at": "2026-05-26T07:00:37.805Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "created_at": "2026-05-26T09:31:46.427Z",
+    "updated_at": "2026-05-26T09:31:46.427Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "dawitadane27@gmail.com"
+    ],
+    "created_at": "2026-05-27T12:56:17.694Z",
+    "updated_at": "2026-05-27T12:56:17.694Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "devadev2123@gmail.com"
+    ],
+    "created_at": "2026-05-27T16:59:41.456Z",
+    "updated_at": "2026-05-27T16:59:41.456Z"
+  }
+},
+{
+  "model": "cart.cart",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "birhanudejen4@gmail.com"
+    ],
+    "created_at": "2026-05-27T17:10:01.412Z",
+    "updated_at": "2026-05-27T17:10:01.412Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "order_number": "ORD-285968A88A",
+    "status": "paid",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Stripe",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "1500.00",
+    "shipping_cost": "0.00",
+    "tax": "225.00",
+    "discount": "0.00",
+    "total_amount": "1725.00",
+    "notes": "",
+    "created_at": "2026-05-25T20:28:03.899Z",
+    "updated_at": "2026-05-26T10:22:45.798Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "order_number": "ORD-F3DB27FA42",
+    "status": "paid",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "499.99",
+    "shipping_cost": "0.00",
+    "tax": "75.00",
+    "discount": "0.00",
+    "total_amount": "574.99",
+    "notes": "",
+    "created_at": "2026-05-25T20:30:53.335Z",
+    "updated_at": "2026-05-26T10:22:57.746Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "order_number": "ORD-FBFA91D074",
+    "status": "paid",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "1500.00",
+    "shipping_cost": "0.00",
+    "tax": "225.00",
+    "discount": "0.00",
+    "total_amount": "1725.00",
+    "notes": "",
+    "created_at": "2026-05-25T20:33:22.958Z",
+    "updated_at": "2026-05-26T17:57:37.912Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "order_number": "ORD-42AD02F711",
+    "status": "paid",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "4500.00",
+    "shipping_cost": "0.00",
+    "tax": "675.00",
+    "discount": "0.00",
+    "total_amount": "5175.00",
+    "notes": "",
+    "created_at": "2026-05-25T20:38:08.720Z",
+    "updated_at": "2026-05-26T17:52:33.146Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "order_number": "ORD-A5CA0DF142",
+    "status": "delivered",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "1500.00",
+    "shipping_cost": "0.00",
+    "tax": "225.00",
+    "discount": "0.00",
+    "total_amount": "1725.00",
+    "notes": "",
+    "created_at": "2026-05-25T20:42:18.048Z",
+    "updated_at": "2026-05-27T07:47:27.299Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "order_number": "ORD-BB0CC33699",
+    "status": "delivered",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "1500.00",
+    "shipping_cost": "0.00",
+    "tax": "225.00",
+    "discount": "0.00",
+    "total_amount": "1725.00",
+    "notes": "",
+    "created_at": "2026-05-25T20:46:47.793Z",
+    "updated_at": "2026-05-26T18:07:24.219Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "order_number": "ORD-808F17C904",
+    "status": "pending",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "pending",
+    "transaction_id": "",
+    "subtotal": "100.00",
+    "shipping_cost": "0.00",
+    "tax": "15.00",
+    "discount": "0.00",
+    "total_amount": "115.00",
+    "notes": "",
+    "created_at": "2026-05-25T20:53:18.956Z",
+    "updated_at": "2026-05-25T20:53:18.956Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 10,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "order_number": "ORD-8F8A1E60F8",
+    "status": "pending",
+    "shipping_name": "Test User",
+    "shipping_address": "123 test",
+    "shipping_city": "TestCity",
+    "shipping_phone": "0912345678",
+    "payment_method": "PayPal",
+    "payment_status": "pending",
+    "transaction_id": "",
+    "subtotal": "100.00",
+    "shipping_cost": "0.00",
+    "tax": "15.00",
+    "discount": "0.00",
+    "total_amount": "115.00",
+    "notes": "test note",
+    "created_at": "2026-05-26T05:24:28.615Z",
+    "updated_at": "2026-05-26T05:24:28.615Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 11,
+  "fields": {
+    "user": [
+      "destawebabu1994@gmail.com"
+    ],
+    "order_number": "ORD-B8F25A21AD",
+    "status": "paid",
+    "shipping_name": "destsh",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "499.99",
+    "shipping_cost": "0.00",
+    "tax": "75.00",
+    "discount": "0.00",
+    "total_amount": "574.99",
+    "notes": "",
+    "created_at": "2026-05-26T07:00:37.818Z",
+    "updated_at": "2026-05-27T04:29:59.064Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 12,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "order_number": "ORD-3CC3082D43",
+    "status": "pending",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251703051960",
+    "payment_method": "Chapa",
+    "payment_status": "pending",
+    "transaction_id": "",
+    "subtotal": "99.99",
+    "shipping_cost": "0.00",
+    "tax": "15.00",
+    "discount": "0.00",
+    "total_amount": "114.99",
+    "notes": "",
+    "created_at": "2026-05-26T08:14:02.538Z",
+    "updated_at": "2026-05-26T08:14:02.538Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 13,
+  "fields": {
+    "user": [
+      "destawebabu1994@gmail.com"
+    ],
+    "order_number": "ORD-FF76CE3B21",
+    "status": "paid",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251703051960",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "99.99",
+    "shipping_cost": "0.00",
+    "tax": "15.00",
+    "discount": "0.00",
+    "total_amount": "114.99",
+    "notes": "",
+    "created_at": "2026-05-26T08:35:41.976Z",
+    "updated_at": "2026-05-27T04:32:52.149Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 14,
+  "fields": {
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "order_number": "ORD-380333C411",
+    "status": "delivered",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251703051960",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "199.99",
+    "shipping_cost": "0.00",
+    "tax": "30.00",
+    "discount": "0.00",
+    "total_amount": "229.99",
+    "notes": "",
+    "created_at": "2026-05-26T09:31:46.458Z",
+    "updated_at": "2026-05-27T17:06:49.016Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 16,
+  "fields": {
+    "user": [
+      "destawebabu1994@gmail.com"
+    ],
+    "order_number": "ORD-8532E90F8E",
+    "status": "delivered",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251703051960",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "499.99",
+    "shipping_cost": "0.00",
+    "tax": "75.00",
+    "discount": "0.00",
+    "total_amount": "574.99",
+    "notes": "",
+    "created_at": "2026-05-26T11:45:52.409Z",
+    "updated_at": "2026-05-27T17:06:40.531Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 17,
+  "fields": {
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "order_number": "ORD-2A714BE3C8",
+    "status": "delivered",
+    "shipping_name": "meles mekonnen",
+    "shipping_address": "azezo",
+    "shipping_city": "gondar",
+    "shipping_phone": "0968975800",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "499.99",
+    "shipping_cost": "0.00",
+    "tax": "75.00",
+    "discount": "0.00",
+    "total_amount": "574.99",
+    "notes": "",
+    "created_at": "2026-05-26T16:05:55.569Z",
+    "updated_at": "2026-05-27T17:06:24.021Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 18,
+  "fields": {
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "order_number": "ORD-694298F112",
+    "status": "delivered",
+    "shipping_name": "meles mekonnen",
+    "shipping_address": "azezo",
+    "shipping_city": "gondar",
+    "shipping_phone": "0968975800",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "1500.00",
+    "shipping_cost": "0.00",
+    "tax": "225.00",
+    "discount": "0.00",
+    "total_amount": "1725.00",
+    "notes": "",
+    "created_at": "2026-05-26T16:07:18.453Z",
+    "updated_at": "2026-05-27T17:06:22.393Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 19,
+  "fields": {
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "order_number": "ORD-75A95F463D",
+    "status": "delivered",
+    "shipping_name": "meles mekonnen",
+    "shipping_address": "azezo",
+    "shipping_city": "gondar",
+    "shipping_phone": "0968975800",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "1500.00",
+    "shipping_cost": "0.00",
+    "tax": "225.00",
+    "discount": "0.00",
+    "total_amount": "1725.00",
+    "notes": "",
+    "created_at": "2026-05-26T16:18:14.608Z",
+    "updated_at": "2026-05-27T17:06:20.598Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 20,
+  "fields": {
+    "user": [
+      "destawebabu1994@gmail.com"
+    ],
+    "order_number": "ORD-DDF8BEAFD6",
+    "status": "delivered",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "199.98",
+    "shipping_cost": "0.00",
+    "tax": "30.00",
+    "discount": "0.00",
+    "total_amount": "229.98",
+    "notes": "",
+    "created_at": "2026-05-26T16:19:20.271Z",
+    "updated_at": "2026-05-26T18:11:26.339Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 21,
+  "fields": {
+    "user": [
+      "destawebabu1994@gmail.com"
+    ],
+    "order_number": "ORD-92AB2428D3",
+    "status": "delivered",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "99.99",
+    "shipping_cost": "0.00",
+    "tax": "15.00",
+    "discount": "0.00",
+    "total_amount": "114.99",
+    "notes": "",
+    "created_at": "2026-05-26T16:30:42.094Z",
+    "updated_at": "2026-05-27T17:06:17.334Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 22,
+  "fields": {
+    "user": [
+      "destawebabu1994@gmail.com"
+    ],
+    "order_number": "ORD-8CFE3A0B89",
+    "status": "delivered",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "99.99",
+    "shipping_cost": "0.00",
+    "tax": "15.00",
+    "discount": "0.00",
+    "total_amount": "114.99",
+    "notes": "",
+    "created_at": "2026-05-26T16:36:50.897Z",
+    "updated_at": "2026-05-27T17:06:15.483Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 23,
+  "fields": {
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "order_number": "ORD-212718683E",
+    "status": "delivered",
+    "shipping_name": "meles mekonnen",
+    "shipping_address": "azezo",
+    "shipping_city": "gondar",
+    "shipping_phone": "0968975800",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "1500.00",
+    "shipping_cost": "0.00",
+    "tax": "225.00",
+    "discount": "0.00",
+    "total_amount": "1725.00",
+    "notes": "",
+    "created_at": "2026-05-26T16:39:25.371Z",
+    "updated_at": "2026-05-26T18:10:45.601Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 24,
+  "fields": {
+    "user": [
+      "destawebabu1994@gmail.com"
+    ],
+    "order_number": "ORD-B3E4E7F82D",
+    "status": "delivered",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "499.99",
+    "shipping_cost": "0.00",
+    "tax": "75.00",
+    "discount": "0.00",
+    "total_amount": "574.99",
+    "notes": "",
+    "created_at": "2026-05-26T16:44:54.517Z",
+    "updated_at": "2026-05-27T17:06:10.537Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 25,
+  "fields": {
+    "user": [
+      "destawebabu1994@gmail.com"
+    ],
+    "order_number": "ORD-952875AF32",
+    "status": "delivered",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "499.99",
+    "shipping_cost": "0.00",
+    "tax": "75.00",
+    "discount": "0.00",
+    "total_amount": "574.99",
+    "notes": "",
+    "created_at": "2026-05-26T17:07:01.805Z",
+    "updated_at": "2026-05-27T17:06:08.518Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 26,
+  "fields": {
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "order_number": "ORD-C61670BE35",
+    "status": "delivered",
+    "shipping_name": "meles mekonnen",
+    "shipping_address": "HCQW+7HM",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251968975800",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "990.00",
+    "shipping_cost": "0.00",
+    "tax": "148.50",
+    "discount": "0.00",
+    "total_amount": "1138.50",
+    "notes": "",
+    "created_at": "2026-05-26T17:29:53.890Z",
+    "updated_at": "2026-05-27T17:06:02.522Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 27,
+  "fields": {
+    "user": [
+      "destawebabu1994@gmail.com"
+    ],
+    "order_number": "ORD-398FF7B47D",
+    "status": "delivered",
+    "shipping_name": "destaw",
+    "shipping_address": "gonder",
+    "shipping_city": "maraki",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "100.00",
+    "shipping_cost": "0.00",
+    "tax": "15.00",
+    "discount": "0.00",
+    "total_amount": "115.00",
+    "notes": "",
+    "created_at": "2026-05-26T17:34:58.358Z",
+    "updated_at": "2026-05-27T17:06:04.836Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 28,
+  "fields": {
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "order_number": "ORD-A80AB64FB6",
+    "status": "delivered",
+    "shipping_name": "meles mekonnen",
+    "shipping_address": "HCQW+7HM",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251968975800",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "99.99",
+    "shipping_cost": "0.00",
+    "tax": "15.00",
+    "discount": "0.00",
+    "total_amount": "114.99",
+    "notes": "",
+    "created_at": "2026-05-26T17:36:17.925Z",
+    "updated_at": "2026-05-27T17:05:55.507Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 29,
+  "fields": {
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "order_number": "ORD-B52D37B5F9",
+    "status": "delivered",
+    "shipping_name": "meles mekonnen",
+    "shipping_address": "HCQW+7HM",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251968975800",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "100.00",
+    "shipping_cost": "0.00",
+    "tax": "15.00",
+    "discount": "0.00",
+    "total_amount": "115.00",
+    "notes": "",
+    "created_at": "2026-05-26T17:37:27.167Z",
+    "updated_at": "2026-05-26T18:10:55.333Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 30,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "order_number": "ORD-D6842D9E60",
+    "status": "delivered",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "499.99",
+    "shipping_cost": "0.00",
+    "tax": "75.00",
+    "discount": "0.00",
+    "total_amount": "574.99",
+    "notes": "",
+    "created_at": "2026-05-26T19:45:49.078Z",
+    "updated_at": "2026-05-26T19:46:43.888Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 31,
+  "fields": {
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "order_number": "ORD-9C91DEA5FD",
+    "status": "paid",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "210000.00",
+    "shipping_cost": "0.00",
+    "tax": "31500.00",
+    "discount": "0.00",
+    "total_amount": "241500.00",
+    "notes": "",
+    "created_at": "2026-05-27T07:43:13.819Z",
+    "updated_at": "2026-05-27T17:07:15.654Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 32,
+  "fields": {
+    "user": [
+      "dawitadane27@gmail.com"
+    ],
+    "order_number": "ORD-35449BEA52",
+    "status": "pending",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "pending",
+    "transaction_id": "",
+    "subtotal": "87000.00",
+    "shipping_cost": "0.00",
+    "tax": "13050.00",
+    "discount": "0.00",
+    "total_amount": "100050.00",
+    "notes": "",
+    "created_at": "2026-05-27T12:56:17.715Z",
+    "updated_at": "2026-05-27T12:56:17.715Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 33,
+  "fields": {
+    "user": [
+      "dawitadane27@gmail.com"
+    ],
+    "order_number": "ORD-DB52362101",
+    "status": "pending",
+    "shipping_name": "Destaw Ebabu",
+    "shipping_address": "Gondar",
+    "shipping_city": "Gondar",
+    "shipping_phone": "+251963589213",
+    "payment_method": "Chapa",
+    "payment_status": "pending",
+    "transaction_id": "",
+    "subtotal": "425999.99",
+    "shipping_cost": "0.00",
+    "tax": "63900.00",
+    "discount": "0.00",
+    "total_amount": "489899.99",
+    "notes": "",
+    "created_at": "2026-05-27T13:05:57.165Z",
+    "updated_at": "2026-05-27T13:05:57.165Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 34,
+  "fields": {
+    "user": [
+      "devadev2123@gmail.com"
+    ],
+    "order_number": "ORD-E6166E6B5D",
+    "status": "delivered",
+    "shipping_name": "shumet",
+    "shipping_address": "gonder",
+    "shipping_city": "gonder",
+    "shipping_phone": "0968975800",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "539.99",
+    "shipping_cost": "0.00",
+    "tax": "81.00",
+    "discount": "0.00",
+    "total_amount": "620.99",
+    "notes": "",
+    "created_at": "2026-05-27T16:59:41.477Z",
+    "updated_at": "2026-05-27T17:02:06.223Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 35,
+  "fields": {
+    "user": [
+      "danmeles29@gmail.com"
+    ],
+    "order_number": "ORD-8803CFA185",
+    "status": "delivered",
+    "shipping_name": "dan",
+    "shipping_address": "HCQW+7HM",
+    "shipping_city": "Gondar",
+    "shipping_phone": "0968975800",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "23799.00",
+    "shipping_cost": "0.00",
+    "tax": "3569.85",
+    "discount": "0.00",
+    "total_amount": "27368.85",
+    "notes": "",
+    "created_at": "2026-05-27T17:09:17.741Z",
+    "updated_at": "2026-05-27T17:11:01.388Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 36,
+  "fields": {
+    "user": [
+      "birhanudejen4@gmail.com"
+    ],
+    "order_number": "ORD-DA6B316446",
+    "status": "delivered",
+    "shipping_name": "Birhanu Dejen",
+    "shipping_address": "Azezo",
+    "shipping_city": "Ginder",
+    "shipping_phone": "0968975800",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "5939.99",
+    "shipping_cost": "0.00",
+    "tax": "891.00",
+    "discount": "0.00",
+    "total_amount": "6830.99",
+    "notes": "",
+    "created_at": "2026-05-27T17:10:01.434Z",
+    "updated_at": "2026-05-27T17:10:58.236Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 37,
+  "fields": {
+    "user": [
+      "birhanudejen4@gmail.com"
+    ],
+    "order_number": "ORD-D6A76FAAD1",
+    "status": "pending",
+    "shipping_name": "Amen",
+    "shipping_address": "A.A",
+    "shipping_city": "A.A",
+    "shipping_phone": "0961694904",
+    "payment_method": "Chapa",
+    "payment_status": "pending",
+    "transaction_id": "",
+    "subtotal": "33000.00",
+    "shipping_cost": "0.00",
+    "tax": "4950.00",
+    "discount": "0.00",
+    "total_amount": "37950.00",
+    "notes": "",
+    "created_at": "2026-05-27T17:14:07.860Z",
+    "updated_at": "2026-05-27T17:14:07.860Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 38,
+  "fields": {
+    "user": [
+      "birhanudejen4@gmail.com"
+    ],
+    "order_number": "ORD-053FEE7E7B",
+    "status": "pending",
+    "shipping_name": "Amen",
+    "shipping_address": "A.A",
+    "shipping_city": "A.A",
+    "shipping_phone": "0961694904",
+    "payment_method": "Chapa",
+    "payment_status": "pending",
+    "transaction_id": "",
+    "subtotal": "30000.00",
+    "shipping_cost": "0.00",
+    "tax": "4500.00",
+    "discount": "0.00",
+    "total_amount": "34500.00",
+    "notes": "",
+    "created_at": "2026-05-27T17:20:31.474Z",
+    "updated_at": "2026-05-27T17:20:31.474Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 39,
+  "fields": {
+    "user": [
+      "birhanudejen4@gmail.com"
+    ],
+    "order_number": "ORD-522F5D060D",
+    "status": "paid",
+    "shipping_name": "Amen",
+    "shipping_address": "A.A",
+    "shipping_city": "A.A",
+    "shipping_phone": "0961694904",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "4500.00",
+    "shipping_cost": "0.00",
+    "tax": "675.00",
+    "discount": "0.00",
+    "total_amount": "5175.00",
+    "notes": "",
+    "created_at": "2026-05-27T17:22:16.499Z",
+    "updated_at": "2026-05-27T17:23:27.959Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 40,
+  "fields": {
+    "user": [
+      "birhanudejen4@gmail.com"
+    ],
+    "order_number": "ORD-F9C72745F4",
+    "status": "paid",
+    "shipping_name": "Amen",
+    "shipping_address": "A.A",
+    "shipping_city": "A.A",
+    "shipping_phone": "0961694904",
+    "payment_method": "Chapa",
+    "payment_status": "paid",
+    "transaction_id": "",
+    "subtotal": "199.99",
+    "shipping_cost": "0.00",
+    "tax": "30.00",
+    "discount": "0.00",
+    "total_amount": "229.99",
+    "notes": "",
+    "created_at": "2026-05-27T17:29:08.356Z",
+    "updated_at": "2026-05-27T17:30:01.863Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-05-24T11:31:50.430Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "1",
+    "object_repr": "phone",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-05-24T11:32:35.152Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "2",
+    "object_repr": "laptop",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-05-24T11:33:44.838Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "3",
+    "object_repr": "accessories",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-05-24T11:34:40.805Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "4",
+    "object_repr": "desktop",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-05-24T11:35:26.454Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "category"
+    ],
+    "object_id": "5",
+    "object_repr": "television",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-05-24T11:38:29.589Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "iphon 17",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for iphon 17\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-05-24T11:40:38.688Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "2",
+    "object_repr": "HP elite book",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for HP elite book\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-05-24T14:44:59.279Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "3",
+    "object_repr": "erphon",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for erphon\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-05-24T14:48:23.629Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "4",
+    "object_repr": "delle desktop",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for delle desktop\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-05-26T20:24:42.076Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "11",
+    "object_repr": "Apple iPhone 16 Pro Max",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Apple iPhone 16 Pro Max\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-05-26T20:25:42.868Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "11",
+    "object_repr": "Apple iPhone 16 Pro Max",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-05-26T20:27:00.670Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "12",
+    "object_repr": "Apple iPhone 16 Pro Max",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Apple iPhone 16 Pro Max\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-05-27T04:59:10.620Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "13",
+    "object_repr": "Apple iPhone 17 Pro",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Apple iPhone 17 Pro\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-05-27T05:04:38.076Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "14",
+    "object_repr": "Apple iPhone 17 Pro Max",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Apple iPhone 17 Pro Max\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-05-27T05:12:28.290Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "15",
+    "object_repr": "Apple iPhone 15 Pro Max",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Apple iPhone 15 Pro Max\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-05-27T05:17:14.730Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "16",
+    "object_repr": "Samsung Galaxy S23",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Samsung Galaxy S23\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-05-27T05:21:47.478Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "17",
+    "object_repr": "Motorola Moto G Play",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Motorola Moto G Play\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-05-27T05:25:56.190Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "18",
+    "object_repr": "Samsung Galaxy Z Fold 6",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Samsung Galaxy Z Fold 6\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-05-27T05:31:23.660Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "19",
+    "object_repr": "Motorola Razr 2025",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Motorola Razr 2025\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-05-27T05:36:10.755Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "20",
+    "object_repr": "Google Pixel 9a with Gemini",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Google Pixel 9a with Gemini\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-05-27T05:39:58.061Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "21",
+    "object_repr": "Samsung Galaxy Z Flip7 FE Cell Phone",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Samsung Galaxy Z Flip7 FE Cell Phone\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-05-27T05:46:57.496Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "22",
+    "object_repr": "Microsoft Surface Laptop",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Microsoft Surface Laptop\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-05-27T05:50:23.477Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "23",
+    "object_repr": "HP 15.6\" FHD Laptop 2026 Edition",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for HP 15.6\\\" FHD Laptop 2026 Edition\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-05-27T05:59:06.603Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "24",
+    "object_repr": "Dell 16 Laptop DC16251-16.0-inch 16:10 2K Touchscreen Display",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Dell 16 Laptop DC16251-16.0-inch 16:10 2K Touchscreen Display\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-05-27T06:01:47.929Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "25",
+    "object_repr": "ASUS ROG Strix G16 (2025) Gaming Laptop",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for ASUS ROG Strix G16 (2025) Gaming Laptop\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-05-27T06:04:22.729Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "26",
+    "object_repr": "NIMO 15.6'' IPS FHD Laptop",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for NIMO 15.6'' IPS FHD Laptop\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2026-05-27T06:08:21.435Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "27",
+    "object_repr": "Lenovo V15 Gen 4 Business Laptop",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Lenovo V15 Gen 4 Business Laptop\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2026-05-27T06:11:42.026Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "28",
+    "object_repr": "Dell Latitude 5420 14\" FHD Business Laptop Computer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Dell Latitude 5420 14\\\" FHD Business Laptop Computer\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2026-05-27T06:15:22.595Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "29",
+    "object_repr": "Apple 2026 MacBook Pro Laptop with Apple M5 chip",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Apple 2026 MacBook Pro Laptop with Apple M5 chip\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2026-05-27T06:17:34.067Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "30",
+    "object_repr": "HP 14-inch Ultra Light Laptop W/1 Year Office 365&AI-Copilot",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for HP 14-inch Ultra Light Laptop W/1 Year Office 365&AI-Copilot\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2026-05-27T06:19:29.826Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "31",
+    "object_repr": "Acer Chromebook 315 Laptop",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Acer Chromebook 315 Laptop\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2026-05-27T06:27:32.306Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "32",
+    "object_repr": "Celestron – StarSense AutoAlign Telescope Accessory",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Celestron \\u2013 StarSense AutoAlign Telescope Accessory\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2026-05-27T06:29:55.560Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "33",
+    "object_repr": "Made for Amazon Bluetooth Keyboard Case for Amazon Fire HD 10",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Made for Amazon Bluetooth Keyboard Case for Amazon Fire HD 10\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2026-05-27T06:31:57.110Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "34",
+    "object_repr": "Ultimaxx 55MM Accessory Kit for Nikon",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Ultimaxx 55MM Accessory Kit for Nikon\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2026-05-27T06:34:13.168Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "35",
+    "object_repr": "Philips Beauty Lady Electric Shaver Series 6000,",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Philips Beauty Lady Electric Shaver Series 6000,\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2026-05-27T06:36:32.761Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "36",
+    "object_repr": "GoPro Light Mod - Official GoPro Accessory",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for GoPro Light Mod - Official GoPro Accessory\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2026-05-27T06:40:04.762Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "37",
+    "object_repr": "Zoom H6essential 6-Track 32-Bit Float Portable Audio Recorder",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Zoom H6essential 6-Track 32-Bit Float Portable Audio Recorder\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2026-05-27T06:43:19.942Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "38",
+    "object_repr": "Made for Amazon, Wireless Charging Dock",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Made for Amazon, Wireless Charging Dock\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2026-05-27T06:45:34.747Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "39",
+    "object_repr": "GoPro Max Lens Mod 2.0",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for GoPro Max Lens Mod 2.0\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2026-05-27T06:47:44.989Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "40",
+    "object_repr": "Logitech H390 Wired Headset",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Logitech H390 Wired Headset\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2026-05-27T06:49:50.309Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "41",
+    "object_repr": "Bose QuietComfort Earbuds",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Bose QuietComfort Earbuds\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2026-05-27T06:52:04.896Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "42",
+    "object_repr": "ullcandy Dime 2 Wireless Earbuds, Bluetooth Headphones,",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for ullcandy Dime 2 Wireless Earbuds, Bluetooth Headphones,\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2026-05-27T06:57:06.725Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "43",
+    "object_repr": "Lenovo IdeaCentre All-in-One",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Lenovo IdeaCentre All-in-One\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2026-05-27T06:59:45.213Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "44",
+    "object_repr": "Dell 24 All-in-One",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Dell 24 All-in-One\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2026-05-27T07:02:09.047Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "45",
+    "object_repr": "Lenovo IdeaCentre Everyday Tasks 24\" Full HD",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Lenovo IdeaCentre Everyday Tasks 24\\\" Full HD\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2026-05-27T07:04:30.560Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "46",
+    "object_repr": "Apple 2024 iMac All-in-One Desktop Computer with M4 chip with 10-core CPU",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Apple 2024 iMac All-in-One Desktop Computer with M4 chip with 10-core CPU\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2026-05-27T07:07:11.944Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "47",
+    "object_repr": "HP 22\" All-in-One Desktop Compute",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for HP 22\\\" All-in-One Desktop Compute\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2026-05-27T07:09:32.282Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "48",
+    "object_repr": "Lenovo A100 24\" IPS FHD All in One Desktop Computer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Lenovo A100 24\\\" IPS FHD All in One Desktop Computer\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2026-05-27T07:12:00.411Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "49",
+    "object_repr": "P 27” FHD Touchscreen All-in-One – Everything to Just Work",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for P 27\\u201d FHD Touchscreen All-in-One \\u2013 Everything to Just Work\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2026-05-27T07:14:41.120Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "50",
+    "object_repr": "HP 27\" FHD Touchscreen All-in-One Desktop",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for HP 27\\\" FHD Touchscreen All-in-One Desktop\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2026-05-27T07:17:13.542Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "51",
+    "object_repr": "Lenovo IdeaCentre AIO 27\" FHD All-in-One Desktop Computer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Lenovo IdeaCentre AIO 27\\\" FHD All-in-One Desktop Computer\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2026-05-27T07:19:45.458Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "52",
+    "object_repr": "Acer Aspire C27 All-in-One Desktop",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Acer Aspire C27 All-in-One Desktop\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2026-05-27T07:23:04.203Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "53",
+    "object_repr": "amsung 65-Inch Class QLED Q8F 4K UHD Smart TV",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for amsung 65-Inch Class QLED Q8F 4K UHD Smart TV\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2026-05-27T07:25:11.502Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "54",
+    "object_repr": "LG 83-Inch Class OLED evo AI 4K C5 Series Smart TV",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for LG 83-Inch Class OLED evo AI 4K C5 Series Smart TV\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2026-05-27T07:27:12.123Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "55",
+    "object_repr": "Roku Smart TV",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for Roku Smart TV\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2026-05-27T07:29:11.368Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "56",
+    "object_repr": "VIZIO 40-inch D-Series Full HD 1080p Smart TV",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for VIZIO 40-inch D-Series Full HD 1080p Smart TV\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2026-05-27T07:33:02.077Z",
+    "user": [
+      "destawebabu77@gmail.com"
+    ],
+    "content_type": [
+      "products",
+      "product"
+    ],
+    "object_id": "57",
+    "object_repr": "VIZIO 40-inch D-Series Full HD 1080p Smart TV",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"product image\", \"object\": \"Image for VIZIO 40-inch D-Series Full HD 1080p Smart TV\"}}]"
+  }
+}
+]
