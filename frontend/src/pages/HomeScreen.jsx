@@ -260,20 +260,20 @@ export default function HomeScreen() {
         </div>
 
         {/* Trust Badges List at Bottom of Advertisement Section */}
-        <div className="relative z-10 mt-8 pt-4">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 bg-slate-950/80 backdrop-blur-md p-4 sm:p-5 rounded-2xl text-white shadow-xl border border-white/15">
+        <div className="relative z-10 mt-8 pt-4 border-t border-white/20">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-white">
             {[
               { icon: Truck, label: 'Fast delivery', desc: 'Nationwide shipping', color: 'bg-brand-500/20 text-brand-400 border-brand-500/30' },
               { icon: Shield, label: 'Secure checkout', desc: 'Protected payments', color: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' },
               { icon: Sparkles, label: 'Genuine products', desc: 'Authorized sellers', color: 'bg-amber-500/20 text-amber-400 border-amber-500/30' },
             ].map(({ icon: Icon, label, desc, color }) => (
-              <div key={label} className="flex items-center gap-3.5 rounded-xl bg-white/10 p-3.5 border border-white/10 backdrop-blur-sm transition-all hover:bg-white/15">
+              <div key={label} className="flex items-center gap-3.5 rounded-xl bg-white/10 p-3.5 border border-white/15 backdrop-blur-md transition-all hover:bg-white/20">
                 <div className={`rounded-xl p-2.5 border ${color} shrink-0`}>
                   <Icon size={20} />
                 </div>
                 <div>
                   <p className="text-sm font-bold text-white leading-tight">{label}</p>
-                  <p className="text-xs text-slate-300 font-medium mt-0.5">{desc}</p>
+                  <p className="text-xs text-slate-200 font-medium mt-0.5">{desc}</p>
                 </div>
               </div>
             ))}
