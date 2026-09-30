@@ -50,11 +50,11 @@ function TopRatedBillboard({ slides }) {
           {slides.map((s) => {
             const imageUrl = getMediaUrl(s.product.image || s.product.main_image || s.product.thumbnail || '');
             return (
-              <div key={s.category} className="min-w-full h-full flex-shrink-0 relative overflow-hidden">
+              <div key={s.category} className="min-w-full h-full flex-shrink-0 relative overflow-hidden p-[30px]">
                 <img
                   src={imageUrl}
                   alt="Top category product"
-                  className="h-full w-full object-contain object-center"
+                  className="h-full w-full object-contain object-center overflow-hidden"
                   style={{ filter: 'brightness(1.15) contrast(1.05)' }}
                 />
               </div>
@@ -225,7 +225,7 @@ export default function HomeScreen() {
   }, [accessToken, userInfo]);
 
   return (
-    <div className="animate-slide-up space-y-10">
+    <div className="animate-slide-up space-y-7">
       <Helmet>
         <title>ElectroMerce </title>
       </Helmet>
