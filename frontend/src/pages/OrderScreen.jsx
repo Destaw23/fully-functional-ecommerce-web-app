@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import LoadingBox from '../components/common/LoadingBox';
 import MessageBox from '../components/common/MessageBox';
 import { Store } from '../context/Store';
-import { getError } from '../utils/helpers';
+import { getError, getMediaUrl } from '../utils/helpers';
 import { toast } from 'react-toastify';
 import { Package, Truck, CreditCard, ChevronLeft } from 'lucide-react';
 
@@ -198,7 +198,7 @@ export default function OrderScreen() {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 border-b border-slate-200">
         <div>
           <h1 className="text-2xl font-black text-slate-800 tracking-tight">Order #{orderId}</h1>
-          <p className="text-xs text-slate-400 font-medium mt-1">Placed securely with Amazona</p>
+          <p className="text-xs text-slate-400 font-medium mt-1">Placed securely with ElectroMerce</p>
         </div>
       </div>
 
@@ -276,7 +276,7 @@ export default function OrderScreen() {
                 <div key={item._id} className="flex items-center justify-between py-4 gap-4">
                   <div className="flex items-center space-x-4">
                     <img
-                      src={item.image}
+                      src={getMediaUrl(item.image)}
                       alt={item.name}
                       className="w-12 h-12 object-cover rounded-lg border border-slate-200 bg-slate-50 flex-shrink-0"
                     />

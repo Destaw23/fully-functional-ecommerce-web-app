@@ -1,7 +1,7 @@
 from .settings import *
 
 DEBUG = True
-
+     
 ALLOWED_HOSTS = ["*"]
 
 # Use the production MySQL database configuration from settings.py.

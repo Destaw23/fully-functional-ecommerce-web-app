@@ -7,7 +7,7 @@ import { ShoppingCart, Trash2 } from 'lucide-react';
 import LoadingBox from '../components/common/LoadingBox';
 import MessageBox from '../components/common/MessageBox';
 import { Store } from '../context/Store';
-import { getError } from '../utils/helpers';
+import { getError, getMediaUrl } from '../utils/helpers';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -120,7 +120,7 @@ export default function WishlistScreen() {
               <div className="flex flex-col sm:flex-row gap-4 p-6">
                 <div className="h-40 w-full max-w-[220px] overflow-hidden rounded-3xl bg-slate-50">
                   <img
-                    src={item.product?.main_image || item.product?.image || undefined}
+                    src={getMediaUrl(item.product?.image || item.product?.main_image) || undefined}
                     alt={item.product?.name}
                     className="h-full w-full object-cover object-center block"
                   />

@@ -138,9 +138,8 @@ export default function SearchScreen() {
     const filterRating = filter.rating || rating;
     const filterPrice = filter.price || price;
     const sortOrder = filter.order || order;
-    return `${
-      skipPathname ? '' : '/search?'
-    }category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
+    return `${skipPathname ? '' : '/search?'
+      }category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   };
 
   return (
@@ -257,7 +256,7 @@ export default function SearchScreen() {
                   )}
                   {price !== 'all' && <span className="bg-slate-200 px-2 py-0.5 rounded text-xs">Price: {price}</span>}
                   {rating !== 'all' && <span className="bg-slate-100 px-2 py-0.5 rounded text-xs">Rating: {rating} & up</span>}
-                  
+
                   {(query !== 'all' || category !== 'all' || rating !== 'all' || price !== 'all') && (
                     <button
                       onClick={() => navigate('/search')}
@@ -292,7 +291,7 @@ export default function SearchScreen() {
                   <MessageBox>No Product Found</MessageBox>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="product-grid-responsive">
                   {products.map((product) => (
                     <Product key={product._id} product={product} />
                   ))}
@@ -306,11 +305,10 @@ export default function SearchScreen() {
                     <Link
                       key={x + 1}
                       to={getFilterUrl({ page: x + 1 })}
-                      className={`rounded-xl border px-3.5 py-2 text-xs font-semibold transition-all ${
-                        Number(page) === x + 1
+                      className={`rounded-xl border px-3.5 py-2 text-xs font-semibold transition-all ${Number(page) === x + 1
                           ? 'border-brand-600 bg-brand-600 text-white shadow-sm'
                           : 'border-slate-200 bg-white text-slate-700 hover:border-brand-200 hover:bg-brand-50'
-                      }`}
+                        }`}
                     >
                       {x + 1}
                     </Link>

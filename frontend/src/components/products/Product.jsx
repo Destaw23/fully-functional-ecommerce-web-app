@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Rating from '../common/Rating';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { getError } from '../../utils/helpers';
+import { getError, getMediaUrl } from '../../utils/helpers';
 import { Store } from '../../context/Store';
 import { recommendationService } from '../../services/recommendationService';
 import { ShoppingCart, Heart } from 'lucide-react';
@@ -101,8 +101,13 @@ export default function Product(props) {
     >
       <div className="relative block aspect-square overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-3">
         <img
-          src={product.image || product.main_image || undefined}
+          src={getMediaUrl(product.image || product.main_image) || undefined}
           alt={product.name}
+          referrerPolicy="no-referrer"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="%2394a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>';
+          }}
           className="h-full w-full object-contain object-center block"
         />
         <button

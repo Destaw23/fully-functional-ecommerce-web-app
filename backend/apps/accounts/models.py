@@ -10,6 +10,7 @@ class User(AbstractUser):
         ("customer", "Customer"),
         ("admin", "Administrator"),
         ("delivery", "Delivery Personnel"),
+        ("store_owner", "Store Owner"),
     )
 
     phone_regex = RegexValidator(
@@ -21,7 +22,7 @@ class User(AbstractUser):
     phone_number = models.CharField(
         validators=[phone_regex], max_length=13, unique=True, blank=True, null=True
     )
-    role = models.CharField(max_length=15, choices=ROLE_CHOICES, default="customer")
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default="customer")
     address = models.TextField(blank=True)
     profile_picture = models.ImageField(upload_to="profiles/", null=True, blank=True)
     is_active = models.BooleanField(default=True)
@@ -36,11 +37,15 @@ class User(AbstractUser):
 
     @property
     def is_admin(self):
-        return self.role == "admin" or self.is_superuser
+        return self.role == "admin" or self.is_superuser or self.is_staff
 
     @property
     def is_delivery(self):
         return self.role == "delivery"
+
+    @property
+    def is_store_owner(self):
+        return self.role == "store_owner" or self.is_admin
 
     class Meta:
         db_table = "users"

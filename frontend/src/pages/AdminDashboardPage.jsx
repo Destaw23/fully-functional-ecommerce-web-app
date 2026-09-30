@@ -9,6 +9,8 @@ import ProductForm from '../components/admin/ProductForm';
 import CategoryManagement from '../components/admin/CategoryManagement';
 import OrderManagement from '../components/admin/OrderManagement';
 import UserManagement from '../components/admin/UserManagement';
+import StoreManagement from '../components/admin/StoreManagement';
+import DeliveryTracking from '../components/admin/DeliveryTracking';
 
 export default function AdminDashboardPage() {
   return (
@@ -23,17 +25,15 @@ export default function AdminDashboardPage() {
           element={
             <div className="space-y-8">
               <DashboardStats />
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div className="lg:col-span-2">
-                  <SalesChart />
-                </div>
-                <div className="lg:col-span-1">
-                  <Reports />
-                </div>
-              </div>
+              <SalesChart />
+              <Reports />
             </div>
           }
         />
+
+
+        {/* Stores Management */}
+        <Route path="stores" element={<StoreManagement />} />
 
         {/* Product Catalog */}
         <Route path="products" element={<ProductManagement />} />
@@ -45,6 +45,9 @@ export default function AdminDashboardPage() {
 
         {/* Order Log Transactions */}
         <Route path="orders" element={<OrderManagement />} />
+
+        {/* Delivery Tracking */}
+        <Route path="delivery" element={<DeliveryTracking />} />
 
         {/* Accounts Directory */}
         <Route path="users" element={<UserManagement />} />

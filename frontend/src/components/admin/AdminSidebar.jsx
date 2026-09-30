@@ -6,6 +6,8 @@ import {
   Tags,
   ClipboardList,
   Users,
+  Store,
+  Truck,
   LogOut,
   ExternalLink,
   X,
@@ -16,9 +18,11 @@ export default function AdminSidebar({ mobileSidebarOpen, setMobileSidebarOpen, 
 
   const menuItems = [
     { name: 'Dashboard', path: '/admin/dashboard', icon: LayoutDashboard },
+    { name: 'Stores', path: '/admin/stores', icon: Store },
     { name: 'Products', path: '/admin/products', icon: Box },
     { name: 'Categories', path: '/admin/categories', icon: Tags },
     { name: 'Orders', path: '/admin/orders', icon: ClipboardList },
+    { name: 'Delivery Tracking', path: '/admin/delivery', icon: Truck },
     { name: 'Users', path: '/admin/users', icon: Users },
   ];
 

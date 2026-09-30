@@ -17,8 +17,9 @@ export default function SalesChart() {
   const fetchChartData = async (duration) => {
     try {
       setLoading(true);
+      const token = userInfo?.token || localStorage.getItem('accessToken');
       const { data } = await axios.get(`/api/admin/sales-chart/?days=${duration}`, {
-        headers: { Authorization: `Bearer ${userInfo.token}` },
+        headers: { Authorization: `Bearer ${token}` },
       });
       setChartData(data);
     } catch (err) {

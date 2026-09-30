@@ -44,276 +44,151 @@ export default function SignupScreen() {
 
 
 
+  const [role, setRole] = useState('customer');
+
   const submitHandler = async (e) => {
-
     e.preventDefault();
-
     if (password !== confirmPassword) {
-
       toast.error('Passwords do not match');
-
       return;
-
     }
 
     setLoading(true);
-
     try {
-
       const { data } = await axios.post('/api/auth/register/', {
-
         username: name,
-
         email,
-
         password,
-
         password2: confirmPassword,
-
+        role,
       });
 
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
-
       localStorage.setItem('userInfo', JSON.stringify(data.user));
-
       localStorage.setItem('accessToken', data.access);
-
       localStorage.setItem('refreshToken', data.refresh);
-
-      navigate(redirect || '/');
-
+      navigate(redirect || (role === 'delivery' ? '/delivery' : '/'));
     } catch (err) {
-
       const errorData = err.response?.data;
-
       let errorMsg = 'Sign-up failed';
-
-
-
       if (typeof errorData === 'string') {
-
         errorMsg = errorData;
-
       } else if (errorData?.detail) {
-
         errorMsg = errorData.detail;
-
       } else if (errorData) {
-
         const errors = [];
-
         for (const [field, messages] of Object.entries(errorData)) {
-
           if (Array.isArray(messages)) {
-
             errors.push(`${field}: ${messages.join(', ')}`);
-
           } else {
-
             errors.push(`${field}: ${messages}`);
-
           }
-
         }
-
         errorMsg = errors.join('; ');
-
       } else if (err.message) {
-
         errorMsg = err.message;
-
       }
-
       toast.error(errorMsg);
-
     } finally {
-
       setLoading(false);
-
     }
-
   };
 
-
-
-  useEffect(() => {
-
-    if (userInfo) {
-
-      navigate(redirect);
-
-    }
-
-  }, [navigate, redirect, userInfo]);
-
-
-
   return (
-
     <div className="flex min-h-[80vh] items-center justify-center px-4 py-8 animate-fade-in">
-
       <Helmet>
-
         <title>Sign Up — ElectroMerce</title>
-
       </Helmet>
 
-
-
-      <div className="auth-card">
-
+      <div className="auth-card max-w-md w-full">
         <div className="space-y-2 text-center">
-
           <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-100 text-brand-600">
-
             <UserPlus size={22} />
-
           </div>
-
-          <h1 className="text-2xl font-bold text-blue-950">Create your account</h1>
-
-          <p className="text-sm text-yellow-950">Join ElectroMerce and start shopping in minutes.</p>
-
+          <h1 className="text-2xl font-bold text-slate-800">Create Account</h1>
+          <p className="text-xs text-slate-500">Join ElectroMerce as a Customer or Delivery Partner.</p>
         </div>
 
-
-
-        <form onSubmit={submitHandler} className="space-y-4">
+        <form onSubmit={submitHandler} className="space-y-4 mt-6">
+          <div>
+            <label className="input-label" htmlFor="role">
+              I am registering as:
+            </label>
+            <select
+              id="role"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              className="input-field font-semibold bg-white text-slate-800 cursor-pointer"
+            >
+              <option value="customer">Shopper / Customer</option>
+              <option value="delivery">Delivery Personnel / Courier Driver</option>
+            </select>
+          </div>
 
           <div>
-
             <label className="input-label" htmlFor="name">
-
-              Full name
-
+              Full Name
             </label>
-
             <input
-
               id="name"
-
               type="text"
-
               required
-
               placeholder="Your name"
-
               value={name}
-
               onChange={(e) => setName(e.target.value)}
-
               className="input-field"
-
             />
-
           </div>
 
-
-
           <div>
-
             <label className="input-label" htmlFor="email">
-
-              Email address
-
+              Email Address
             </label>
-
             <input
-
               id="email"
-
               type="email"
-
               required
-
-              placeholder="you@example.com"
-
+              placeholder="user@example.com"
               value={email}
-
               onChange={(e) => setEmail(e.target.value)}
-
               className="input-field"
-
             />
-
           </div>
 
-
-
           <div>
-
             <label className="input-label" htmlFor="password">
-
               Password
-
             </label>
-
             <input
-
               id="password"
-
               type="password"
-
               required
-
               placeholder="••••••••"
-
               value={password}
-
               onChange={(e) => setPassword(e.target.value)}
-
               className="input-field"
-
             />
-
-            <p className="mt-1.5 text-xs text-yellow-700">
-
-              At least 8 characters; avoid common or similar passwords.
-
-            </p>
-
           </div>
-
-
 
           <div>
-
             <label className="input-label" htmlFor="confirmPassword">
-
-              Confirm password
-
+              Confirm Password
             </label>
-
             <input
-
               id="confirmPassword"
-
               type="password"
-
               required
-
               placeholder="••••••••"
-
               value={confirmPassword}
-
               onChange={(e) => setConfirmPassword(e.target.value)}
-
               className="input-field"
-
             />
-
           </div>
-
-
 
           <button type="submit" disabled={loading} className="btn-primary w-full">
-
             {loading ? <Loader className="animate-spin" size={18} /> : <UserPlus size={18} />}
-
-            <span>{loading ? 'Creating account...' : 'Sign up'}</span>
-
+            <span>{loading ? 'Creating account...' : `Sign Up as ${role === 'delivery' ? 'Delivery Courier' : 'Customer'}`}</span>
           </button>
-
         </form>
 
 

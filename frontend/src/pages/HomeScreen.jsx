@@ -7,7 +7,7 @@ import Product from '../components/products/Product';
 import LoadingBox from '../components/common/LoadingBox';
 import MessageBox from '../components/common/MessageBox';
 import { Store } from '../context/Store';
-import { getError } from '../utils/helpers';
+import { getError, getMediaUrl } from '../utils/helpers';
 import { recommendationService } from '../services/recommendationService';
 
 const reducer = (state, action) => {
@@ -48,7 +48,7 @@ function TopRatedBillboard({ slides }) {
           style={{ transform: `translateX(-${activeIndex * 100}%)` }}
         >
           {slides.map((s) => {
-            const imageUrl = s.product.image || s.product.main_image || s.product.thumbnail || '';
+            const imageUrl = getMediaUrl(s.product.image || s.product.main_image || s.product.thumbnail || '');
             return (
               <div key={s.category} className="min-w-full h-full flex-shrink-0 relative overflow-hidden">
                 <img
@@ -227,40 +227,40 @@ export default function HomeScreen() {
   return (
     <div className="animate-slide-up space-y-10">
       <Helmet>
-        <title>ElectroMerce — Premium Electronics</title>
+        <title>ElectroMerce </title>
       </Helmet>
 
       <section className="relative overflow-hidden rounded-3xl bg-white p-[10px] text-slate-900 shadow-card min-h-screen">
         <TopRatedBillboard slides={topFiveSlides} />
         <div className="relative z-10 max-w-2xl space-y-5">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold backdrop-blur-sm">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-green-800 bg-gray-300 px-3 py-1 text-xs font-semibold backdrop-blur-sm text-green-800 ">
             <Sparkles size={14} />
             New arrivals every week
           </span>
           <h1 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
             Tech you trust.
-            <br />
+
             <span className="text-brand-200">Delivered fast.</span>
           </h1>
           <p className="max-w-lg text-sm leading-relaxed text-blue-100 sm:text-base">
             Shop smartphones, laptops, audio gear, and smart wearables from top brands — curated for
             quality and backed by reliable support.
           </p>
-          <div className="flex flex-wrap gap-3 pt-1">
+          <div className="flex flex-wrap gap-3 pt-1 ">
             <Link to="/search" className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-2.5 text-sm font-bold text-brand-700 shadow-md transition-all hover:bg-brand-50 hover:shadow-lg">
               Browse catalog
               <ArrowRight size={16} />
             </Link>
             <Link
               to="/search?category=all&query=all&price=all&rating=all&order=toprated"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-semibold backdrop-blur-sm transition-all hover:bg-white/20"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-green-700 px-5 py-2.5 text-sm font-semibold backdrop-blur-sm transition-all hover:bg-white/20"
             >
               Top rated
             </Link>
           </div>
         </div>
 
-        <div className="relative z-10 mt-8 grid grid-cols-1 gap-3 border-t border-white/15 pt-8 sm:grid-cols-3">
+        <div className="relative z-10 mt-8 grid grid-cols-1 gap-3 border-t border-white/15 pt-4 sm:grid-cols-3">
           {[
             { icon: Truck, label: 'Fast delivery', desc: 'Nationwide shipping' },
             { icon: Shield, label: 'Secure checkout', desc: 'Protected payments' },
@@ -279,11 +279,11 @@ export default function HomeScreen() {
         </div>
       </section>
 
-      <section className="space-y-6">
+      <section className="space-y-2">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="section-heading">Featured products</h2>
-            <p className="section-subheading">Hand-picked electronics at competitive prices</p>
+            {/* <p className="section-subheading">Hand-picked electronics at competitive prices</p> */}
           </div>
           <Link to="/search" className="link-brand inline-flex items-center gap-1 text-sm">
             View all
@@ -298,7 +298,7 @@ export default function HomeScreen() {
         ) : products.length === 0 ? (
           <MessageBox>No products available right now.</MessageBox>
         ) : (
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="product-grid-responsive">
             {featuredProducts.map((product) => (
               <Product key={product.slug} product={product} />
             ))}
@@ -320,7 +320,7 @@ export default function HomeScreen() {
           ) : trendingError ? (
             <MessageBox variant="danger">{trendingError}</MessageBox>
           ) : trendingProducts.length > 0 ? (
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="product-grid-responsive">
               {trendingProducts.map((product) => (
                 <Product key={product.id || product.slug} product={product} />
               ))}
@@ -344,7 +344,7 @@ export default function HomeScreen() {
             ) : personalizedError ? (
               <MessageBox variant="danger">{personalizedError}</MessageBox>
             ) : personalizedProducts.length > 0 ? (
-              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              <div className="product-grid-responsive">
                 {personalizedProducts.map((product) => (
                   <Product key={product.id || product.slug} product={product} />
                 ))}

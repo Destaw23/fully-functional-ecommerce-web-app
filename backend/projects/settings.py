@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "drf_yasg",
     # Local apps
     "apps.accounts",
+    "apps.stores",
     "apps.products",
     "apps.cart",
     "apps.orders",

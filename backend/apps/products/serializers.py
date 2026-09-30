@@ -57,9 +57,20 @@ class ReviewSerializer(serializers.ModelSerializer):
         read_only_fields = ("user", "is_verified", "helpful_count")
 
 
+class StoreSummarySerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    name = serializers.CharField()
+    slug = serializers.CharField()
+    logo = serializers.ImageField()
+    rating = serializers.DecimalField(max_digits=3, decimal_places=2)
+    is_verified = serializers.BooleanField()
+    city = serializers.CharField()
+
+
 class ProductListSerializer(serializers.ModelSerializer):
     category_name = serializers.CharField(source="category.name", read_only=True)
     discount_percentage = serializers.ReadOnlyField()
+    store = StoreSummarySerializer(read_only=True)
 
     class Meta:
         model = Product
@@ -77,11 +88,13 @@ class ProductListSerializer(serializers.ModelSerializer):
             "brand",
             "condition",
             "category_name",
+            "store",
         )
 
 
 class ProductDetailSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True)
+    store = StoreSummarySerializer(read_only=True)
     additional_images = ProductImageSerializer(many=True, read_only=True)
     reviews = ReviewSerializer(many=True, read_only=True)
     discount_percentage = serializers.ReadOnlyField()
@@ -94,6 +107,7 @@ class ProductDetailSerializer(serializers.ModelSerializer):
             "name",
             "slug",
             "category",
+            "store",
             "description",
             "short_description",
             "price",

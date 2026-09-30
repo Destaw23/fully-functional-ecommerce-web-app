@@ -5,7 +5,7 @@ import Rating from '../components/common/Rating';
 import { Helmet } from 'react-helmet-async';
 import LoadingBox from '../components/common/LoadingBox';
 import MessageBox from '../components/common/MessageBox';
-import { getError } from '../utils/helpers';
+import { getError, getMediaUrl } from '../utils/helpers';
 import { Store } from '../context/Store';
 import { toast } from 'react-toastify';
 import { ShoppingCart, Star, ShieldCheck, Truck, RefreshCw, Send, Heart } from 'lucide-react';
@@ -235,7 +235,10 @@ export default function ProductScreen() {
   if (loading) return <LoadingBox />;
   if (error) return <MessageBox variant="danger">{error}</MessageBox>;
 
-  const productImages = product.images ? [product.image, ...product.images] : [product.image];
+  const mainImg = getMediaUrl(product.image || product.main_image);
+  const productImages = product.images && product.images.length > 0
+    ? [mainImg, ...product.images.map((img) => getMediaUrl(img))]
+    : [mainImg];
 
   return (
     <div className="space-y-12 pb-16">
@@ -250,7 +253,7 @@ export default function ProductScreen() {
         <div className="w-full lg:w-1/2 flex flex-col space-y-4">
           <div className="aspect-square bg-slate-50 border border-slate-100 rounded-xl overflow-hidden max-h-[500px] p-4">
             <img
-              src={selectedImage || product.image || undefined}
+              src={getMediaUrl(selectedImage) || mainImg || undefined}
               alt={product.name}
               className="w-full h-full object-contain object-center block"
             />
@@ -263,10 +266,10 @@ export default function ProductScreen() {
                 <button
                   key={x || index}
                   onClick={() => setSelectedImage(x)}
-                  className={`aspect-square rounded-lg overflow-hidden border-2 bg-slate-50 ${(selectedImage || product.image) === x ? 'border-blue-500 shadow-sm' : 'border-transparent hover:border-slate-300'
+                  className={`aspect-square rounded-lg overflow-hidden border-2 bg-slate-50 ${(selectedImage ? getMediaUrl(selectedImage) : mainImg) === x ? 'border-blue-500 shadow-sm' : 'border-transparent hover:border-slate-300'
                     }`}
                 >
-                  <img src={x || undefined} alt="thumbnail" className="w-full h-full object-contain object-center block" />
+                  <img src={getMediaUrl(x) || undefined} alt="thumbnail" className="w-full h-full object-contain object-center block" />
                 </button>
               ))}
             </div>
@@ -299,6 +302,37 @@ export default function ProductScreen() {
 
           {/* Action box */}
           <div className="border-t border-slate-100 pt-6 space-y-4">
+            {/* Store Seller Info Card */}
+            {product.store && (
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-slate-50 to-brand-50/30 border border-brand-100/80 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-xl bg-white border border-brand-200 p-1 flex items-center justify-center font-bold text-brand-600 shrink-0 shadow-sm">
+                    {product.store.logo ? (
+                      <img src={getMediaUrl(product.store.logo)} alt={product.store.name} className="h-full w-full object-cover rounded-lg" />
+                    ) : (
+                      product.store.name?.charAt(0) || 'S'
+                    )}
+                  </div>
+                  <div>
+                    <span className="block text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Sold by</span>
+                    <Link to={`/store/${product.store.slug || product.store.id}`} className="font-bold text-slate-900 hover:text-brand-600 text-sm flex items-center gap-1">
+                      <span>{product.store.name}</span>
+                      {product.store.is_verified && (
+                        <ShieldCheck size={14} className="text-emerald-600 shrink-0" />
+                      )}
+                    </Link>
+                  </div>
+                </div>
+
+                <Link
+                  to={`/store/${product.store.slug || product.store.id}`}
+                  className="px-3 py-1.5 rounded-xl border border-brand-200 bg-white text-brand-700 hover:bg-brand-50 font-bold text-xs transition-colors shrink-0"
+                >
+                  Visit Store →
+                </Link>
+              </div>
+            )}
+
             <div className="flex justify-between items-center text-sm">
               <span className="text-slate-500 font-medium">Availability Status:</span>
               <span>

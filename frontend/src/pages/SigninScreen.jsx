@@ -6,6 +6,7 @@ import { Store } from '../context/Store';
 import { toast } from 'react-toastify';
 import { LogIn, Loader } from 'lucide-react';
 import { getError } from '../utils/helpers';
+import { normalizeUser } from '../utils/auth';
 
 export default function SigninScreen() {
   const navigate = useNavigate();
@@ -28,8 +29,9 @@ export default function SigninScreen() {
         email,
         password,
       });
-      ctxDispatch({ type: 'USER_SIGNIN', payload: data });
-      localStorage.setItem('userInfo', JSON.stringify(data.user));
+      const normalizedUser = normalizeUser(data.user || data);
+      ctxDispatch({ type: 'USER_SIGNIN', payload: { ...data, user: normalizedUser } });
+      localStorage.setItem('userInfo', JSON.stringify(normalizedUser));
       localStorage.setItem('accessToken', data.access);
       localStorage.setItem('refreshToken', data.refresh);
       navigate(redirect || '/');
@@ -63,14 +65,14 @@ export default function SigninScreen() {
 
         <form onSubmit={submitHandler} className="space-y-4">
           <div>
-            <label className="input-label" htmlFor="email" font-bold>
+            <label className="input-label font-bold" htmlFor="email">
               Email address
             </label>
             <input
               id="email"
               type="email"
               required
-              placeholder="you@example.com"
+              placeholder=" Your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="input-field"

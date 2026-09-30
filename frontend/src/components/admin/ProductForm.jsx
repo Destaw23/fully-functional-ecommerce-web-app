@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useReducer, useState } from 'react';
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams, Link, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, Loader, X, Save, FileText, Image as ImageIcon, Upload } from 'lucide-react';
+import { ArrowLeft, Loader, X, Save, FileText, Image as ImageIcon, Upload, Store as StoreIcon } from 'lucide-react';
 import { Store } from '../../context/Store';
-import { getError } from '../../utils/helpers';
+import { getError, getMediaUrl } from '../../utils/helpers';
 import LoadingBox from '../common/LoadingBox';
 import MessageBox from '../common/MessageBox';
 import useCategories from '../../hooks/useCategories';
@@ -31,9 +31,12 @@ const reducer = (state, action) => {
 
 export default function ProductForm() {
   const navigate = useNavigate();
+  const location = useLocation();
   const params = useParams();
   const { id: productId } = params;
   const isEditMode = !!productId;
+
+  const queryStore = new URLSearchParams(location.search).get('store');
 
   const { state } = useContext(Store);
   const { userInfo } = state;
@@ -56,6 +59,8 @@ export default function ProductForm() {
   const [images, setImages] = useState([]);
   const [newImageUrl, setNewImageUrl] = useState('');
   const [category, setCategory] = useState('');
+  const [storeId, setStoreId] = useState('');
+  const [storesList, setStoresList] = useState([]);
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
   const [description, setDescription] = useState('');
@@ -76,14 +81,41 @@ export default function ProductForm() {
   // Categories Loader Hook
   const { categories, loading: loadingCats } = useCategories();
 
+  // Load Stores List
+  useEffect(() => {
+    const fetchStores = async () => {
+      try {
+        const token = userInfo?.token || localStorage.getItem('accessToken');
+        const { data } = await axios.get('/api/stores/admin/', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const list = data.results || data;
+        if (Array.isArray(list)) setStoresList(list);
+      } catch (err) {
+        console.error('Failed to load store list:', err);
+      }
+    };
+    if (userInfo) {
+      fetchStores();
+    }
+  }, [userInfo]);
+
+  // Pre-select store from URL query param if available
+  useEffect(() => {
+    if (queryStore && !isEditMode) {
+      setStoreId(queryStore);
+    }
+  }, [queryStore, isEditMode]);
+
   // Load details in edit mode
   useEffect(() => {
     if (isEditMode) {
       const fetchData = async () => {
         try {
           dispatch({ type: 'FETCH_REQUEST' });
+          const token = userInfo?.token || localStorage.getItem('accessToken');
           const { data } = await axios.get(`/api/admin/products/${productId}/`, {
-            headers: { Authorization: `Bearer ${userInfo.token}` },
+            headers: { Authorization: `Bearer ${token}` },
           });
           setName(data.name);
           setSlug(data.slug);
@@ -111,6 +143,7 @@ export default function ProductForm() {
           const primaryExisting = mapped.find((m) => m.is_primary);
           if (primaryExisting) setPrimarySelection(primaryExisting.id);
           setCategory(data.category || '');
+          setStoreId(data.store || data.store_id || '');
           const parsedStock =
             data.countInStock !== undefined
               ? data.countInStock
@@ -256,9 +289,10 @@ export default function ProductForm() {
         formData.append('additional_images_meta', JSON.stringify(meta));
       }
 
+      const token = userInfo?.token || localStorage.getItem('accessToken');
+      // Let axios set multipart boundary; manual Content-Type breaks file uploads.
       const headers = {
-        'Content-Type': 'multipart/form-data',
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${token}`,
       };
 
       if (isEditMode) {
@@ -622,7 +656,7 @@ export default function ProductForm() {
                 <div className="md:col-span-1 border border-slate-200 rounded-xl p-3 bg-slate-50 flex items-center justify-center min-h-[120px]">
                   {imagePreview || image ? (
                     <img
-                      src={imagePreview || image}
+                      src={imagePreview || getMediaUrl(image)}
                       alt="Primary Preview"
                       className="max-h-24 max-w-full rounded-lg object-contain bg-white border border-slate-100 shadow-sm"
                     />
@@ -643,7 +677,7 @@ export default function ProductForm() {
                     {existingImages.map((it) => (
                       <div key={it.id} className="flex items-center justify-between bg-slate-50 border border-slate-200 rounded-xl p-2 gap-3">
                         <img
-                          src={it.image}
+                          src={getMediaUrl(it.image)}
                           alt={it.alt_text || 'Gallery'}
                           className="h-12 w-12 rounded object-cover bg-white border border-slate-100 shrink-0"
                         />
@@ -676,7 +710,7 @@ export default function ProductForm() {
                     {images.map((imgUrl, i) => (
                       <div key={`url-${i}`} className="flex items-center justify-between bg-slate-50 border border-slate-200 rounded-xl p-2 gap-3">
                         <img
-                          src={imgUrl}
+                          src={getMediaUrl(imgUrl)}
                           alt="Gallery Preview"
                           className="h-12 w-12 rounded object-cover bg-white border border-slate-100 shrink-0"
                         />

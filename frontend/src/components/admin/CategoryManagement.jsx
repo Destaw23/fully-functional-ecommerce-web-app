@@ -47,11 +47,12 @@ export default function CategoryManagement() {
   const fetchCategories = async () => {
     try {
       dispatch({ type: 'FETCH_REQUEST' });
+      const token = userInfo?.token || localStorage.getItem('accessToken');
       const { data } = await axios.get('/api/admin/categories/', {
-        headers: { Authorization: `Bearer ${userInfo.token}` },
+        headers: { Authorization: `Bearer ${token}` },
       });
       const categoryList = data.results || data;
-      dispatch({ type: 'FETCH_SUCCESS', payload: categoryList });
+      dispatch({ type: 'FETCH_SUCCESS', payload: Array.isArray(categoryList) ? categoryList : [] });
     } catch (err) {
       dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
     }
@@ -85,6 +86,7 @@ export default function CategoryManagement() {
 
     try {
       dispatch({ type: 'MUTATE_REQUEST' });
+      const token = userInfo?.token || localStorage.getItem('accessToken');
       
       const payload = {
         name,
@@ -96,13 +98,13 @@ export default function CategoryManagement() {
       if (editingCategory) {
         // Edit Mode
         await axios.put(`/api/admin/categories/${editingCategory.id}/`, payload, {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
+          headers: { Authorization: `Bearer ${token}` },
         });
         toast.success('Category updated successfully');
       } else {
         // Create Mode
         await axios.post('/api/admin/categories/', payload, {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
+          headers: { Authorization: `Bearer ${token}` },
         });
         toast.success('Category created successfully');
       }
@@ -120,8 +122,9 @@ export default function CategoryManagement() {
     if (window.confirm(`Are you sure you want to delete category "${cat.name}"?`)) {
       try {
         dispatch({ type: 'MUTATE_REQUEST' });
+        const token = userInfo?.token || localStorage.getItem('accessToken');
         await axios.delete(`/api/admin/categories/${cat.id}/`, {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
+          headers: { Authorization: `Bearer ${token}` },
         });
         toast.success('Category deleted successfully');
         dispatch({ type: 'MUTATE_SUCCESS' });

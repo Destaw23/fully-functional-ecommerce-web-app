@@ -1,12 +1,19 @@
 import { createContext, useReducer } from 'react';
+import { normalizeUser } from '../utils/auth';
 
 export const Store = createContext();
 
 const initialState = {
   fullBox: false,
-  userInfo: localStorage.getItem('userInfo')
-    ? JSON.parse(localStorage.getItem('userInfo'))
-    : null,
+  userInfo: (() => {
+    const raw = localStorage.getItem('userInfo');
+    if (!raw) return null;
+    try {
+      return normalizeUser(JSON.parse(raw));
+    } catch {
+      return null;
+    }
+  })(),
   accessToken: localStorage.getItem('accessToken') || null,
   refreshToken: localStorage.getItem('refreshToken') || null,
 
@@ -57,13 +64,15 @@ function reducer(state, action) {
       localStorage.removeItem('cartItems');
       return { ...state, cart: { ...state.cart, cartItems: [] } };
 
-    case 'USER_SIGNIN':
+    case 'USER_SIGNIN': {
+      const user = normalizeUser(action.payload.user || action.payload);
       return {
         ...state,
-        userInfo: action.payload.user,
+        userInfo: user,
         accessToken: action.payload.access,
         refreshToken: action.payload.refresh,
       };
+    }
     case 'USER_SIGNOUT':
       return {
         ...state,

@@ -30,11 +30,16 @@ class TrackInteractionView(APIView):
                 {"error": "Product not found"}, status=status.HTTP_404_NOT_FOUND
             )
 
+        session_id = (
+            getattr(request.session, "session_key", "") or ""
+            if hasattr(request, "session") and request.session
+            else ""
+        )
         Interaction.objects.create(
             user=request.user,
             product=product,
             action=action,
-            session_id=request.session.session_key,
+            session_id=session_id,
         )
 
         return Response({"message": "Interaction tracked"})

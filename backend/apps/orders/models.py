@@ -23,6 +23,8 @@ class Order(models.Model):
         ("picked_up", "Picked Up"),
         ("in_transit", "In Transit"),
         ("delivered", "Delivered"),
+        ("problematic", "Problematic"),
+        ("failed", "Failed"),
     )
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="orders")
@@ -62,6 +64,9 @@ class Order(models.Model):
     total_amount = models.DecimalField(max_digits=10, decimal_places=2)
 
     notes = models.TextField(blank=True)
+    problem_reason = models.CharField(max_length=50, blank=True)
+    problem_notes = models.TextField(blank=True)
+    admin_notes = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -97,3 +102,64 @@ class OrderItem(models.Model):
 
     class Meta:
         db_table = "order_items"
+
+
+class TransactionLog(models.Model):
+    """Immutable audit trail for orders, payments, and status changes."""
+
+    class EventType(models.TextChoices):
+        ORDER_CREATED = "order_created", "Order Created"
+        PAYMENT_INITIATED = "payment_initiated", "Payment Initiated"
+        PAYMENT_SUCCESS = "payment_success", "Payment Success"
+        PAYMENT_FAILED = "payment_failed", "Payment Failed"
+        ORDER_CANCELLED = "order_cancelled", "Order Cancelled"
+        ORDER_STATUS_CHANGED = "order_status_changed", "Order Status Changed"
+        DELIVERY_STATUS_CHANGED = "delivery_status_changed", "Delivery Status Changed"
+        DELIVERY_CLAIMED = "delivery_claimed", "Delivery Claimed"
+
+    class Outcome(models.TextChoices):
+        SUCCESS = "success", "Success"
+        FAILED = "failed", "Failed"
+        PENDING = "pending", "Pending"
+
+    order = models.ForeignKey(
+        Order,
+        on_delete=models.CASCADE,
+        related_name="transaction_logs",
+        null=True,
+        blank=True,
+    )
+    user = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="transaction_logs",
+    )
+    event_type = models.CharField(max_length=40, choices=EventType.choices)
+    outcome = models.CharField(
+        max_length=20,
+        choices=Outcome.choices,
+        default=Outcome.PENDING,
+    )
+    amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    currency = models.CharField(max_length=3, default="ETB")
+    reference = models.CharField(max_length=100, db_index=True)
+    external_id = models.CharField(max_length=100, blank=True)
+    payment_method = models.CharField(max_length=50, blank=True)
+    message = models.CharField(max_length=255, blank=True)
+    metadata = models.JSONField(default=dict, blank=True)
+    ip_address = models.GenericIPAddressField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = "transaction_logs"
+        ordering = ["-created_at"]
+        indexes = [
+            models.Index(fields=["-created_at"]),
+            models.Index(fields=["reference"]),
+            models.Index(fields=["event_type"]),
+        ]
+
+    def __str__(self):
+        return f"{self.event_type} | {self.reference} | {self.outcome}"

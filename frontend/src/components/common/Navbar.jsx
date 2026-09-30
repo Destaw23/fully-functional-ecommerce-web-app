@@ -15,14 +15,22 @@ import {
   Truck,
   User,
   Map,
+  Store as StoreIcon,
 } from 'lucide-react';
 import SearchBox from './SearchBox';
+import { isUserAdmin } from '../../utils/auth';
 
 const getMediaUrl = (url) => {
-  if (!url) return null;
-  if (url.startsWith('http://') || url.startsWith('https://')) return url;
+  if (!url || typeof url !== 'string') return null;
+
+  const normalized = url.trim();
+  if (!normalized) return null;
+  if (/^https?:\/\//i.test(normalized) || normalized.startsWith('//') || /^data:/i.test(normalized)) {
+    return normalized;
+  }
+
   const mediaHost = import.meta.env.VITE_MEDIA_HOST || '';
-  return `${mediaHost}${url.startsWith('/') ? '' : '/'}${url}`;
+  return `${mediaHost}${normalized.startsWith('/') ? '' : '/'}${normalized}`;
 };
 
 const dropdownClass =
@@ -69,6 +77,14 @@ export default function Navbar({
 
           <div className="flex items-center gap-2 sm:gap-3">
             <Link
+              to="/stores"
+              className="flex items-center gap-1.5 rounded-xl px-3 py-2 text-slate-700 font-medium transition-all hover:bg-slate-100 hover:text-brand-600"
+            >
+              <StoreIcon size={20} strokeWidth={2} className="text-brand-600" />
+              <span className="text-sm font-semibold">Stores</span>
+            </Link>
+
+            <Link
               to="/cart"
               className="relative flex items-center gap-2 rounded-xl px-3 py-2 text-slate-600 transition-all hover:bg-slate-100 hover:text-brand-600"
               aria-label="Shopping cart"
@@ -112,6 +128,12 @@ export default function Navbar({
                       <Settings size={16} className="text-slate-400" />
                       <span>Profile</span>
                     </Link>
+
+                    <Link to="/vendor/dashboard" onClick={toggleUserDropdown} className={dropdownItemClass}>
+                      <StoreIcon size={16} className="text-brand-600" />
+                      <span>Vendor Portal</span>
+                    </Link>
+
                     <Link to="/wishlist" onClick={toggleUserDropdown} className={dropdownItemClass}>
                       <Heart size={16} className="text-slate-400" />
                       <span>Wishlist</span>
@@ -149,7 +171,7 @@ export default function Navbar({
               </Link>
             )}
 
-            {userInfo && userInfo.isAdmin && (
+            {userInfo && isUserAdmin(userInfo) && (
               <div className="relative">
                 <button
                   onClick={toggleAdminDropdown}

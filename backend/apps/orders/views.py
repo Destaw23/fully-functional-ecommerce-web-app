@@ -17,6 +17,8 @@ from .serializers import (
 from apps.cart.models import Cart, CartItem
 from apps.products.models import Product
 from apps.recommendations.models import Interaction
+from .transaction_log import record_transaction_log
+from .models import TransactionLog
 
 
 class OrderListView(generics.ListAPIView):
@@ -105,15 +107,33 @@ class CreateOrderView(APIView):
                 quantity=cart_item.quantity,
                 subtotal=cart_item.subtotal,
             )
+            session_id = (
+                getattr(request.session, "session_key", "") or ""
+                if hasattr(request, "session") and request.session
+                else ""
+            )
             Interaction.objects.create(
                 user=request.user,
                 product=cart_item.product,
                 action="purchase",
-                session_id=request.session.session_key or "",
+                session_id=session_id,
             )
 
         # Clear cart
         cart.items.all().delete()
+
+        record_transaction_log(
+            request=request,
+            order=order,
+            user=request.user,
+            event_type=TransactionLog.EventType.ORDER_CREATED,
+            outcome=TransactionLog.Outcome.SUCCESS,
+            amount=order.total_amount,
+            reference=order.order_number,
+            payment_method=order.payment_method,
+            message="Order placed from checkout",
+            metadata={"item_count": order.items.count()},
+        )
 
         return Response(
             {
@@ -130,9 +150,18 @@ class DeliveryOrdersView(generics.ListAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        if getattr(user, "role", "") != "delivery":
+        if getattr(user, "role", "") != "delivery" and not getattr(user, "is_admin", False):
             return Order.objects.none()
-        return Order.objects.filter(assigned_delivery_person=user).order_by("-created_at")
+        
+        qs = Order.objects.filter(assigned_delivery_person=user)
+        status_filter = self.request.query_params.get("status")
+        if status_filter == "completed":
+            qs = qs.filter(delivery_status="delivered")
+        elif status_filter == "problematic":
+            qs = qs.filter(delivery_status__in=["problematic", "failed"])
+        elif status_filter == "active":
+            qs = qs.filter(delivery_status__in=["assigned", "picked_up", "in_transit"])
+        return qs.order_by("-updated_at")
 
 
 class AvailableDeliveryOrdersView(generics.ListAPIView):
@@ -141,15 +170,12 @@ class AvailableDeliveryOrdersView(generics.ListAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        if getattr(user, "role", "") != "delivery":
+        if getattr(user, "role", "") != "delivery" and not getattr(user, "is_admin", False):
             return Order.objects.none()
         return (
             Order.objects
-            .filter(
-                assigned_delivery_person__isnull=True,
-                payment_status="paid",
-                status__in=["paid", "shipped"],
-            )
+            .filter(assigned_delivery_person__isnull=True)
+            .exclude(status__in=["cancelled", "delivered"])
             .order_by("-created_at")
         )
 
@@ -158,17 +184,27 @@ class ClaimDeliveryOrderView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request, order_id):
-        if getattr(request.user, "role", "") != "delivery":
-            return Response({"error": "Only delivery personnel can claim orders."}, status=status.HTTP_403_FORBIDDEN)
+        if getattr(request.user, "role", "") != "delivery" and not getattr(request.user, "is_admin", False):
+            return Response({"error": "Only delivery personnel or admins can claim orders."}, status=status.HTTP_403_FORBIDDEN)
 
-        order = Order.objects.filter(id=order_id, assigned_delivery_person__isnull=True).first()
+        order = Order.objects.filter(id=order_id).first()
         if not order:
-            return Response({"error": "Order is already assigned or not found."}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"error": "Order not found."}, status=status.HTTP_404_NOT_FOUND)
 
         order.assigned_delivery_person = request.user
         order.delivery_status = "assigned"
-        order.status = "shipped"
+        if order.status == "pending":
+            order.status = "processing"
         order.save()
+        record_transaction_log(
+            request=request,
+            order=order,
+            event_type=TransactionLog.EventType.DELIVERY_CLAIMED,
+            outcome=TransactionLog.Outcome.SUCCESS,
+            amount=order.total_amount,
+            reference=order.order_number,
+            message=f"Claimed by {request.user.username}",
+        )
         return Response(OrderDetailSerializer(order).data, status=status.HTTP_200_OK)
 
 
@@ -176,25 +212,60 @@ class UpdateDeliveryStatusView(APIView):
     permission_classes = [IsAuthenticated]
 
     def patch(self, request, order_id):
-        if getattr(request.user, "role", "") != "delivery":
-            return Response({"error": "Only delivery personnel can update status."}, status=status.HTTP_403_FORBIDDEN)
+        user = request.user
+        is_delivery = getattr(user, "role", "") == "delivery"
+        is_admin = getattr(user, "is_admin", False)
 
-        order = Order.objects.filter(id=order_id, assigned_delivery_person=request.user).first()
+        if not is_delivery and not is_admin:
+            return Response({"error": "Permission denied."}, status=status.HTTP_403_FORBIDDEN)
+
+        order = Order.objects.filter(id=order_id).first()
         if not order:
-            return Response({"error": "Order not assigned to you."}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"error": "Order not found."}, status=status.HTTP_404_NOT_FOUND)
 
         delivery_status = request.data.get("delivery_status")
-        if delivery_status not in [choice[0] for choice in Order.DELIVERY_STATUS_CHOICES]:
-            return Response({"error": "Invalid delivery status."}, status=status.HTTP_400_BAD_REQUEST)
+        problem_reason = request.data.get("problem_reason", "")
+        problem_notes = request.data.get("problem_notes", "")
+        admin_notes = request.data.get("admin_notes", "")
+        previous_delivery_status = order.delivery_status
+        previous_order_status = order.status
 
-        order.delivery_status = delivery_status
-        if delivery_status == "delivered":
-            order.status = "delivered"
-            order.delivered_at = timezone.now()
-        elif delivery_status in ["picked_up", "in_transit", "assigned"]:
-            order.status = "shipped"
+        if delivery_status:
+            if delivery_status not in [choice[0] for choice in Order.DELIVERY_STATUS_CHOICES]:
+                return Response({"error": "Invalid delivery status."}, status=status.HTTP_400_BAD_REQUEST)
+            order.delivery_status = delivery_status
+            if delivery_status == "delivered":
+                order.status = "delivered"
+                order.delivered_at = timezone.now()
+            elif delivery_status in ["picked_up", "in_transit", "assigned"]:
+                if order.status != "delivered":
+                    order.status = "shipped"
+
+        if problem_reason:
+            order.problem_reason = problem_reason
+        if problem_notes:
+            order.problem_notes = problem_notes
+        if admin_notes:
+            order.admin_notes = admin_notes
 
         order.save()
+        if delivery_status and delivery_status != previous_delivery_status:
+            record_transaction_log(
+                request=request,
+                order=order,
+                event_type=TransactionLog.EventType.DELIVERY_STATUS_CHANGED,
+                outcome=TransactionLog.Outcome.SUCCESS,
+                amount=order.total_amount,
+                reference=order.order_number,
+                message=f"Delivery {previous_delivery_status} → {order.delivery_status}",
+                metadata={
+                    "from": previous_delivery_status,
+                    "to": order.delivery_status,
+                    "order_status_from": previous_order_status,
+                    "order_status_to": order.status,
+                    "problem_reason": problem_reason or None,
+                },
+            )
         return Response(OrderDetailSerializer(order).data, status=status.HTTP_200_OK)
 
 
@@ -219,5 +290,17 @@ class CancelOrderView(APIView):
 
         order.status = "cancelled"
         order.save()
+
+        record_transaction_log(
+            request=request,
+            order=order,
+            user=request.user,
+            event_type=TransactionLog.EventType.ORDER_CANCELLED,
+            outcome=TransactionLog.Outcome.SUCCESS,
+            amount=order.total_amount,
+            reference=order.order_number,
+            payment_method=order.payment_method,
+            message="Order cancelled by customer",
+        )
 
         return Response({"message": "Order cancelled successfully"})

@@ -5,6 +5,7 @@ import MessageBox from '../components/common/MessageBox';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Trash2, Minus, Plus } from 'lucide-react';
+import { getMediaUrl } from '../utils/helpers';
 
 export default function CartScreen() {
   const navigate = useNavigate();
@@ -105,7 +106,7 @@ export default function CartScreen() {
                   >
                     <div className="flex flex-1 items-center gap-4">
                       <img
-                        src={item.image}
+                        src={getMediaUrl(item.image || item.main_image)}
                         alt={item.name}
                         className="h-16 w-16 shrink-0 rounded-xl border border-slate-200 bg-slate-50 object-cover"
                       />

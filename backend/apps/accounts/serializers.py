@@ -5,6 +5,10 @@ from .models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
+    isAdmin = serializers.BooleanField(source="is_admin", read_only=True)
+    isSuperuser = serializers.BooleanField(source="is_superuser", read_only=True)
+    isStaff = serializers.BooleanField(source="is_staff", read_only=True)
+
     class Meta:
         model = User
         fields = (
@@ -15,6 +19,9 @@ class UserSerializer(serializers.ModelSerializer):
             "address",
             "profile_picture",
             "role",
+            "isAdmin",
+            "isSuperuser",
+            "isStaff",
             "created_at",
         )
         read_only_fields = ("id", "created_at", "role")
@@ -36,7 +43,15 @@ class RegisterSerializer(serializers.ModelSerializer):
             "phone_number",
             "address",
             "profile_picture",
+            "role",
         )
+        extra_kwargs = {"role": {"required": False}}
+
+    def validate_role(self, value):
+        if value and value not in ["customer", "delivery", "admin", "store_owner"]:
+            return "customer"
+        return value or "customer"
+
 
     def validate(self, attrs):
         if attrs["password"] != attrs["password2"]:

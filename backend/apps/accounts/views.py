@@ -244,3 +244,4 @@ class ChangePasswordView(APIView):
             update_session_auth_hash(request, request.user)
             return Response({"message": "Password changed successfully"})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+

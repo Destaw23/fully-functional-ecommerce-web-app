@@ -80,7 +80,7 @@ export default function ForgetPasswordScreen() {
               value={email}
               required
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@example.com"
+              placeholder="Your email"
               className="input-field"
             />
           </div>

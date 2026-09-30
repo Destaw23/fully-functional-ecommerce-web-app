@@ -6,7 +6,7 @@ import { Store } from '../context/Store';
 import CheckoutSteps from '../components/layout/CheckoutSteps';
 import LoadingBox from '../components/common/LoadingBox';
 import { toast } from 'react-toastify';
-import { getError } from '../utils/helpers';
+import { getError, getMediaUrl } from '../utils/helpers';
 import { Package, Truck, CreditCard, ArrowRight } from 'lucide-react';
 
 const reducer = (state, action) => {
@@ -70,7 +70,8 @@ export default function PlaceOrderScreen() {
       ctxDispatch({ type: 'CART_CLEAR' });
       dispatch({ type: 'CREATE_SUCCESS' });
       localStorage.removeItem('cartItems');
-      navigate(`/order/${data.order._id}`);
+      const orderId = data.order?._id || data.order?.id;
+      navigate(`/order/${orderId}`);
     } catch (err) {
       dispatch({ type: 'CREATE_FAIL' });
       toast.error(getError(err));
@@ -142,7 +143,7 @@ export default function PlaceOrderScreen() {
                 <div key={item._id} className="flex items-center justify-between py-3.5 gap-4">
                   <div className="flex items-center space-x-4">
                     <img
-                      src={item.image}
+                      src={getMediaUrl(item.image || item.main_image)}
                       alt={item.name}
                       className="w-12 h-12 object-cover rounded-lg border border-slate-200 bg-slate-50 flex-shrink-0"
                     />

@@ -45,6 +45,7 @@ urlpatterns = [
     path("api/users/forget-password/", ForgotPasswordView.as_view(), name="users_forget_password"),
     path("api/users/reset-password/", ResetPasswordView.as_view(), name="users_reset_password"),
     path("api/products/", include("apps.products.urls")),
+    path("api/stores/", include("apps.stores.urls")),
     path("api/cart/", include("apps.cart.urls")),
     path("api/orders/", include("apps.orders.urls")),
     path("api/payments/", include("apps.payments.urls")),

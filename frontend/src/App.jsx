@@ -31,6 +31,11 @@ import ResetPasswordScreen from './pages/ResetPasswordScreen';
 import MapScreen from './pages/MapScreen';
 import DeliveryDashboardPage from './pages/DeliveryDashboardPage';
 
+// Stores & Vendor Screens
+import StoresScreen from './pages/StoresScreen';
+import StoreDetailScreen from './pages/StoreDetailScreen';
+import VendorDashboardScreen from './pages/VendorDashboardScreen';
+
 export default function App() {
   const { state } = useContext(Store);
   const { fullBox } = state;
@@ -55,6 +60,16 @@ export default function App() {
             {/* Public Pathways */}
             <Route path="/" element={<HomeScreen />} />
             <Route path="/product/:slug" element={<ProductScreen />} />
+            <Route path="/stores" element={<StoresScreen />} />
+            <Route path="/store/:slug" element={<StoreDetailScreen />} />
+            <Route
+              path="/vendor/dashboard"
+              element={
+                <ProtectedRoute>
+                  <VendorDashboardScreen />
+                </ProtectedRoute>
+              }
+            />
             <Route path="/cart" element={<CartScreen />} />
             <Route path="/search" element={<SearchScreen />} />
             <Route path="/signin" element={<SigninScreen />} />

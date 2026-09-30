@@ -9,24 +9,43 @@ const slugify = (str) =>
     .replace(/[\s_-]+/g, '-')
     .replace(/^-+|-+$/g);
 
-// Prepend host to relative media URLs
+// Prepend host to relative media URLs but keep external asset URLs untouched.
+// Also repairs legacy values that were malformed into /media/https:/... paths.
 const formatImageUrl = (url) => {
-  if (!url) return null;
+  if (!url || typeof url !== 'string') return null;
 
-  // If the backend returned an absolute URL with localhost or 127.0.0.1, convert to relative so it routes through Vite proxy
-  if (url.startsWith('http://') || url.startsWith('https://')) {
-    if (url.includes('/media/')) {
-      return '/media/' + url.split('/media/')[1];
+  let normalized = url.trim();
+  if (!normalized) return null;
+
+  const repairExternalUrl = (value) => {
+    if (!value) return value;
+    const decoded = decodeURIComponent(value);
+    const fixed = decoded.replace(/^https?:\/([^/])/, 'https://$1');
+    return /^https?:\/\//i.test(fixed) ? fixed : decoded;
+  };
+
+  if (normalized.includes('/media/https:') || normalized.includes('/media/http:') || normalized.includes('https%3A') || normalized.includes('http%3A')) {
+    const recovered = normalized.replace(/^\/media\//, '').replace(/^media\//, '');
+    try {
+      const repaired = repairExternalUrl(recovered);
+      if (/^https?:\/\//i.test(repaired)) return repaired;
+      normalized = repaired;
+    } catch (error) {
+      const direct = recovered.replace(/^https?:/, 'https:');
+      const repaired = direct.replace(/^https?:\/([^/])/, 'https://$1');
+      if (/^https?:\/\//i.test(repaired)) return repaired;
     }
-    return url;
   }
 
-  // Prepend /media/ if it is a relative path and doesn't have it
-  if (url.startsWith('/media/') || url.startsWith('media/')) {
-    return url.startsWith('/') ? url : '/' + url;
+  if (/^https?:\/\//i.test(normalized) || normalized.startsWith('//') || /^data:/i.test(normalized)) {
+    return normalized;
   }
 
-  return `/media/${url.startsWith('/') ? url.slice(1) : url}`;
+  if (normalized.startsWith('/media/') || normalized.startsWith('media/')) {
+    return normalized.startsWith('/') ? normalized : '/' + normalized;
+  }
+
+  return `/media/${normalized.startsWith('/') ? normalized.slice(1) : normalized}`;
 };
 
 
@@ -73,7 +92,15 @@ axios.interceptors.request.use(
       const userInfoStr = localStorage.getItem('userInfo');
       if (userInfoStr) {
         const userInfo = JSON.parse(userInfoStr);
-        isAdmin = !!(userInfo.isAdmin || userInfo.role === 'admin');
+        isAdmin = Boolean(
+          userInfo.isAdmin ||
+          userInfo.is_admin ||
+          userInfo.role === 'admin' ||
+          userInfo.is_superuser ||
+          userInfo.isSuperuser ||
+          userInfo.is_staff ||
+          userInfo.isStaff
+        );
       }
     } catch (e) { }
 
@@ -362,10 +389,10 @@ axios.interceptors.request.use(
       config.params = params;
     }
 
-    // Unified Product Write payload transformation for POST and PUT
+    // Unified Product Write payload transformation for POST, PUT, and PATCH
     const isProductWrite =
-      config.url.includes('/admin/products') &&
-      (config.method === 'post' || config.method === 'put') &&
+      (config.url.includes('/admin/products') || config.url.includes('/stores/my-store/products')) &&
+      (config.method === 'post' || config.method === 'put' || config.method === 'patch') &&
       config.data;
 
     if (isProductWrite) {
@@ -420,16 +447,17 @@ axios.interceptors.request.use(
         deleteVal('countInStock');
       }
 
-      // 3. Map image URL string to main_image (if not already a file upload)
-      // Since Django's ImageField does not accept a string URL, we omit it
-      // if it's a string to prevent DRF validation errors, retaining the existing image.
+      // 3. Map legacy image URL field to main_image (never overwrite a File upload)
       const image = getVal('image');
       const mainImage = getVal('main_image');
-      if (image && typeof image === 'string') {
+      const mainImageIsFile =
+        typeof File !== 'undefined' && mainImage instanceof File;
+      if (image && !mainImage && !mainImageIsFile) {
+        setVal('main_image', image);
         deleteVal('image');
-        if (typeof mainImage === 'string' || !mainImage) {
-          deleteVal('main_image');
-        }
+      }
+      if (mainImageIsFile) {
+        deleteVal('image');
       }
     }
 
@@ -588,23 +616,41 @@ axios.interceptors.response.use(
     // D. Parse user login/register response
     if (cleanPath.endsWith('/auth/login/') || cleanPath.endsWith('/auth/register/')) {
       if (data.user) {
+        const adminFlag = Boolean(
+          data.user.role === 'admin' ||
+          data.user.isAdmin ||
+          data.user.is_admin ||
+          data.user.is_superuser ||
+          data.user.isSuperuser ||
+          data.user.is_staff ||
+          data.user.isStaff
+        );
         response.data = {
           user: {
             ...data.user,
-            isAdmin: data.user.role === 'admin',
+            isAdmin: adminFlag,
           },
           access: data.access,
           refresh: data.refresh,
         };
       } else if (data.access && data.refresh) {
         // Fallback if user data is wrapped differently
+        const adminFlag = Boolean(
+          data.role === 'admin' ||
+          data.isAdmin ||
+          data.is_admin ||
+          data.is_superuser ||
+          data.isSuperuser ||
+          data.is_staff ||
+          data.isStaff
+        );
         response.data = {
           user: {
             id: data.id || 0,
             username: data.username || data.name || '',
             email: data.email || '',
             role: data.role || 'customer',
-            isAdmin: data.role === 'admin',
+            isAdmin: adminFlag,
           },
           access: data.access,
           refresh: data.refresh,
@@ -614,13 +660,21 @@ axios.interceptors.response.use(
 
     // E. Parse user profile response
     if (cleanPath.endsWith('/auth/profile/')) {
-      const storedUserInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
+      const adminFlag = Boolean(
+        data.role === 'admin' ||
+        data.isAdmin ||
+        data.is_admin ||
+        data.is_superuser ||
+        data.isSuperuser ||
+        data.is_staff ||
+        data.isStaff
+      );
       response.data = {
         id: data.id,
         username: data.username,
         email: data.email,
         role: data.role,
-        isAdmin: data.role === 'admin',
+        isAdmin: adminFlag,
       };
     }
 

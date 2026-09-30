@@ -54,11 +54,10 @@ export default function Header() {
 
   const categoryLinkClass = (categorySlug, isAll = false) => {
     const isActive = isAll ? activeCategory === 'all' : activeCategory === categorySlug;
-    return `flex items-center justify-between gap-2 rounded-xl px-3.5 py-2.5 text-sm font-medium transition-all duration-200 ${
-      isActive
+    return `flex items-center justify-between gap-2 rounded-xl px-3.5 py-2.5 text-sm font-medium transition-all duration-200 ${isActive
         ? 'bg-brand-600/20 text-white ring-1 ring-brand-500/40'
         : 'text-slate-300 hover:bg-white/10 hover:text-white'
-    }`;
+      }`;
   };
 
   return (
@@ -72,9 +71,8 @@ export default function Header() {
       )}
 
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-50 flex w-80 max-w-[85vw] flex-col bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-slate-100 shadow-2xl transition-transform duration-300 ease-out ${
-          sidebarIsOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        className={`fixed top-0 bottom-0 left-0 z-50 flex w-80 max-w-[85vw] flex-col bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-slate-100 shadow-2xl transition-transform duration-300 ease-out ${sidebarIsOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
       >
         <div className="flex-1 space-y-6 overflow-y-auto p-6">
           <div className="flex items-center justify-between border-b border-white/10 pb-5">

@@ -39,6 +39,13 @@ class Product(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name="products"
     )
+    store = models.ForeignKey(
+        "stores.Store",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="products",
+    )
     description = models.TextField()
     short_description = models.CharField(max_length=500, blank=True)
     price = models.DecimalField(
@@ -56,7 +63,7 @@ class Product(models.Model):
     warranty_months = models.IntegerField(default=0)
     specifications = models.JSONField(default=dict, blank=True)
     images = models.JSONField(default=list, blank=True)  # List of image URLs
-    main_image = models.ImageField(upload_to="products/", null=True, blank=True)
+    main_image = models.CharField(max_length=500, blank=True, null=True)
     rating = models.DecimalField(max_digits=3, decimal_places=2, default=0)
     total_reviews = models.IntegerField(default=0)
     is_active = models.BooleanField(default=True)
