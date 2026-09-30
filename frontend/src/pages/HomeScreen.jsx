@@ -230,52 +230,54 @@ export default function HomeScreen() {
         <title>ElectroMerce </title>
       </Helmet>
 
-      <section className="relative overflow-hidden rounded-3xl bg-white p-[10px] text-slate-900 shadow-card min-h-screen">
+      <section className="relative overflow-hidden rounded-3xl bg-slate-900 p-6 sm:p-8 text-white shadow-card min-h-[480px] sm:min-h-[520px] flex flex-col justify-between">
         <TopRatedBillboard slides={topFiveSlides} />
+        
         <div className="relative z-10 max-w-2xl space-y-5">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-green-800 bg-gray-300 px-3 py-1 text-xs font-semibold backdrop-blur-sm text-green-800 ">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 bg-emerald-950/60 px-3.5 py-1 text-xs font-bold text-emerald-300 backdrop-blur-md shadow-sm">
             <Sparkles size={14} />
             New arrivals every week
           </span>
-          <h1 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-            Tech you trust.
-
-            <span className="text-brand-200">Delivered fast.</span>
+          <h1 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl text-white">
+            Tech you trust. <span className="text-brand-400">Delivered fast.</span>
           </h1>
-          <p className="max-w-lg text-sm leading-relaxed text-blue-100 sm:text-base">
+          <p className="max-w-lg text-sm leading-relaxed text-slate-200 sm:text-base font-medium drop-shadow-sm">
             Shop smartphones, laptops, audio gear, and smart wearables from top brands — curated for
             quality and backed by reliable support.
           </p>
-          <div className="flex flex-wrap gap-3 pt-1 ">
-            <Link to="/search" className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-2.5 text-sm font-bold text-brand-700 shadow-md transition-all hover:bg-brand-50 hover:shadow-lg">
+          <div className="flex flex-wrap gap-3 pt-1">
+            <Link to="/search" className="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:bg-brand-700 hover:shadow-lg">
               Browse catalog
               <ArrowRight size={16} />
             </Link>
             <Link
               to="/search?category=all&query=all&price=all&rating=all&order=toprated"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-green-700 px-5 py-2.5 text-sm font-semibold backdrop-blur-sm transition-all hover:bg-white/20"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20"
             >
               Top rated
             </Link>
           </div>
         </div>
 
-        <div className="relative z-10 mt-8 grid grid-cols-1 gap-3 border-t border-white/15 pt-4 sm:grid-cols-3">
-          {[
-            { icon: Truck, label: 'Fast delivery', desc: 'Nationwide shipping' },
-            { icon: Shield, label: 'Secure checkout', desc: 'Protected payments' },
-            { icon: Sparkles, label: 'Genuine products', desc: 'Authorized sellers' },
-          ].map(({ icon: Icon, label, desc }) => (
-            <div key={label} className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3 backdrop-blur-sm">
-              <div className="rounded-lg bg-white/15 p-2">
-                <Icon size={18} />
+        {/* Trust Badges List at Bottom of Advertisement Section */}
+        <div className="relative z-10 mt-8 pt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 bg-slate-950/80 backdrop-blur-md p-4 sm:p-5 rounded-2xl text-white shadow-xl border border-white/15">
+            {[
+              { icon: Truck, label: 'Fast delivery', desc: 'Nationwide shipping', color: 'bg-brand-500/20 text-brand-400 border-brand-500/30' },
+              { icon: Shield, label: 'Secure checkout', desc: 'Protected payments', color: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' },
+              { icon: Sparkles, label: 'Genuine products', desc: 'Authorized sellers', color: 'bg-amber-500/20 text-amber-400 border-amber-500/30' },
+            ].map(({ icon: Icon, label, desc, color }) => (
+              <div key={label} className="flex items-center gap-3.5 rounded-xl bg-white/10 p-3.5 border border-white/10 backdrop-blur-sm transition-all hover:bg-white/15">
+                <div className={`rounded-xl p-2.5 border ${color} shrink-0`}>
+                  <Icon size={20} />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-white leading-tight">{label}</p>
+                  <p className="text-xs text-slate-300 font-medium mt-0.5">{desc}</p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm font-semibold">{label}</p>
-                <p className="text-xs text-blue-200">{desc}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
