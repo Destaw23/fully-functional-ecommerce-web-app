@@ -241,18 +241,6 @@ export default function HomeScreen() {
           <h1 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl text-white">
             Tech you trust. <span className="text-brand-400">Delivered fast.</span>
           </h1>
-          <div className="flex flex-wrap gap-3 pt-1">
-            <Link to="/search" className="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:bg-brand-700 hover:shadow-lg">
-              Browse catalog
-              <ArrowRight size={16} />
-            </Link>
-            <Link
-              to="/search?category=all&query=all&price=all&rating=all&order=toprated"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20"
-            >
-              Top rated
-            </Link>
-          </div>
         </div>
 
         {/* Trust Badges List at Bottom of Advertisement Section */}
@@ -281,12 +269,19 @@ export default function HomeScreen() {
         <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="section-heading">Featured products</h2>
-            {/* <p className="section-subheading">Hand-picked electronics at competitive prices</p> */}
           </div>
-          <Link to="/search" className="link-brand inline-flex items-center gap-1 text-sm">
-            View all
-            <ArrowRight size={14} />
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link
+              to="/search?category=all&query=all&price=all&rating=all&order=toprated"
+              className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:text-brand-600"
+            >
+              <span>Top rated</span>
+            </Link>
+            <Link to="/search" className="link-brand inline-flex items-center gap-1 text-sm">
+              View all
+              <ArrowRight size={14} />
+            </Link>
+          </div>
         </div>
 
         {loading ? (
