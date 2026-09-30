@@ -37,7 +37,7 @@ export default function AdminSidebar({ mobileSidebarOpen, setMobileSidebarOpen, 
 
   return (
     <aside
-      className={`fixed md:sticky top-0 bottom-0 left-0 z-50 flex w-64 flex-col bg-slate-900 text-white shadow-xl transition-transform duration-300 ease-out md:translate-x-0 ${
+      className={`fixed md:sticky top-16 bottom-0 left-0 z-30 flex w-64 h-[calc(100vh-4rem)] flex-col bg-slate-900 text-white shadow-xl transition-transform duration-300 ease-out md:translate-x-0 ${
         mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full md:transform-none'
       }`}
     >
@@ -56,7 +56,7 @@ export default function AdminSidebar({ mobileSidebarOpen, setMobileSidebarOpen, 
       </div>
 
       {/* Navigation Items */}
-      <nav className="flex-1 space-y-1.5 px-4 py-6">
+      <nav className="flex-1 overflow-y-auto space-y-1.5 px-4 py-6">
         {menuItems.map((item) => (
           <Link
             key={item.name}

@@ -33,7 +33,7 @@ export default function AdminLayout({ children }) {
       {/* Backdrop overlay for mobile sidebars */}
       {mobileSidebarOpen && (
         <div
-          className="fixed inset-0 z-40 bg-slate-950/40 backdrop-blur-sm md:hidden"
+          className="fixed top-16 inset-x-0 bottom-0 z-20 bg-slate-950/40 backdrop-blur-sm md:hidden"
           onClick={() => setMobileSidebarOpen(false)}
         />
       )}
