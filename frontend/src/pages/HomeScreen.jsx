@@ -26,64 +26,94 @@ const reducer = (state, action) => {
 function TopRatedBillboard({ slides }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // autoplay every 2 seconds
+  // autoplay every 3.5 seconds
   useEffect(() => {
     if (slides.length <= 1) return undefined;
     const id = setInterval(() => {
       setActiveIndex((i) => (i === slides.length - 1 ? 0 : i + 1));
-    }, 2000);
+    }, 3500);
     return () => clearInterval(id);
   }, [slides.length]);
 
   if (!slides.length) return null;
 
+  const currentSlide = slides[activeIndex] || slides[0];
+  const activeProduct = currentSlide.product;
+  const imageUrl = getMediaUrl(activeProduct.image || activeProduct.main_image || activeProduct.thumbnail || '');
+  const price = Number(activeProduct.price || 0);
+
   const prev = () => setActiveIndex((i) => (i === 0 ? slides.length - 1 : i - 1));
   const next = () => setActiveIndex((i) => (i === slides.length - 1 ? 0 : i + 1));
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0">
-        <div
-          className="flex h-full will-change-transform transition-transform duration-500"
-          style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-        >
-          {slides.map((s) => {
-            const imageUrl = getMediaUrl(s.product.image || s.product.main_image || s.product.thumbnail || '');
-            return (
-              <div key={s.category} className="min-w-full h-full flex-shrink-0 relative overflow-hidden">
-                <img
-                  src={imageUrl}
-                  alt="Top category product"
-                  className="h-full w-full object-contain object-center"
-                  style={{ filter: 'brightness(1.15) contrast(1.05)' }}
-                />
-              </div>
-            );
-          })}
+    <div className="relative flex flex-col justify-between h-full w-full space-y-4">
+      {/* Product Image & Info Showcase */}
+      <div className="flex-1 flex flex-col items-center justify-center p-2 relative min-h-[220px]">
+        <div className="relative group w-full max-w-xs flex flex-col items-center">
+          {/* Subtle radial glow */}
+          <div className="absolute inset-0 bg-brand-500/20 rounded-full blur-2xl transform scale-110 pointer-events-none" />
+
+          {/* Product Image */}
+          <Link to={`/product/${activeProduct.slug || activeProduct.id}`} className="relative z-10 transition-transform duration-500 hover:scale-105 block">
+            <img
+              src={imageUrl}
+              alt={activeProduct.name}
+              className="h-44 sm:h-56 max-w-full object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)]"
+            />
+          </Link>
+
+          {/* Floating Product Tag */}
+          <div className="relative z-10 mt-3 bg-slate-900/90 backdrop-blur-md border border-white/15 px-3.5 py-2 rounded-2xl shadow-xl flex items-center justify-between gap-3 w-full max-w-xs">
+            <div className="min-w-0 flex-1">
+              <span className="text-[10px] uppercase font-bold text-brand-400 tracking-wider block truncate">
+                {currentSlide.category}
+              </span>
+              <p className="text-xs font-bold text-white truncate" title={activeProduct.name}>
+                {activeProduct.name}
+              </p>
+            </div>
+            {price > 0 && (
+              <span className="bg-brand-600 text-white text-xs font-black px-2.5 py-1 rounded-xl shrink-0 shadow-sm">
+                Br {price.toLocaleString()}
+              </span>
+            )}
+          </div>
         </div>
-        <div className="absolute inset-0 bg-transparent" />
       </div>
 
-      <div className="relative z-10 flex h-full flex-col justify-end p-6 sm:p-8">
-        <div className="flex items-center justify-between gap-3">
-          <button
-            type="button"
-            onClick={prev}
-            className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/25 bg-white/15 text-white transition hover:bg-white/25"
-            aria-label="Previous top rated category"
-          >
-            ‹
-          </button>
+      {/* Carousel Navigation Controls */}
+      <div className="flex items-center justify-between gap-4 pt-2 relative z-20">
+        <button
+          type="button"
+          onClick={prev}
+          className="h-9 w-9 rounded-xl border border-white/20 bg-white/10 text-white flex items-center justify-center backdrop-blur-md transition-all hover:bg-white/25 hover:scale-105 active:scale-95 shadow-md"
+          aria-label="Previous product"
+        >
+          ‹
+        </button>
 
-          <button
-            type="button"
-            onClick={next}
-            className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/25 bg-white/15 text-white transition hover:bg-white/25"
-            aria-label="Next top rated category"
-          >
-            ›
-          </button>
+        {/* Slide Indicator Dots */}
+        <div className="flex items-center gap-1.5">
+          {slides.map((s, idx) => (
+            <button
+              key={s.category}
+              onClick={() => setActiveIndex(idx)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                idx === activeIndex ? 'w-6 bg-brand-400' : 'w-2 bg-white/30 hover:bg-white/50'
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
         </div>
+
+        <button
+          type="button"
+          onClick={next}
+          className="h-9 w-9 rounded-xl border border-white/20 bg-white/10 text-white flex items-center justify-center backdrop-blur-md transition-all hover:bg-white/25 hover:scale-105 active:scale-95 shadow-md"
+          aria-label="Next product"
+        >
+          ›
+        </button>
       </div>
     </div>
   );
@@ -227,53 +257,73 @@ export default function HomeScreen() {
   return (
     <div className="animate-slide-up space-y-10">
       <Helmet>
-        <title>ElectroMerce </title>
+        <title>ElectroMerce</title>
       </Helmet>
 
-      <section className="relative overflow-hidden rounded-3xl bg-slate-900 p-6 sm:p-8 text-white shadow-card min-h-[480px] sm:min-h-[520px] flex flex-col justify-between">
-        <TopRatedBillboard slides={topFiveSlides} />
-        
-        <div className="relative z-10 max-w-2xl space-y-5">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 bg-emerald-950/60 px-3.5 py-1 text-xs font-bold text-emerald-300 backdrop-blur-md shadow-sm">
-            <Sparkles size={14} />
-            New arrivals every week
-          </span>
-          <h1 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl text-white">
-            Tech you trust. <span className="text-brand-400">Delivered fast.</span>
-          </h1>
-          <p className="max-w-lg text-sm leading-relaxed text-slate-200 sm:text-base font-medium drop-shadow-sm">
-            Shop smartphones, laptops, audio gear, and smart wearables from top brands — curated for
-            quality and backed by reliable support.
-          </p>
-          <div className="flex flex-wrap gap-3 pt-1">
-            <Link to="/search" className="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:bg-brand-700 hover:shadow-lg">
-              Browse catalog
-              <ArrowRight size={16} />
-            </Link>
-            <Link
-              to="/search?category=all&query=all&price=all&rating=all&order=toprated"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20"
-            >
-              Top rated
-            </Link>
+      {/* Hero Advertisement Banner Section */}
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 p-6 sm:p-10 text-white shadow-2xl border border-slate-800/80">
+        {/* Decorative Ambient Radial Lights */}
+        <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-brand-600/15 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-indigo-600/15 blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          {/* Left Column: Headline & Action CTAs */}
+          <div className="lg:col-span-7 space-y-6">
+            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-950/50 px-4 py-1.5 text-xs font-extrabold text-emerald-300 backdrop-blur-md shadow-sm">
+              <Sparkles size={14} className="text-amber-400 animate-pulse" />
+              New arrivals every week
+            </span>
+
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] text-white">
+              Tech you trust.{' '}
+              <span className="bg-gradient-to-r from-brand-400 via-blue-300 to-indigo-300 bg-clip-text text-transparent block sm:inline mt-1 sm:mt-0">
+                Delivered fast.
+              </span>
+            </h1>
+
+            <p className="max-w-xl text-sm sm:text-base leading-relaxed text-slate-300 font-medium">
+              Shop smartphones, laptops, audio gear, and smart wearables from top brands — curated for
+              premium quality and backed by reliable support.
+            </p>
+
+            <div className="flex flex-wrap gap-3.5 pt-2">
+              <Link
+                to="/search"
+                className="inline-flex items-center gap-2 rounded-2xl bg-brand-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:bg-brand-500 hover:shadow-brand-500/25 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <span>Browse catalog</span>
+                <ArrowRight size={16} />
+              </Link>
+              <Link
+                to="/search?category=all&query=all&price=all&rating=all&order=toprated"
+                className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-md transition-all hover:bg-white/20 hover:border-white/30 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <span>Top rated</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column: Featured Category Product Showcase Carousel */}
+          <div className="lg:col-span-5 bg-white/5 border border-white/10 rounded-3xl p-5 backdrop-blur-md shadow-2xl min-h-[340px] flex flex-col justify-between">
+            <TopRatedBillboard slides={topFiveSlides} />
           </div>
         </div>
 
-        {/* Trust Badges List at Bottom of Advertisement Section */}
-        <div className="relative z-10 mt-8 pt-4 border-t border-white/20">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-white">
+        {/* Bottom Bar: Trust Badges List */}
+        <div className="relative z-10 mt-10 pt-6 border-t border-white/10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-white">
             {[
               { icon: Truck, label: 'Fast delivery', desc: 'Nationwide shipping', color: 'bg-brand-500/20 text-brand-400 border-brand-500/30' },
               { icon: Shield, label: 'Secure checkout', desc: 'Protected payments', color: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' },
               { icon: Sparkles, label: 'Genuine products', desc: 'Authorized sellers', color: 'bg-amber-500/20 text-amber-400 border-amber-500/30' },
             ].map(({ icon: Icon, label, desc, color }) => (
-              <div key={label} className="flex items-center gap-3.5 rounded-xl bg-white/10 p-3.5 border border-white/15 backdrop-blur-md transition-all hover:bg-white/20">
-                <div className={`rounded-xl p-2.5 border ${color} shrink-0`}>
-                  <Icon size={20} />
+              <div key={label} className="flex items-center gap-4 rounded-2xl bg-white/5 p-4 border border-white/10 backdrop-blur-md transition-all hover:bg-white/10 hover:border-white/20">
+                <div className={`rounded-xl p-3 border ${color} shrink-0 shadow-sm`}>
+                  <Icon size={22} />
                 </div>
                 <div>
                   <p className="text-sm font-bold text-white leading-tight">{label}</p>
-                  <p className="text-xs text-slate-200 font-medium mt-0.5">{desc}</p>
+                  <p className="text-xs text-slate-300 font-medium mt-1">{desc}</p>
                 </div>
               </div>
             ))}
