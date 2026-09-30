@@ -241,7 +241,6 @@ export default function HomeScreen() {
           <h1 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl text-white">
             Tech you trust. <span className="text-brand-400">Delivered fast.</span>
           </h1>
-
           <div className="flex flex-wrap gap-3 pt-1">
             <Link to="/search" className="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:bg-brand-700 hover:shadow-lg">
               Browse catalog
@@ -264,7 +263,7 @@ export default function HomeScreen() {
               { icon: Shield, label: 'Secure checkout', desc: 'Protected payments', color: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' },
               { icon: Sparkles, label: 'Genuine products', desc: 'Authorized sellers', color: 'bg-amber-500/20 text-amber-400 border-amber-500/30' },
             ].map(({ icon: Icon, label, desc, color }) => (
-              <div key={label} className="flex items-center gap-3.5 rounded-xl bg-slate-800/90 p-3.5 border border-slate-700/80 shadow-md backdrop-blur-md transition-all hover:bg-slate-800 hover:border-slate-600">
+              <div key={label} className="flex items-center gap-3.5 rounded-xl bg-gray-800 p-3.5 border border-gray-700 shadow-md transition-all hover:bg-gray-700">
                 <div className={`rounded-xl p-2.5 border ${color} shrink-0`}>
                   <Icon size={20} />
                 </div>
