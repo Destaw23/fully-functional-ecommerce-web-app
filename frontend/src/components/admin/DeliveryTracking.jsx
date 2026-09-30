@@ -331,10 +331,10 @@ export default function DeliveryTracking() {
         <MessageBox variant="info">No delivery tracking records found matching filter criteria.</MessageBox>
       ) : (
         <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse text-sm">
-              <thead>
-                <tr className="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase text-xs">
+          <div className="max-h-[600px] overflow-auto">
+            <table className="w-full text-left border-collapse text-sm relative">
+              <thead className="sticky top-0 z-10 bg-slate-50 shadow-sm">
+                <tr className="border-b border-slate-200 text-slate-500 font-bold uppercase text-xs">
                   <th className="p-4">Order / Tracking</th>
                   <th className="p-4">Recipient & Destination</th>
                   <th className="p-4">Assigned Driver</th>
