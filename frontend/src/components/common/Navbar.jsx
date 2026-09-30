@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Menu,
@@ -37,7 +37,7 @@ const dropdownClass =
   'absolute right-0 mt-2 w-56 overflow-hidden rounded-2xl border border-slate-200/80 bg-white py-1.5 z-50 shadow-card animate-fade-in';
 
 const dropdownItemClass =
-  'flex items-center gap-2.5 px-4 py-2.5 text-sm text-slate-700 transition-colors hover:bg-slate-300';
+  'flex items-center gap-2.5 px-4 py-2.5 text-sm text-slate-700 transition-colors hover:bg-slate-100';
 
 export default function Navbar({
   sidebarIsOpen,
@@ -50,6 +50,8 @@ export default function Navbar({
   toggleAdminDropdown,
   signoutHandler,
 }) {
+  const [combinedDropdownOpen, setCombinedDropdownOpen] = useState(false);
+  const [combinedActiveTab, setCombinedActiveTab] = useState('user');
   return (
     <header className="nav-glass">
       <div className="page-container">
@@ -101,8 +103,124 @@ export default function Navbar({
               )}
             </Link>
 
+            {/* Combined User Profile + Admin Dropdown Icon (Visible ONLY between 400px and 570px for Admin users) */}
+            {userInfo && isUserAdmin(userInfo) && (
+              <div className="relative hidden min-[400px]:max-[570px]:block shrink-0">
+                <button
+                  onClick={() => setCombinedDropdownOpen((prev) => !prev)}
+                  className="flex items-center gap-1.5 rounded-full bg-slate-50 p-1 px-2 text-slate-700 transition-all hover:bg-slate-100 border border-brand-200/70 shadow-sm"
+                  aria-label="Open user and admin options"
+                >
+                  {userInfo.profile_picture ? (
+                    <img
+                      src={getMediaUrl(userInfo.profile_picture)}
+                      alt="Profile"
+                      className="h-7 w-7 rounded-full object-cover"
+                    />
+                  ) : (
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100">
+                      <User size={15} className="text-slate-600" />
+                    </span>
+                  )}
+                  <span className="text-xs font-extrabold text-brand-800 bg-brand-50/80 px-1.5 py-0.5 rounded-md border border-brand-200/50">
+                    Admin
+                  </span>
+                  <ChevronDown
+                    size={14}
+                    className={`text-slate-400 transition-transform ${combinedDropdownOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
+
+                {combinedDropdownOpen && (
+                  <div className={dropdownClass}>
+                    <div className="flex border-b border-slate-100 p-1 bg-slate-50 gap-1 rounded-t-xl">
+                      <button
+                        type="button"
+                        onClick={() => setCombinedActiveTab('user')}
+                        className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all ${
+                          combinedActiveTab === 'user' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-900'
+                        }`}
+                      >
+                        Profile
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setCombinedActiveTab('admin')}
+                        className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all ${
+                          combinedActiveTab === 'admin' ? 'bg-white text-brand-700 shadow-sm' : 'text-slate-500 hover:text-slate-900'
+                        }`}
+                      >
+                        Admin
+                      </button>
+                    </div>
+
+                    {combinedActiveTab === 'user' ? (
+                      <>
+                        <Link to="/profile" onClick={() => setCombinedDropdownOpen(false)} className={dropdownItemClass}>
+                          <Settings size={16} className="text-slate-400" />
+                          <span>Profile</span>
+                        </Link>
+                        <Link to="/vendor/dashboard" onClick={() => setCombinedDropdownOpen(false)} className={dropdownItemClass}>
+                          <StoreIcon size={16} className="text-brand-600" />
+                          <span>Vendor Portal</span>
+                        </Link>
+                        <Link to="/wishlist" onClick={() => setCombinedDropdownOpen(false)} className={dropdownItemClass}>
+                          <Heart size={16} className="text-slate-400" />
+                          <span>Wishlist</span>
+                        </Link>
+                        <Link to="/map" onClick={() => setCombinedDropdownOpen(false)} className={dropdownItemClass}>
+                          <Map size={16} className="text-slate-400" />
+                          <span>Live Map</span>
+                        </Link>
+                        {userInfo?.role === 'delivery' && (
+                          <Link to="/delivery" onClick={() => setCombinedDropdownOpen(false)} className={dropdownItemClass}>
+                            <Truck size={16} className="text-slate-400" />
+                            <span>Delivery Dashboard</span>
+                          </Link>
+                        )}
+                        <Link to="/orderhistory" onClick={() => setCombinedDropdownOpen(false)} className={dropdownItemClass}>
+                          <History size={16} className="text-slate-400" />
+                          <span>Order History</span>
+                        </Link>
+                        <button
+                          onClick={() => {
+                            setCombinedDropdownOpen(false);
+                            signoutHandler();
+                          }}
+                          className={`${dropdownItemClass} w-full border-t border-slate-100 text-red-600 hover:bg-orange-100 hover:text-red-700`}
+                        >
+                          <LogOut size={16} />
+                          <span>Sign Out</span>
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <Link to="/admin/dashboard" onClick={() => setCombinedDropdownOpen(false)} className={dropdownItemClass}>
+                          <LayoutDashboard size={16} className="text-slate-400" />
+                          <span>Dashboard</span>
+                        </Link>
+                        <Link to="/admin/products" onClick={() => setCombinedDropdownOpen(false)} className={dropdownItemClass}>
+                          <Box size={16} className="text-slate-400" />
+                          <span>Products</span>
+                        </Link>
+                        <Link to="/admin/orders" onClick={() => setCombinedDropdownOpen(false)} className={dropdownItemClass}>
+                          <ClipboardList size={16} className="text-slate-400" />
+                          <span>Orders</span>
+                        </Link>
+                        <Link to="/admin/users" onClick={() => setCombinedDropdownOpen(false)} className={dropdownItemClass}>
+                          <Users size={16} className="text-slate-400" />
+                          <span>Users</span>
+                        </Link>
+                      </>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Standard Profile Dropdown (Hidden between 400px and 570px when user is Admin) */}
             {userInfo ? (
-              <div className="relative">
+              <div className={userInfo && isUserAdmin(userInfo) ? 'relative min-[400px]:max-[570px]:hidden' : 'relative'}>
                 <button
                   onClick={toggleUserDropdown}
                   className="flex items-center gap-1 rounded-full bg-slate-50 p-1.5 min-[401px]:p-2 text-slate-700 transition-all hover:bg-slate-100"
@@ -177,15 +295,16 @@ export default function Navbar({
               </Link>
             )}
 
+            {/* Standard Admin Button (Hidden between 400px and 570px when user is Admin) */}
             {userInfo && isUserAdmin(userInfo) && (
-              <div className="relative">
+              <div className="relative shrink-0 min-[400px]:max-[570px]:hidden">
                 <button
                   onClick={toggleAdminDropdown}
-                  className="flex items-center gap-1.5 rounded-xl border border-brand-200/80 bg-brand-50 px-3 py-2 text-sm font-semibold text-brand-800 transition-all hover:bg-brand-100"
+                  className="flex items-center gap-1 min-[401px]:max-[570px]:gap-0.5 rounded-xl border border-brand-200/80 bg-brand-50 min-[401px]:max-[570px]:bg-brand-50/60 min-[401px]:max-[570px]:border-brand-200/40 px-3 py-2 min-[401px]:max-[570px]:!px-2 min-[401px]:max-[570px]:!py-1 text-sm min-[401px]:max-[570px]:text-xs font-semibold text-brand-800 transition-all hover:bg-brand-100 shrink-0"
                 >
                   <span>Admin</span>
                   <ChevronDown
-                    size={16}
+                    size={15}
                     className={`text-brand-500 transition-transform ${adminDropdownOpen ? 'rotate-180' : ''}`}
                   />
                 </button>
