@@ -81,23 +81,23 @@ export default function Navbar({
           <div className="flex items-center gap-1.5 min-[401px]:gap-2 sm:gap-3 shrink-0">
             <Link
               to="/stores"
-              className="flex items-center gap-1.5 rounded-xl px-2 py-1.5 min-[401px]:px-3 min-[401px]:py-2 text-slate-700 font-medium transition-all hover:bg-slate-100 hover:text-brand-600"
+              className="flex items-center gap-1.5 rounded-xl px-2 py-1.5 min-[571px]:px-3 min-[571px]:py-2 text-slate-700 font-medium transition-all hover:bg-slate-100 hover:text-brand-600"
               title="Stores"
             >
               <StoreIcon size={19} strokeWidth={2} className="text-brand-600 shrink-0" />
-              <span className="text-sm font-semibold hidden min-[401px]:inline">Stores</span>
+              <span className="text-sm font-semibold hidden min-[571px]:inline">Stores</span>
             </Link>
 
             <Link
               to="/cart"
-              className="relative flex items-center gap-1.5 rounded-xl px-2 py-1.5 min-[401px]:px-3 min-[401px]:py-2 text-slate-600 transition-all hover:bg-slate-100 hover:text-brand-600"
+              className="relative flex items-center gap-1.5 rounded-xl px-2 py-1.5 min-[571px]:px-3 min-[571px]:py-2 text-slate-600 transition-all hover:bg-slate-100 hover:text-brand-600"
               aria-label="Shopping cart"
               title="Cart"
             >
               <ShoppingCart size={20} strokeWidth={2} className="shrink-0" />
-              <span className="text-sm font-medium hidden min-[401px]:inline">Cart</span>
+              <span className="text-sm font-medium hidden min-[571px]:inline">Cart</span>
               {totalCartItems > 0 && (
-                <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 min-[401px]:h-5 min-[401px]:min-w-5 items-center justify-center rounded-full bg-orange-500 px-1 text-[9px] min-[401px]:text-[10px] font-bold text-white ring-2 ring-white">
+                <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 min-[571px]:h-5 min-[571px]:min-w-5 items-center justify-center rounded-full bg-orange-500 px-1 text-[9px] min-[571px]:text-[10px] font-bold text-white ring-2 ring-white">
                   {totalCartItems}
                 </span>
               )}
