@@ -54,10 +54,10 @@ export default function Navbar({
     <header className="nav-glass">
       <div className="page-container">
         <div className="flex h-16 items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 min-[401px]:gap-3 shrink-0">
             <button
               onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
-              className="rounded-xl border border-slate-200/80 bg-white p-2.5 text-slate-600 shadow-soft transition-all hover:border-brand-200 hover:bg-brand-50 hover:text-brand-700"
+              className="rounded-xl border border-slate-200/80 bg-white p-2 text-slate-600 shadow-soft transition-all hover:border-brand-200 hover:bg-brand-50 hover:text-brand-700 shrink-0"
               aria-label="Toggle categories menu"
             >
               <Menu size={20} strokeWidth={2} />
@@ -65,9 +65,10 @@ export default function Navbar({
 
             <Link
               to="/"
-              className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900 transition-colors hover:text-brand-600"
+              className="text-lg min-[401px]:text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900 transition-colors hover:text-brand-600 shrink-0"
             >
-              Electro<span className="text-brand-600">Merce</span>
+              <span className="hidden min-[401px]:inline">Electro<span className="text-brand-600">Merce</span></span>
+              <span className="min-[401px]:hidden">E<span className="text-brand-600">M</span></span>
             </Link>
           </div>
 
@@ -75,24 +76,26 @@ export default function Navbar({
             <SearchBox />
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1.5 min-[401px]:gap-2 sm:gap-3 shrink-0">
             <Link
               to="/stores"
-              className="flex items-center gap-1.5 rounded-xl px-3 py-2 text-slate-700 font-medium transition-all hover:bg-slate-100 hover:text-brand-600"
+              className="flex items-center gap-1.5 rounded-xl px-2 py-1.5 min-[401px]:px-3 min-[401px]:py-2 text-slate-700 font-medium transition-all hover:bg-slate-100 hover:text-brand-600"
+              title="Stores"
             >
-              <StoreIcon size={20} strokeWidth={2} className="text-brand-600" />
-              <span className="text-sm font-semibold">Stores</span>
+              <StoreIcon size={19} strokeWidth={2} className="text-brand-600 shrink-0" />
+              <span className="text-sm font-semibold hidden min-[401px]:inline">Stores</span>
             </Link>
 
             <Link
               to="/cart"
-              className="relative flex items-center gap-2 rounded-xl px-3 py-2 text-slate-600 transition-all hover:bg-slate-100 hover:text-brand-600"
+              className="relative flex items-center gap-1.5 rounded-xl px-2 py-1.5 min-[401px]:px-3 min-[401px]:py-2 text-slate-600 transition-all hover:bg-slate-100 hover:text-brand-600"
               aria-label="Shopping cart"
+              title="Cart"
             >
-              <ShoppingCart size={22} strokeWidth={2} />
-              <span className="text-sm font-medium">Cart</span>
+              <ShoppingCart size={20} strokeWidth={2} className="shrink-0" />
+              <span className="text-sm font-medium hidden min-[401px]:inline">Cart</span>
               {totalCartItems > 0 && (
-                <span className="absolute -right-0.5 -top-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-orange-500 px-1 text-[10px] font-bold text-white ring-2 ring-white">
+                <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 min-[401px]:h-5 min-[401px]:min-w-5 items-center justify-center rounded-full bg-orange-500 px-1 text-[9px] min-[401px]:text-[10px] font-bold text-white ring-2 ring-white">
                   {totalCartItems}
                 </span>
               )}
@@ -102,22 +105,22 @@ export default function Navbar({
               <div className="relative">
                 <button
                   onClick={toggleUserDropdown}
-                  className="flex items-center gap-1 rounded-full bg-slate-50 p-2 text-slate-700 transition-all hover:bg-slate-100"
+                  className="flex items-center gap-1 rounded-full bg-slate-50 p-1.5 min-[401px]:p-2 text-slate-700 transition-all hover:bg-slate-100"
                   aria-label="Open user menu"
                 >
                   {userInfo.profile_picture ? (
                     <img
                       src={getMediaUrl(userInfo.profile_picture)}
                       alt="Profile"
-                      className="h-8 w-8 rounded-full object-cover"
+                      className="h-7 w-7 min-[401px]:h-8 min-[401px]:w-8 rounded-full object-cover"
                     />
                   ) : (
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100">
-                      <User size={18} className="text-slate-500" />
+                    <span className="flex h-7 w-7 min-[401px]:h-8 min-[401px]:w-8 items-center justify-center rounded-full bg-slate-100">
+                      <User size={16} className="text-slate-500" />
                     </span>
                   )}
                   <ChevronDown
-                    size={16}
+                    size={14}
                     className={`text-slate-400 transition-transform ${userDropdownOpen ? 'rotate-180' : ''}`}
                   />
                 </button>
@@ -166,7 +169,10 @@ export default function Navbar({
                 )}
               </div>
             ) : (
-              <Link to="/signin" className="btn-primary !py-2 !px-4 text-sm">
+              <Link
+                to="/signin"
+                className="btn-primary !py-1.5 !px-2.5 max-[400px]:text-xs max-[400px]:!py-1 max-[400px]:!px-2 min-[401px]:!py-2 min-[401px]:!px-4 text-xs min-[401px]:text-sm shrink-0 shadow-sm"
+              >
                 Sign In
               </Link>
             )}
