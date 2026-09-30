@@ -230,7 +230,7 @@ export default function HomeScreen() {
         <title>ElectroMerce </title>
       </Helmet>
 
-      <section className="relative overflow-hidden rounded-3xl bg-slate-900 p-6 sm:p-8 text-white shadow-card min-h-[480px] sm:min-h-[520px] flex flex-col justify-between">
+      <section className="relative overflow-hidden rounded-2xl  p-16 sm:p-8 text-white shadow-card min-h-[400px] sm:min-h-[450px] flex flex-col justify-between">
         <TopRatedBillboard slides={topFiveSlides} />
 
         <div className="relative z-10 max-w-2xl space-y-5">
@@ -244,7 +244,7 @@ export default function HomeScreen() {
         </div>
 
         {/* Trust Badges List at Bottom of Advertisement Section */}
-        <div className="relative z-10 mt-8 pt-4 border-t border-white/20">
+        <div className="relative z-10 mt-8 pt-4 border-t border-white/30">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-white">
             {[
               { icon: Truck, label: 'Fast delivery', desc: 'Nationwide shipping', color: 'bg-brand-500/20 text-brand-400 border-brand-500/30' },
@@ -270,12 +270,13 @@ export default function HomeScreen() {
           <div>
             <h2 className="section-heading">Featured products</h2>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-5">
             <Link
               to="/search?category=all&query=all&price=all&rating=all&order=toprated"
-              className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:text-brand-600"
+              className="link-brand inline-flex items-center gap-1 text-sm"
             >
               <span>Top rated</span>
+              <ArrowRight size={14} />
             </Link>
             <Link to="/search" className="link-brand inline-flex items-center gap-1 text-sm">
               View all

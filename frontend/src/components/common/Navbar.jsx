@@ -137,18 +137,16 @@ export default function Navbar({
                       <button
                         type="button"
                         onClick={() => setCombinedActiveTab('user')}
-                        className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all ${
-                          combinedActiveTab === 'user' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-900'
-                        }`}
+                        className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all ${combinedActiveTab === 'user' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-900'
+                          }`}
                       >
                         Profile
                       </button>
                       <button
                         type="button"
                         onClick={() => setCombinedActiveTab('admin')}
-                        className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all ${
-                          combinedActiveTab === 'admin' ? 'bg-white text-brand-700 shadow-sm' : 'text-slate-500 hover:text-slate-900'
-                        }`}
+                        className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all ${combinedActiveTab === 'admin' ? 'bg-white text-brand-700 shadow-sm' : 'text-slate-500 hover:text-slate-900'
+                          }`}
                       >
                         Admin
                       </button>

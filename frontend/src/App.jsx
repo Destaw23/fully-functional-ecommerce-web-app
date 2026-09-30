@@ -55,7 +55,7 @@ export default function App() {
 
         <Header />
 
-        <main className="page-container flex-grow py-8 sm:py-10 relative animate-fade-in">
+        <main className="page-container flex-grow pt-[5px] pb-8 sm:pb-10 relative animate-fade-in">
           <Routes>
             {/* Public Pathways */}
             <Route path="/" element={<HomeScreen />} />
